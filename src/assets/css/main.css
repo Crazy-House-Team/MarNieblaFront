@@ -1,6 +1,9 @@
 @import "./base.css";
+@import "./global-components/button.css";
+@import "./global-components/input.css";
 
 #app {
+  height: 100vh;
   margin: 0;
   display: flex;
   flex-direction: column;
