@@ -1,0 +1,17 @@
+.button {  
+  width: 14.5rem;
+  height: 4.4rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 0.3rem;
+}
+.button--red {
+  background-color: #ed1c23;
+  border: 0.1rem solid #cb0a01;
+  color: #ffffff;
+}
+.button--red-outlined {
+  background-color: #ffffff;
+  border: 0.1rem solid  #ed1c23;
+  color: #ed1c23;
+}

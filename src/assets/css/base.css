@@ -1,0 +1,58 @@
+:root {
+  --white: #ffffff;
+  --white-soft: #f8f8f8;
+
+  --black: ##000000;
+  --black-soft: #282828;
+
+
+  --divider-light-1: rgba(60, 60, 60, 0.29);
+  --divider-light-2: rgba(60, 60, 60, 0.12);
+
+
+  --text-black: var(--black);
+  --text-black-soft: rgba(60, 60, 60, 0.66);
+  --text-white: var(--white);
+  --text-white-soft: rgba(235, 235, 235, 0.64);
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--white);
+  --color-background-soft: var(--white-soft);
+
+  --color-background-header: var(--black);
+
+  --color-border: var(--divider-light-2);
+  --color-border-hover: var(--divider-light-1);
+
+  --color-title: var(--text-black);
+  --color-text: var(--text-black);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  color: var(--color-text);
+  background: var(--color-background-soft);
+  transition: color 0.5s, background-color 0.5s;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
