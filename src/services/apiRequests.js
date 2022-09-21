@@ -1,19 +1,49 @@
 import axios from "axios";
 
-async function getAll(entity) {
+async function getAction(url) {
   const options = {
     method: "GET",
-    url: `http://localhost:3000/${entity}`,
+    url: url,
   };
   const result = await apiRequest(options);
 
   return result;
 }
 
-async function getById(entity, id) {
+async function postAction(url) {
   const options = {
-    method: "GET",
-    url: `http://localhost:3000/${entity}/${id}`,
+    method: "POST",
+    url: url,
+  };
+  const result = await apiRequest(options);
+
+  return result;
+}
+
+async function deleteAction(url) {
+  const options = {
+    method: "DELETE",
+    url: url,
+  };
+  const result = await apiRequest(options);
+
+  return result;
+}
+
+async function putAction(url) {
+  const options = {
+    method: "PUT",
+    url: url,
+  };
+  const result = await apiRequest(options);
+
+  return result;
+}
+
+async function patchAction(url) {
+  const options = {
+    method: "PATCH",
+    url: url,
   };
   const result = await apiRequest(options);
 
@@ -29,4 +59,4 @@ async function apiRequest(options) {
   }
 }
 
-export { getAll, getById };
+export { getAction, putAction, patchAction, postAction, deleteAction };
