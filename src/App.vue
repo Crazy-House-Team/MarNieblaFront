@@ -45,7 +45,6 @@ import { RouterLink, RouterView } from "vue-router";
   background-color: var(--color-background);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 </style>
