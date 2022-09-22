@@ -21,5 +21,32 @@
   border: 6px solid #F8981D;
   border-radius: 20px;
   width: 40vw;
-    height: 8vh;
+    height: 15vh;
+}
+.button--orange-outlined-edit{
+    background-color: #ffffff;
+      border: 6px solid #F8981D;
+      border-radius: 20px;
+      width: 8vw;
+      height: 6vh;
+}
+.button--red-outlined-delete{
+  background-color: #ffffff;
+    border: 6px solid #f82c1d;
+    border-radius: 20px;
+    width: 8vw;
+    height: 6vh;
+}
+.button-back{
+  background-color: #F8981D;
+  border-radius: 20px;
+  width: 14vw;
+  height: 6vh;
+}
+.button-newuser
+{
+  background-color: #92C954;
+  border-radius: 20px;
+  width: 14vw;
+  height: 6vh;
 }

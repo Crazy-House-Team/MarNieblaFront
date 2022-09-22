@@ -1,7 +1,7 @@
 <script setup>
-import EditIcon from "../icons/EditIcon.vue";
-import DeleteIcon from "../icons/DeleteIcon.vue";
+import EditButton from "../common/EditButton.vue";
 import { defineProps } from "vue";
+import DeleteButton from "../common/DeleteButton.vue";
 defineProps({
   username: String,
 });
@@ -10,9 +10,9 @@ defineProps({
 <template>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     {{ username }}
-    <span class="badge">
-      <DeleteIcon />
-      <EditIcon />
+    <span class="badge d-flex">
+      <EditButton></EditButton>
+      <DeleteButton></DeleteButton>
     </span>
   </li>
 </template>
