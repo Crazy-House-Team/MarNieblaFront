@@ -20,12 +20,12 @@ const router = createRouter({
       component: () => import("@/views/UserListView.vue"),
     },
     {
-      path: "/questions",
+      path: "/admin/questions",
       name: "questions",
       component: () => import("@/views/QuestionsView.vue"),
     },
     {
-      path: "/newquestion",
+      path: "/admin/newquestion",
       name: "newquestion",
       component: () => import("@/components/questions/QuestionForm.vue"),
     },

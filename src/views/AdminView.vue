@@ -6,10 +6,10 @@ import AlumnsListButton from '../components/common/AlumnsListButton.vue';</scrip
 
 <template>
   <section class="id_form flex-column d-flex justify-content-between">
-    <AlumnsListButton></AlumnsListButton>
-    <TeachersListButton></TeachersListButton>
-    <TestsListButton></TestsListButton>
-    <QuestionsListButton></QuestionsListButton>
+    <AlumnsListButton />
+    <TeachersListButton />
+    <TestsListButton />
+    <QuestionsListButton />
   </section>
 </template>
 

@@ -1,18 +1,58 @@
 <script setup>
+
+    import { onMounted, ref } from "vue";
+    import { getAction, printUrl } from "../services/apiRequests";
     import SelectCompetencies from '../components/common/selectCompetencies.vue';
-    import QuestionsList from '../components/questions/QuestionsList.vue';
+    import BackButton from "../components/common/BackButton.vue";
+    import QuestionsList from "../components/questions/QuestionsList.vue";
+    import NewQuestion from "../components/common/NewQuestion.vue";
+
+    const questionsListData = ref([]);
+    const numOfQuestionsInList = ref(0);
+    
+    onMounted(async () => {
+        questionsListData.value = await getAction("questions");
+        numOfQuestionsInList.value = questionsListData.value.data.length;
+    });
+
 </script>
+
 <template>
-    <div>
+    
+    <div class="wrapper">
         <h1>Gestión de preguntas</h1>
-        <RouterLink to="/newquestion"><button>Nueva pregunta</button></RouterLink>
-        <SelectCompetencies />
-        <RouterLink to="/"><button>Volver</button></RouterLink>
+        
+        <div class="justify-content-around d-flex w-100 m-4">
+            <NewQuestion/>
+            <SelectCompetencies />
+            <BackButton />
+        </div>
+
+        <ul class="list-group" v-if="numOfQuestionsInList > 0">
+            <QuestionsList 
+            v-for="(question, index) in questionsListData.data" 
+            :key="index" 
+            :question="question.question" />
+        </ul>
+        
+        <p class="p__warning" v-else>No existe ningún usuario.</p>       
     </div>
-    <div>
-        <QuestionsList />
-    </div>
+
 </template>
+
 <style scoped>
+
+    .wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    ul {
+    width: 100%;
+    }
+    .p__warning {
+    margin-top: 5rem;
+    }
 
 </style>
