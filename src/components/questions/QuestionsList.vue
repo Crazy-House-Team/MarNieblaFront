@@ -1,22 +1,32 @@
 <script setup>
-import Question from "./Question.vue";
-    // Hay que poner un for que leea todas las preguntas
-    // Forma de la tabla questions:
-    /*  'question',
-        'answer_a',
-        'answer_b',
-        'answer_c',
-        'answer_d',
-        'competencies_id',
-        'right_answer',*/
+    
+    import { defineProps } from "vue";
+    import EditButton from "../common/EditButton.vue";
+    import DeleteButton from "../common/DeleteButton.vue";
+
+    defineProps({
+        question: String,
+    });
+
 </script>
-<template>
-    <div class="container">
-        <div v-for="index in 5">
-            <Question />   
-        </div>
-    </div>
+
+<template>  
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{question}}
+        <span class="badge d-flex">
+        <EditButton />
+        <DeleteButton />
+        </span>
+    </li>
+
 </template>
+
 <style scoped>
+
+    li {
+    width: 100%;
+    border: 0.2rem solid #92c954;
+    }
 
 </style>
