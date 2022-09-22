@@ -1,0 +1,33 @@
+{
+    "users": 
+    [
+        {
+            "id": 1,
+            "name": "Susana Martínez Aguilera",
+            "email": "susana@gmail.com",
+            "password": "iieldgddddddkkkkkk",
+            "role": 1
+        },
+        {
+            "id": 2,
+            "name": "Juan Aguilera Martínez",
+            "email": "juan@gmail.com",
+            "password": "iieldgddddddkkkkkk",
+            "role": 0
+        },
+        {
+            "id": 3,
+            "name": "Pepe Fernández Martínez",
+            "email": "pepe@gmail.com",
+            "password": "iieldgddddddkkkkkk",
+            "role": 1
+        },
+        {
+            "id": 4,
+            "name": "María Diaz Coto",
+            "email": "maria@gmail.com",
+            "password": "iieldgddddddkkkkkk",
+            "role": 0
+        }
+    ]
+}
