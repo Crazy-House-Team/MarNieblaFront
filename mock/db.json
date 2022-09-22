@@ -29,5 +29,67 @@
             "password": "iieldgddddddkkkkkk",
             "role": 0
         }
+    ],
+    "questions": [
+    {
+        "id":1,
+        "question":"La pregunta 1",
+        "answer_a": "Respuesta A",
+        "answer_b": "Respuesta B",
+        "answer_c": "Respuesta C",
+        "answer_d": "Respuesta D",
+        "competencies_id":1,
+        "right_answer":"A"
+    },
+    {
+        "id":2,
+        "question":"La pregunta 2",
+        "answer_a": "Respuesta A",
+        "answer_b": "Respuesta B",
+        "answer_c": "Respuesta C",
+        "answer_d": "Respuesta D",
+        "competencies_id":1,
+        "right_answer":"A"
+    },
+    {
+        "id":3,
+        "question":"La pregunta 3",
+        "answer_a": "Respuesta A",
+        "answer_b": "Respuesta B",
+        "answer_c": "Respuesta C",
+        "answer_d": "Respuesta D",
+        "competencies_id":2,
+        "right_answer":"D"
+    },
+    {
+        "id":4,
+        "question":"La pregunta 4",
+        "answer_a": "Respuesta A",
+        "answer_b": "Respuesta B",
+        "answer_c": "Respuesta C",
+        "answer_d": "Respuesta D",
+        "competencies_id":1,
+        "right_answer":"A"
+    },
+    {
+        "id":5,
+        "question":"La pregunta 5",
+        "answer_a": "Respuesta A",
+        "answer_b": "Respuesta B",
+        "answer_c": "Respuesta C",
+        "answer_d": "Respuesta D",
+        "competencies_id":1,
+        "right_answer":"A"
+    },
+    {
+        "id":6,
+        "question":"La pregunta 6",
+        "answer_a": "Respuesta A",
+        "answer_b": "Respuesta B",
+        "answer_c": "Respuesta C",
+        "answer_d": "Respuesta D",
+        "competencies_id":1,
+        "right_answer":"A"
+    }   
     ]
 }
