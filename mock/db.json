@@ -1,0 +1,95 @@
+{
+    "users": 
+    [
+        {
+            "id": 1,
+            "name": "Susana Martínez Aguilera",
+            "email": "susana@gmail.com",
+            "password": "iieldgddddddkkkkkk",
+            "role": 1
+        },
+        {
+            "id": 2,
+            "name": "Juan Aguilera Martínez",
+            "email": "juan@gmail.com",
+            "password": "iieldgddddddkkkkkk",
+            "role": 0
+        },
+        {
+            "id": 3,
+            "name": "Pepe Fernández Martínez",
+            "email": "pepe@gmail.com",
+            "password": "iieldgddddddkkkkkk",
+            "role": 1
+        },
+        {
+            "id": 4,
+            "name": "María Diaz Coto",
+            "email": "maria@gmail.com",
+            "password": "iieldgddddddkkkkkk",
+            "role": 0
+        }
+    ],
+    "questions": [
+    {
+        "id":1,
+        "question":"La pregunta 1",
+        "answer_a": "Respuesta A",
+        "answer_b": "Respuesta B",
+        "answer_c": "Respuesta C",
+        "answer_d": "Respuesta D",
+        "competencies_id":1,
+        "right_answer":"A"
+    },
+    {
+        "id":2,
+        "question":"La pregunta 2",
+        "answer_a": "Respuesta A",
+        "answer_b": "Respuesta B",
+        "answer_c": "Respuesta C",
+        "answer_d": "Respuesta D",
+        "competencies_id":1,
+        "right_answer":"A"
+    },
+    {
+        "id":3,
+        "question":"La pregunta 3",
+        "answer_a": "Respuesta A",
+        "answer_b": "Respuesta B",
+        "answer_c": "Respuesta C",
+        "answer_d": "Respuesta D",
+        "competencies_id":2,
+        "right_answer":"D"
+    },
+    {
+        "id":4,
+        "question":"La pregunta 4",
+        "answer_a": "Respuesta A",
+        "answer_b": "Respuesta B",
+        "answer_c": "Respuesta C",
+        "answer_d": "Respuesta D",
+        "competencies_id":1,
+        "right_answer":"A"
+    },
+    {
+        "id":5,
+        "question":"La pregunta 5",
+        "answer_a": "Respuesta A",
+        "answer_b": "Respuesta B",
+        "answer_c": "Respuesta C",
+        "answer_d": "Respuesta D",
+        "competencies_id":1,
+        "right_answer":"A"
+    },
+    {
+        "id":6,
+        "question":"La pregunta 6",
+        "answer_a": "Respuesta A",
+        "answer_b": "Respuesta B",
+        "answer_c": "Respuesta C",
+        "answer_d": "Respuesta D",
+        "competencies_id":1,
+        "right_answer":"A"
+    }   
+    ]
+}
