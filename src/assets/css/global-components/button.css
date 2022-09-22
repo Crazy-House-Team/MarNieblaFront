@@ -23,3 +23,19 @@
   width: 40vw;
     height: 8vh;
 }
+.button--green{
+  font-weight:bold;
+  background-color: #92C954;
+  border-radius:30px;
+  border:transparent;
+  width: 200px;
+  height: 65px;
+}
+.button--purple{
+  font-weight:bold; 
+  background-color: #675979;
+  border-radius: 30px;
+  border:transparent;
+  width: 200px;
+  height: 65px;
+}
