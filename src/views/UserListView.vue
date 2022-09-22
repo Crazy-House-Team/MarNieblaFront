@@ -7,11 +7,13 @@ import CreateUserButton from "../components/common/CreateUserButton.vue";
 
 defineProps({
   role: String,
-})
+});
 const userList = ref([]);
+const numOfUsersInList = ref(0);
 onMounted(async () => {
   printUrl();
   userList.value = await getAction("users");
+  numOfUsersInList.value = userList.value.data.length;
 });
 </script>
 
@@ -22,13 +24,14 @@ onMounted(async () => {
     <h1>Lista de estudiantes</h1>
     <BackButton></BackButton>
   </div>
-    <ul class="list-group">
+    <ul class="list-group" v-if="numOfUsersInList > 0">
       <StudentRow
         v-for="(user, index) in userList.data"
         :key="index"
         :username="user.name"
       />
     </ul>
+    <p class="p__warning" v-else>No existe ningún usuario.</p>
   </div>
 </template>
 
@@ -41,5 +44,8 @@ onMounted(async () => {
 }
 ul {
   width: 100%;
+}
+.p__warning {
+  margin-top: 5rem;
 }
 </style>

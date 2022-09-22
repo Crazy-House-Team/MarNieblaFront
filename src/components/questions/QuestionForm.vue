@@ -34,7 +34,7 @@
     </div>
     <SelectCompetencies />
     <div>
-      <button>Cancelar</button>
+      <RouterLink to="/questions"><button>Cancelar</button></RouterLink>
       <button>Guardar</button>
     </div>
   </div>
