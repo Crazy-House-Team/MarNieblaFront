@@ -9,5 +9,12 @@
 </template>
 <script></script>
 <style>
-    
+.button--red-outlined-delete
+        {
+            background-color: #ffffff;
+            border: 6px solid #f82c1d;
+            border-radius: 20px;
+            width: 8vw;
+            height: 6vh;
+        }
 </style>

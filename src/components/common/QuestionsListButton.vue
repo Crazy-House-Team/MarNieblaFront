@@ -9,6 +9,10 @@
 </template>
 <script>
 </script>
-<style>
-    
+<style scoped>
+.button--orange-outlined:hover
+        {
+            color: #F8981D;
+            background-color: whitesmoke;
+        }
 </style>

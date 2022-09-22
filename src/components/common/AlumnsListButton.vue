@@ -1,6 +1,6 @@
 <template>
     <div>
-      <RouterLink to="user-list">
+      <RouterLink to="/admin/user-list">
       <button type="button" class="btn button--orange-outlined m-1"><h1>Alumnado</h1></button>
     </RouterLink>
     </div>
@@ -10,5 +10,9 @@
 </script>>
 
 <style scoped>
-  
+.button--orange-outlined:hover
+    {
+      color: #F8981D;
+      background-color: whitesmoke;
+    }
 </style>

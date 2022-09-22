@@ -1,22 +1,27 @@
 <template>
     <div>
         <RouterLink to="">
-            <button class="btn text-white button-newuser">
+            <button class=" button-newuser">
                 <h2>Crear Estudiante</h2>
             </button>
         </RouterLink>
     </div>
 </template>
 <script>
-export default {
-    methods:
-    {
-        back() {
-            this.$router.go(-1)
-        }
-    }
-};
 </script>
-<style>
+<style scoped>
+.button-newuser
+{
+    background-color: #92C954;
+    border-radius: 20px;
+    width: 14vw;
+    height: 6vh;
+    border:none;
+    color: white;
+}
 
+.button-newuser:hover{
+    background-color: white;
+    color:#92C954;
+}
 </style>

@@ -1,12 +1,23 @@
 <template>
-    <div>
-        <RouterLink to="/admin/user-list">
-            <button type="button" class="btn button--orange-outlined-edit m-1 text-center"><h3>Editar</h3></button>
-        </RouterLink>
-    </div>
+  <div>
+    <RouterLink to="/admin/user-list">
+      <button
+        type="button"
+        class="btn button--orange-outlined-edit m-1 text-center"
+      >
+        <h3>Editar</h3>
+      </button>
+    </RouterLink>
+  </div>
 </template>
-<script>
-</script>
+<script></script>
 <style>
-    
+.button--orange-outlined-edit
+{
+    background-color: #ffffff;
+    border: 6px solid #F8981D;
+    border-radius: 20px;
+    width: 8vw;
+    height: 6vh;
+}
 </style>
