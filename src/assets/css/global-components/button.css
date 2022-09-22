@@ -15,3 +15,11 @@
   border: 0.1rem solid  #ed1c23;
   color: #ed1c23;
 }
+.button--orange-outlined
+{
+  background-color: #ffffff;
+  border: 6px solid #F8981D;
+  border-radius: 20px;
+  width: 40vw;
+    height: 8vh;
+}
