@@ -1,5 +1,6 @@
 <script setup>
   import SelectCompetencies from '../common/selectCompetencies.vue';
+  import BackButton from '../common/BackButton.vue';
 
 </script>
 <template>
@@ -34,15 +35,17 @@
     </div>
     <SelectCompetencies />
     <div>
-      <RouterLink to="/questions"><button>Cancelar</button></RouterLink>
+      <BackButton />
       <button>Guardar</button>
     </div>
   </div>
 </template>
 
 <style scoped>
-input, textarea{
-  border: solid 2px green;
-  border-radius: 10px;
-}
+
+  input, textarea{
+    border: solid 2px green;
+    border-radius: 10px;
+  }
+
 </style>

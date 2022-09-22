@@ -7,15 +7,15 @@
     </select>
 </template>
 <style scoped>
- 
-input, textarea, select{
-  border: solid 2px green;
-  border-radius: 10px;
-}
+    
+    input, textarea, select{
+    border: solid 2px green;
+    border-radius: 10px;
+    }
 
-select{
-    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
-    font-size: 1.6rem;
-}
+    select{
+        font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+        font-size: 1.6rem;
+    }
 
 </style>

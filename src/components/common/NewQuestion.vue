@@ -7,6 +7,18 @@
 </template>
 <script>
 </script>
-<style>
+<style scoped>
+    .button-newquestion{
+        background-color: #92C954;
+        border-radius: 20px;
+        width: 14vw;
+        height: 6vh;
+        border:none;
+        color: white;
+    }
+    .button-newquestion:hover{
+        background-color: white;
+        color:green;
+    }
     
 </style>
