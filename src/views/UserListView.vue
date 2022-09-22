@@ -1,11 +1,15 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import StudentRow from "../components/users/StudentRow.vue";
-import { getAction } from "../services/apiRequests";
+import { getAction, printUrl } from "../services/apiRequests";
 
+defineProps({
+  role: String,
+})
 const userList = ref([]);
 onMounted(async () => {
-  userList.value = await getAction("http://localhost:3000/users");
+  printUrl();
+  userList.value = await getAction("users");
 });
 </script>
 
@@ -14,7 +18,7 @@ onMounted(async () => {
     <h1>Lista de estudiantes</h1>
     <ul class="list-group">
       <StudentRow
-        v-for="(user, index) in userList"
+        v-for="(user, index) in userList.data"
         :key="index"
         :username="user.name"
       />

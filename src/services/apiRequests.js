@@ -1,9 +1,14 @@
 import axios from "axios";
+let baseUrl = "http://localhost:3000/"; //window.location.host;
+
+function printUrl() {
+  console.log(baseUrl);
+}
 
 async function getAction(url) {
   const options = {
     method: "GET",
-    url: url,
+    url: baseUrl + url,
   };
   const result = await apiRequest(options);
 
@@ -13,7 +18,7 @@ async function getAction(url) {
 async function postAction(url) {
   const options = {
     method: "POST",
-    url: url,
+    url: baseUrl + url,
   };
   const result = await apiRequest(options);
 
@@ -23,7 +28,7 @@ async function postAction(url) {
 async function deleteAction(url) {
   const options = {
     method: "DELETE",
-    url: url,
+    url: baseUrl + url,
   };
   const result = await apiRequest(options);
 
@@ -33,7 +38,7 @@ async function deleteAction(url) {
 async function putAction(url) {
   const options = {
     method: "PUT",
-    url: url,
+    url: baseUrl + url,
   };
   const result = await apiRequest(options);
 
@@ -43,7 +48,7 @@ async function putAction(url) {
 async function patchAction(url) {
   const options = {
     method: "PATCH",
-    url: url,
+    url: baseUrl + url,
   };
   const result = await apiRequest(options);
 
@@ -59,4 +64,11 @@ async function apiRequest(options) {
   }
 }
 
-export { getAction, putAction, patchAction, postAction, deleteAction };
+export {
+  getAction,
+  putAction,
+  patchAction,
+  postAction,
+  deleteAction,
+  printUrl,
+};

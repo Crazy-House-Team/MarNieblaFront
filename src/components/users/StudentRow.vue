@@ -1,6 +1,6 @@
 <script setup>
-import EditIcon from "cd ./icons/EditIcon.vue";
-import DeleteIcon from "./icons/DeleteIcon.vue";
+import EditIcon from "../icons/EditIcon.vue";
+import DeleteIcon from "../icons/DeleteIcon.vue";
 import { defineProps } from "vue";
 defineProps({
   username: String,
