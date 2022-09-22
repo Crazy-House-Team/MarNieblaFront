@@ -1,8 +1,20 @@
 <template>
     <select class="form-select" aria-label="Default select example">
-        <option selected>Todas las materias</option>
-        <option value="1">Matematicas</option>
+        <option selected value="1">Matematicas</option>
         <option value="2">Lengua</option>
         <option value="3">Inglés</option>
     </select>
 </template>
+<style scoped>
+ 
+input, textarea, select{
+  border: solid 2px green;
+  border-radius: 10px;
+}
+
+select{
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+    font-size: 1.6rem;
+}
+
+</style>

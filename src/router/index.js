@@ -22,7 +22,7 @@ const router = createRouter({
     {
       path: "/newquestion",
       name: "newquestion",
-      component: () => import("@/components/questions/questionForm.vue"),
+      component: () => import("@/components/questions/QuestionForm.vue"),
     },
   ],
 });
