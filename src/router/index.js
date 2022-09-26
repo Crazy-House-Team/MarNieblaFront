@@ -30,9 +30,9 @@ const router = createRouter({
       component: () => import("@/components/questions/QuestionForm.vue"),
     },
     {
-      path: "/createUser",
-      name: "createUser",
-      component: ()=> import("@/views/CreateUserView.vue"),
+      path: "/admin/createuser",
+      name: "createuser",
+      component: () => import("@/views/CreateUserView.vue"),
     },
   ],
 });
