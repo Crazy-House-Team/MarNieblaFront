@@ -1,6 +1,6 @@
 <template>
   <div>
-    <RouterLink to="/admin/user-list">
+    <RouterLink to="userlist">
       <button
         type="button"
         class="btn button--orange-outlined-edit m-1 text-center"

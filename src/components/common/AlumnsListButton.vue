@@ -1,6 +1,6 @@
 <template>
   <div>
-    <RouterLink to="/admin/user-list">
+    <RouterLink to="userlist">
       <button type="button" class="btn button--orange-outlined m-1">
         <h1>Alumnado</h1>
       </button>
