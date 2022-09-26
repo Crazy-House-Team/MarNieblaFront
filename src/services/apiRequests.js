@@ -1,5 +1,5 @@
 import axios from "axios";
-let baseUrl = "http://localhost:3000/"; //window.location.host;
+let baseUrl = "http://localhost:8000/api/v1/";
 
 function printUrl() {
   console.log(baseUrl);
@@ -15,10 +15,11 @@ async function getAction(url) {
   return result;
 }
 
-async function postAction(url) {
+async function postAction(url, data) {
   const options = {
     method: "POST",
     url: baseUrl + url,
+    body: data,
   };
   const result = await apiRequest(options);
 

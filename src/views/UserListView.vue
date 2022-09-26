@@ -21,9 +21,9 @@ onMounted(async () => {
   <div class="wrapper">
     <div class="justify-content-around d-flex w-100 m-4">
       <CreateUserButton></CreateUserButton>
-    <h1>Lista de estudiantes</h1>
-    <BackButton></BackButton>
-  </div>
+      <h1>Lista de estudiantes</h1>
+      <BackButton></BackButton>
+    </div>
     <ul class="list-group" v-if="numOfUsersInList > 0">
       <StudentRow
         v-for="(user, index) in userList.data"
