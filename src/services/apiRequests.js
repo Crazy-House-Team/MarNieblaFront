@@ -15,17 +15,17 @@ async function postAction(url, data) {
   const options = {
     method: "POST",
     url: baseUrl + url,
-    body: data,
+    data: data,
   };
   const result = await apiRequest(options);
 
   return result;
 }
 
-async function deleteAction(url) {
+async function deleteAction(url, id) {
   const options = {
     method: "DELETE",
-    url: baseUrl + url,
+    url: baseUrl + url + "/" + id,
   };
   const result = await apiRequest(options);
 
