@@ -15,37 +15,28 @@ async function postAction(url, data) {
   const options = {
     method: "POST",
     url: baseUrl + url,
-    body: data,
+    data: data,
   };
   const result = await apiRequest(options);
 
   return result;
 }
 
-async function deleteAction(url) {
+async function deleteAction(url, id) {
   const options = {
     method: "DELETE",
-    url: baseUrl + url,
+    url: baseUrl + url + "/" + id,
   };
   const result = await apiRequest(options);
 
   return result;
 }
 
-async function putAction(url) {
+async function putAction(url, id, data) {
   const options = {
     method: "PUT",
-    url: baseUrl + url,
-  };
-  const result = await apiRequest(options);
-
-  return result;
-}
-
-async function patchAction(url) {
-  const options = {
-    method: "PATCH",
-    url: baseUrl + url,
+    url: baseUrl + url + "/" + id,
+    data: data,
   };
   const result = await apiRequest(options);
 
@@ -61,4 +52,4 @@ async function apiRequest(options) {
   }
 }
 
-export { getAction, putAction, patchAction, postAction, deleteAction };
+export { getAction, putAction, postAction, deleteAction };
