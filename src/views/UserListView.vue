@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import StudentRow from "../components/users/StudentRow.vue";
-import { getAction, printUrl } from "../services/apiRequests";
+import { getAction } from "../services/apiRequests";
 import BackButton from "../components/common/BackButton.vue";
 import CreateUserButton from "../components/common/CreateUserButton.vue";
 
@@ -11,8 +11,7 @@ defineProps({
 const userList = ref([]);
 const numOfUsersInList = ref(0);
 onMounted(async () => {
-  printUrl();
-  userList.value = await getAction("users");
+  userList.value = await getAction("filterUsersbyRole/0");
   numOfUsersInList.value = userList.value.data.length;
 });
 </script>

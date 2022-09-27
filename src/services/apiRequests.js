@@ -1,10 +1,6 @@
 import axios from "axios";
 let baseUrl = "http://localhost:8000/api/v1/";
 
-function printUrl() {
-  console.log(baseUrl);
-}
-
 async function getAction(url) {
   const options = {
     method: "GET",
@@ -65,11 +61,4 @@ async function apiRequest(options) {
   }
 }
 
-export {
-  getAction,
-  putAction,
-  patchAction,
-  postAction,
-  deleteAction,
-  printUrl,
-};
+export { getAction, putAction, patchAction, postAction, deleteAction };
