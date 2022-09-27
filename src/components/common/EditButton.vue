@@ -1,6 +1,6 @@
 <template>
   <div>
-    <RouterLink :to="{ name: 'userlist' }">
+    <RouterLink :to="{ name: 'edituser' }">
       <button
         type="button"
         class="btn button--orange-outlined-edit m-1 text-center"
