@@ -4,11 +4,16 @@ import { defineProps } from "vue";
 import DeleteButton from "../common/DeleteButton.vue";
 defineProps({
   username: String,
+  userRole: Number,
+  role: Number,
 });
 </script>
 
 <template>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
+  <li
+    class="list-group-item d-flex justify-content-between align-items-center"
+    v-if="userRole === role"
+  >
     {{ username }}
     <span class="badge d-flex">
       <EditButton></EditButton>

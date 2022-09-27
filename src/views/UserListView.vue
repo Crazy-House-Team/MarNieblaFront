@@ -11,7 +11,7 @@ defineProps({
 const userList = ref([]);
 const numOfUsersInList = ref(0);
 onMounted(async () => {
-  userList.value = await getAction("filterUsersbyRole/0");
+  userList.value = await getAction("users");
   numOfUsersInList.value = userList.value.data.length;
 });
 </script>
@@ -20,7 +20,8 @@ onMounted(async () => {
   <div class="wrapper">
     <div class="justify-content-around d-flex w-100 m-4">
       <CreateUserButton></CreateUserButton>
-      <h1>Lista de estudiantes</h1>
+      <h1 v-if="role === '0'">Lista de estudiantes</h1>
+      <h1 v-else>Lista de profesores</h1>
       <BackButton></BackButton>
     </div>
     <ul class="list-group" v-if="numOfUsersInList > 0">
@@ -28,6 +29,8 @@ onMounted(async () => {
         v-for="(user, index) in userList.data"
         :key="index"
         :username="user.name"
+        :userRole="user.isAdmin"
+        :role="Number(role)"
       />
     </ul>
     <p class="p__warning" v-else>No existe ningún usuario.</p>
