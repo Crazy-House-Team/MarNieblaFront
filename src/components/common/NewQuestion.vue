@@ -1,6 +1,6 @@
 <template>
   <div>
-    <RouterLink to="newquestion">
+    <RouterLink :to="{ name: 'newquestion' }">
       <button
         type="button"
         class="btn text-white button-newquestion text-center"

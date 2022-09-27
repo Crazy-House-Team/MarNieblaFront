@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <header class="header">
     <nav class="nav">
-      <RouterLink to="/">
+      <RouterLink :to="{ name: 'home' }">
         <img
           src="@/assets/logo_mar-de-niebla-300x156.jpeg"
           alt="logotipo"
@@ -20,17 +20,17 @@ import { RouterLink, RouterView } from "vue-router";
 </template>
 
 <style scoped>
-  .header {
-    width: 100vw;
-    height: 8.8rem;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-  }
+.header {
+  width: 100vw;
+  height: 8.8rem;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
 
-  .header__logo {
-    height: 6.8rem;
-  }
+.header__logo {
+  height: 6.8rem;
+}
 
 .nav {
   width: 1280px;

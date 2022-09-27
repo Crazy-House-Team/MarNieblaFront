@@ -1,6 +1,6 @@
 <template>
   <div>
-    <RouterLink to="userlist">
+    <RouterLink :to="{ name: 'userlist' }">
       <button type="button" class="btn button--orange-outlined m-1">
         <h1>Alumnado</h1>
       </button>
