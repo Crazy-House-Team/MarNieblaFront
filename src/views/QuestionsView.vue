@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from "vue";
-import { getAction, printUrl } from "../services/apiRequests";
+import { getAction } from "../services/apiRequests";
 import SelectCompetencies from "../components/common/selectCompetencies.vue";
 import BackButton from "../components/common/BackButton.vue";
 import QuestionsList from "../components/questions/QuestionsList.vue";
