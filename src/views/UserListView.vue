@@ -5,6 +5,8 @@ import { getAction, printUrl } from "../services/apiRequests";
 import BackButton from "../components/common/BackButton.vue";
 import CreateUserButton from "../components/common/CreateUserButton.vue";
 
+import HomeUser from "../components/users/HomeUser.vue";
+
 defineProps({
   role: String,
 });
@@ -33,6 +35,7 @@ onMounted(async () => {
     </ul>
     <p class="p__warning" v-else>No existe ningún usuario.</p>
   </div>
+  
 </template>
 
 <style scoped>
