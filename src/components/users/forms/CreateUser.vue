@@ -14,7 +14,7 @@ const handleSubmit = () => {
 };
 </script>
 <template>
-  <form class="container" @submit="handleSubmit()">
+  <form class="container">
     <div class="m-3 d-flex justify-content-start align-items-center">
       <label for="name" class="form-label"></label>
       <input
@@ -59,7 +59,13 @@ const handleSubmit = () => {
     </div>
     <div>
       <button type="button" class="button--purple text-white">Cancelar</button>
-      <button type="submit" class="button--green text-white">Guardar</button>
+      <button
+        type="button"
+        class="button--green text-white"
+        @click="handleSubmit()"
+      >
+        Guardar
+      </button>
     </div>
   </form>
 </template>
