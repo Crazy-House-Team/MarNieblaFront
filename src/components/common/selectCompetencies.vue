@@ -1,5 +1,5 @@
 <template>
-    <select class="form-select w-25" aria-label="Default select example">
+    <select  v-model="data.competencies_id" id="competencies_id" class="form-select w-25" aria-label="Default select example">
         <option selected value="0">Selecionar competencia</option>
         <option value="1">Matematicas</option>
         <option value="2">Lengua</option>

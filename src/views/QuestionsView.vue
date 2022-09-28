@@ -33,7 +33,7 @@ onMounted(async () => {
       />
     </ul>
 
-    <p class="p__warning" v-else>No existe ningún usuario.</p>
+    <p class="p__warning" v-else>No existe ningúna pregunta.</p>
   </div>
 </template>
 
