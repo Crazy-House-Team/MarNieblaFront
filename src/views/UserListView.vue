@@ -19,10 +19,10 @@ onMounted(async () => {
 <template>
   <div class="wrapper">
     <div class="justify-content-around d-flex w-100 m-4">
-      <CreateUserButton></CreateUserButton>
+      <CreateUserButton />
       <h1 v-if="role === '0'">Lista de estudiantes</h1>
       <h1 v-else>Lista de profesores</h1>
-      <BackButton></BackButton>
+      <BackButton />
     </div>
     <ul class="list-group" v-if="numOfUsersInList > 0">
       <StudentRow
