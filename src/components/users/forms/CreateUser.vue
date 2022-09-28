@@ -9,12 +9,13 @@ const form = ref({
   isAdmin: false,
 });
 
-const handleSubmit = () => {
+const handleSubmit = (e) => {
+  e.preventDefault();
   postAction("storeUser", form.value);
 };
 </script>
 <template>
-  <form class="container">
+  <form class="container" @submit="handleSubmit">
     <div class="m-3 d-flex justify-content-start align-items-center">
       <label for="name" class="form-label"></label>
       <input
@@ -59,13 +60,7 @@ const handleSubmit = () => {
     </div>
     <div>
       <button type="button" class="button--purple text-white">Cancelar</button>
-      <button
-        type="button"
-        class="button--green text-white"
-        @click="handleSubmit()"
-      >
-        Guardar
-      </button>
+      <button type="submit" class="button--green text-white">Guardar</button>
     </div>
   </form>
 </template>
