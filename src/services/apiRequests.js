@@ -16,6 +16,10 @@ async function postAction(url, data) {
     method: "POST",
     url: baseUrl + url,
     data: data,
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Access-Control-Allow-Origin": "*",
+    },
   };
   const result = await apiRequest(options);
 
