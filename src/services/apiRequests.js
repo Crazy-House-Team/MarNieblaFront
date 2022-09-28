@@ -17,7 +17,7 @@ async function postAction(url, data) {
     url: baseUrl + url,
     data: data,
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
+      "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
     },
   };
