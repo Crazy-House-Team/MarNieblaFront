@@ -1,0 +1,24 @@
+<template>
+    <div>
+        <button type="submit" class="button-savequestion">
+          <h2>Grabar pregunta</h2>
+        </button>
+    </div>
+  </template>
+  <script></script>
+  <style scoped>
+  .button-savequestion{
+    background-color: #92c954;
+    border-radius: 20px;
+    width: 14vw;
+    height: 6vh;
+    border: none;
+    color: white;
+    margin-right: 1rem;
+  }
+  
+  .button-savequestion:hover {
+    background-color: white;
+    color: #92c954;
+  }
+  </style>
