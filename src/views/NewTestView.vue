@@ -1,5 +1,5 @@
 <script setup>
-import NewTest from "../components/common/NewTest.vue";
+import NewTest from "../components/Exams/NewTest.vue";
 
 </script>
 
