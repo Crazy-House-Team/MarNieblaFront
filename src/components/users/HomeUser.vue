@@ -13,7 +13,7 @@
     <div class="test">
         <div>
             <h1>PUEDES REALIZAR LA PRUEBA DE FORMA INDIVIDUAL</h1>
-            <button class="statistics button--green-outlined" >TEST</button>
+            <button class="statistics button--green-outlined" >HACER TEST</button>
         </div>    
     </div>
     <div class="progress">
@@ -34,7 +34,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         padding-left:60px;
         padding-top: 50px;
         margin-top: 30px;
@@ -53,7 +53,6 @@
         background-color:#d9d9d9b3;
         margin-left: 50px;
         margin-top: 10px;
-        /* border:transparent; */
         border:3px solid #92c954;
 
     }
@@ -65,7 +64,7 @@
         height: 394px;
         width: 500px;
         background-color:#ffffff;
-        border:3px solid #f8981d;
+        border:6px solid #f8981d;
         position: absolute;
         top: 420px;
         display: flex;
@@ -77,7 +76,7 @@
         height: 394px;
         width: 500px;
         background-color:#ffffff;
-        border:3px solid #f8981d;
+        border:6px solid #f8981d;
         position: absolute;
         left: 700px;
         top: 420px;
