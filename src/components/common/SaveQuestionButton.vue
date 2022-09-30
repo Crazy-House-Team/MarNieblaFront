@@ -1,10 +1,8 @@
 <template>
     <div>
-      <RouterLink :to="{ name: 'userlist' }">
         <button type="submit" class="button-savequestion">
           <h2>Grabar pregunta</h2>
         </button>
-      </RouterLink>
     </div>
   </template>
   <script></script>
