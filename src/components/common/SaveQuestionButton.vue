@@ -7,18 +7,17 @@
   </template>
   <script></script>
   <style scoped>
-  .button-savequestion{
-    background-color: #92c954;
-    border-radius: 20px;
-    width: 14vw;
-    height: 6vh;
-    border: none;
-    color: white;
-    margin-right: 1rem;
-  }
+    .button-savequestion:hover {
+      background-color: white;
+      color: green;
+    }
+    .button-savequestion {
+      background-color: #92c954;
+      border-radius: 20px;
+      width: 14vw;
+      height: 6vh;
+      border: none;
+      color: white;
+    }
   
-  .button-savequestion:hover {
-    background-color: white;
-    color: #92c954;
-  }
   </style>

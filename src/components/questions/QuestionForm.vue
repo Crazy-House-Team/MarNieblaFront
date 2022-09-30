@@ -1,5 +1,6 @@
 <script setup>
-
+  
+  import router from '@/router';
   import BackButton from "../common/BackButton.vue";
   import SaveQuestionButton from "../common/SaveQuestionButton.vue";
   import { postAction } from "../../services/apiRequests";
@@ -18,6 +19,7 @@ const data = ref({
 const saveData = (event) => {
   event.preventDefault();
   postAction("storeQuestion", data.value);
+  router.push({ path: 'questions' })
 };
 
 </script>
