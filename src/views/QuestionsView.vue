@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, onUpdated, ref } from "vue";
 import { getAction } from "../services/apiRequests";
 import SelectCompetencies from "../components/common/selectCompetencies.vue";
 import BackButton from "../components/common/BackButton.vue";
@@ -13,6 +13,12 @@ onMounted(async () => {
   questionsListData.value = await getAction("questions");
   numOfQuestionsInList.value = questionsListData.value.data.length;
 });
+
+onUpdated(async () => {
+  questionsListData.value = await getAction("questions");
+  numOfQuestionsInList.value = questionsListData.value.data.length;
+});
+
 </script>
 
 <template>
