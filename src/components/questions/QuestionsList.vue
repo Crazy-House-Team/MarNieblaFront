@@ -5,6 +5,7 @@
     import DeleteButton from "../common/DeleteButton.vue";
 
     defineProps({
+        id: Number,
         question: String,
     });
 
@@ -15,8 +16,8 @@
     <li class="list-group-item d-flex justify-content-between align-items-center">
         {{question}}
         <span class="badge d-flex">
-        <EditButton />
-        <DeleteButton />
+        <EditButton :id=id />
+        <DeleteButton :id=id />
         </span>
     </li>
 

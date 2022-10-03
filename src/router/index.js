@@ -32,7 +32,7 @@ const router = createRouter({
     },
     {
       path: "/admin/editquestion/:id",
-      name: "newquestion",
+      name: "editquestion",
       component: () => import("@/components/questions/QuestionForm.vue"),
       props: true,
     },
