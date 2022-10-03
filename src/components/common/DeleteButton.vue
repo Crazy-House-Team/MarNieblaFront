@@ -1,3 +1,12 @@
+<script setup>
+import { deleteAction } from '../../services/apiRequests';
+import { defineProps } from "vue";
+
+  defineProps({
+  id: Number,
+});
+
+</script>
 <template>
   <div>
     <div>
@@ -5,6 +14,7 @@
         <button
           type="button"
           class="btn button--red-outlined-delete m-1 text-center"
+          @click="deleteAction('deleteUser', id)"
         >
           <h3>Eliminar</h3>
         </button>
@@ -12,7 +22,7 @@
     </div>
   </div>
 </template>
-<script></script>
+
 <style>
 .button--red-outlined-delete {
   background-color: #ffffff;
