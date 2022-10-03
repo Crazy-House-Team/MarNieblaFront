@@ -3,11 +3,17 @@
   import router from '@/router';
   import BackButton from "../common/BackButton.vue";
   import SaveQuestionButton from "../common/SaveQuestionButton.vue";
-  import { postAction } from "../../services/apiRequests";
-  import { ref } from "vue";
+  import { getAction, postAction } from "../../services/apiRequests";
+  import { onActivated, onMounted, onUpdated } from "vue";
      
+  const props = defineProps({
+    id: String,
+  })
+  
+  let questionData = [];
 
-  const data = ref({
+  const data = {
+    id:Number(props.id),
     question:"",
     answer_a:"",
     answer_b:"",
@@ -15,6 +21,20 @@
     answer_d:"",
     competencies_id: 1,
     right_answer:"",
+  };
+
+  onMounted(async () => {
+    if(props.id > 0 ){
+      questionData = await getAction('showQuestion/',props.id);
+      console.log(questionData.data);
+      data.question = questionData.data[0].question;
+      data.answer_a = questionData.data[0].answer_a;
+      data.answer_b = questionData.data[0].answer_b;
+      data.answer_c = questionData.data[0].answer_c;
+      data.answer_d = questionData.data[0].answer_d;
+      data.competencies_id = questionData.data[0].competencies_id;
+      data.right_answer = questionData.data[0].right_answer;
+    }
   });
 
   const saveData = (event) => {
@@ -43,7 +63,7 @@
           class="form-control"
           id="questionlabel"
           rows="3"
-        >{{id}}</textarea>
+        ></textarea>
       </div>
 
       <h2 class="m-3">Respuestas posibles</h2>

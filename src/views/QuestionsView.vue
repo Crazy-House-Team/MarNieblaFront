@@ -14,16 +14,10 @@ onMounted(async () => {
   numOfQuestionsInList.value = questionsListData.value.data.length;
 });
 
-/*
-onUpdated(async () => {
-  questionsListData.value = await getAction("questions");
-  numOfQuestionsInList.value = questionsListData.value.data.length;
-});
-*/
-
 </script>
 
 <template>
+  
   <div class="wrapper">
     <h1>Gestión de preguntas</h1>
 
@@ -44,19 +38,21 @@ onUpdated(async () => {
 
     <p class="p__warning" v-else>No existe ningúna pregunta.</p>
   </div>
+
 </template>
 
 <style scoped>
-.wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-ul {
-  width: 100%;
-}
-.p__warning {
-  margin-top: 5rem;
-}
+  .wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  ul {
+    width: 100%;
+  }
+  .p__warning {
+    margin-top: 5rem;
+  }
+
 </style>

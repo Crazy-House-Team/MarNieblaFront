@@ -1,8 +1,7 @@
 <script setup>
-    
-    import { defineProps } from "vue";
-    import EditButton from "../common/EditButton.vue";
+   
     import DeleteButton from "../common/DeleteButton.vue";
+    import BtnEditQuestion from "./BtnEditQuestion.vue";
 
     defineProps({
         id: Number,
@@ -16,7 +15,7 @@
     <li class="list-group-item d-flex justify-content-between align-items-center">
         {{question}}
         <span class="badge d-flex">
-        <EditButton :id=id />
+        <BtnEditQuestion :id=id />
         <DeleteButton :id=id />
         </span>
     </li>
