@@ -3,6 +3,7 @@ import EditButton from "../common/EditButton.vue";
 import { defineProps } from "vue";
 import DeleteButton from "../common/DeleteButton.vue";
 defineProps({
+  id: Number,
   username: String,
   userRole: Number,
   role: Number,
@@ -16,8 +17,8 @@ defineProps({
   >
     {{ username }}
     <span class="badge d-flex">
-      <EditButton></EditButton>
-      <DeleteButton></DeleteButton>
+      <EditButton :id="id" />
+      <DeleteButton />
     </span>
   </li>
 </template>

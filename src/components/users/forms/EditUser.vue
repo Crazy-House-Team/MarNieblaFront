@@ -1,9 +1,14 @@
 <script setup>
 import router from "@/router";
 import { ref } from "vue";
-import { postAction } from "@/services/apiRequests";
+import { putAction } from "@/services/apiRequests";
+
+const props = defineProps({
+  id: String,
+});
 
 const form = ref({
+  id: Number(props.id),
   name: "",
   email: "",
   password: "",
@@ -12,7 +17,7 @@ const form = ref({
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  postAction("storeUser", form.value);
+  putAction("updateUser", form.value.id, form.value);
 
   router.go(-1);
 };
@@ -21,19 +26,26 @@ const handleSubmit = (e) => {
   <form class="container" @submit="handleSubmit">
     <div class="m-3 d-flex justify-content-start align-items-center">
       <label for="name" class="form-label"></label>
-      <input class="form-control ms-4" id="name" placeholder="Nombre" />
+      <input class="form-control ms-4" id="name" v-model="form.name" />
     </div>
-    <div class="m-3 d-flex justify-content-start align-items-center">
-      <label for="surname" class="form-label"></label>
-      <input class="form-control ms-4" id="surname" placeholder="Apellidos" />
-    </div>
+
     <div class="m-3 d-flex justify-content-start align-items-center">
       <label for="email" class="form-label"></label>
-      <input class="form-control ms-4" id="email" placeholder="Email" />
+      <input
+        class="form-control ms-4"
+        id="email"
+        placeholder="Email"
+        v-model="form.email"
+      />
     </div>
     <div class="m-3 d-flex justify-content-start align-items-center">
       <label for="password" class="form-label"></label>
-      <input class="form-control ms-4" id="password" placeholder="Password" />
+      <input
+        class="form-control ms-4"
+        id="password"
+        placeholder="Password"
+        v-model="form.password"
+      />
     </div>
     <div
       class="form-check m-3 p-0 d-flex justify-content-start align-items-center"

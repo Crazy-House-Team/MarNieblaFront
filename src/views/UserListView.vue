@@ -8,6 +8,7 @@ import CreateUserButton from "../components/common/CreateUserButton.vue";
 defineProps({
   role: String,
 });
+
 const userList = ref([]);
 const numOfUsersInList = ref(0);
 onMounted(async () => {
@@ -28,6 +29,7 @@ onMounted(async () => {
       <StudentRow
         v-for="(user, index) in userList.data"
         :key="index"
+        :id="user.id"
         :username="user.name"
         :userRole="user.isAdmin"
         :role="Number(role)"
@@ -35,7 +37,6 @@ onMounted(async () => {
     </ul>
     <p class="p__warning" v-else>No existe ningún usuario.</p>
   </div>
-  
 </template>
 
 <style scoped>
