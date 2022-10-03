@@ -1,10 +1,14 @@
 import axios from "axios";
 let baseUrl = "http://localhost:8000/api/v1/";
 
-async function getAction(url) {
+async function getAction(url, id = null) {
+  let completeUrl = baseUrl + url;
+  if (null !== id) {
+    completeUrl += id;
+  }
   const options = {
     method: "GET",
-    url: baseUrl + url,
+    url: completeUrl,
   };
   const result = await apiRequest(options);
 

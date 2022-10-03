@@ -1,14 +1,14 @@
-
 <script setup>
-import EditUser from '../components/users/forms/EditUser.vue';
-
+import EditUser from "../components/users/forms/EditUser.vue";
+defineProps({
+  id: String,
+});
 </script>
-<template >
-    <div>
-      <EditUser />
-    </div>
+<template>
+  <div>
+    <h1 class="m-3">EDITAR USUARIO</h1>
+    <EditUser :id="id" />
+  </div>
 </template>
 
-<style scoped>
-    
-</style>
+<style scoped></style>

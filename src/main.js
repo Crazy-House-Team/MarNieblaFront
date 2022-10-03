@@ -8,7 +8,7 @@ import axios from "axios";
 import "@/assets/css/main.css";
 
 const axiosInstance = axios.create({
-  withCredentials: false,
+  withCredentials: true,
 });
 
 const app = createApp(App);

@@ -1,6 +1,11 @@
+<script setup>
+defineProps({
+  id: Number,
+});
+</script>
 <template>
   <div>
-    <RouterLink :to="{ name: 'edituser' }">
+    <RouterLink :to="{ name: 'edituser', params: { id: id } }">
       <button
         type="button"
         class="btn button--orange-outlined-edit m-1 text-center"
@@ -10,7 +15,6 @@
     </RouterLink>
   </div>
 </template>
-<script></script>
 <style>
 .button--orange-outlined-edit {
   background-color: #ffffff;
