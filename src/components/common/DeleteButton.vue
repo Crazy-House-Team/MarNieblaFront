@@ -1,9 +1,11 @@
 <script setup>
 import { deleteAction } from '../../services/apiRequests';
+import { defineProps } from "vue";
 
   defineProps({
   id: Number,
 });
+
 </script>
 <template>
   <div>
@@ -12,7 +14,7 @@ import { deleteAction } from '../../services/apiRequests';
         <button
           type="button"
           class="btn button--red-outlined-delete m-1 text-center"
-          @click="deleteAction(deleteUser , id)"
+          @click="deleteAction('deleteUser', id)"
         >
           <h3>Eliminar</h3>
         </button>
