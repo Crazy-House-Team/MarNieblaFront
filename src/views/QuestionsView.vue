@@ -7,7 +7,7 @@ import QuestionsList from "../components/questions/QuestionsList.vue";
 import NewQuestion from "../components/common/NewQuestion.vue";
 
 const questionsListData = ref([]);
-const numOfQuestionsInList = ref(0);
+let numOfQuestionsInList = ref(0);
 
 onMounted(async () => {
   questionsListData.value = await getAction("questions");
@@ -36,6 +36,7 @@ onUpdated(async () => {
         v-for="(question, index) in questionsListData.data"
         :key="index"
         :question="question.question"
+        :id="question.id"
       />
     </ul>
 

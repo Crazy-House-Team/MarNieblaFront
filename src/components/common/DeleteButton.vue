@@ -16,7 +16,7 @@ import { defineProps } from "vue";
           class="btn button--red-outlined-delete m-1 text-center"
           @click="deleteAction('deleteUser', id)"
         >
-          <h3>Eliminar</h3>
+          <h3>Eliminar {{id}}</h3>
         </button>
       </RouterLink>
     </div>

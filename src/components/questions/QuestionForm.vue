@@ -5,22 +5,23 @@
   import SaveQuestionButton from "../common/SaveQuestionButton.vue";
   import { postAction } from "../../services/apiRequests";
   import { ref } from "vue";
+     
 
-const data = ref({
-  question:"",
-  answer_a:"",
-  answer_b:"",
-  answer_c:"",
-  answer_d:"",
-  competencies_id: 1,
-  right_answer:"",
-});
+  const data = ref({
+    question:"",
+    answer_a:"",
+    answer_b:"",
+    answer_c:"",
+    answer_d:"",
+    competencies_id: 1,
+    right_answer:"",
+  });
 
-const saveData = (event) => {
-  event.preventDefault();
-  postAction("storeQuestion", data.value);
-  router.push({ path: 'questions' })
-};
+  const saveData = (event) => {
+    event.preventDefault();
+    postAction("storeQuestion", data.value);
+    router.push({ path: 'questions' })
+  };
 
 </script>
 
@@ -42,7 +43,7 @@ const saveData = (event) => {
           class="form-control"
           id="questionlabel"
           rows="3"
-        ></textarea>
+        >{{id}}</textarea>
       </div>
 
       <h2 class="m-3">Respuestas posibles</h2>
