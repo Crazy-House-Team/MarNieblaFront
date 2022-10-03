@@ -1,7 +1,7 @@
 
 # Proyecto Mar de Dudas
 
-
+![app](../public/Profesor.jpg)
 # Descripción del Proyecto Mar de Dudas
 
  El proyecto Mar de Dudas se ha realizado para satisfacer las necesidades de la Fundación por la Acción Social Mar de Niebla, la cual necesitaba una aplicación en la que los docentes pudieran ofrecer a sus alumnos cuestionarios de control de conocimientos, pero querían hacerlo de forma que los alumnos pudieran interactuar en cada pregunta. 
@@ -32,12 +32,13 @@ Roadmap: https://quintomilenio.atlassian.net/jira/software/projects/MDN/boards/5
 https://www.figma.com/file/afgFT1XE7uLomjNMwEis0k/Mar-de-Niebla?node-id=1%3A4
 
 
-###Dailies: 
+### Dailies: 
 https://docs.google.com/document/d/1KFy8GcioTqvkMKUMzWIs_8IQkCmEZF9OzD11M5AtNoo/edit?usp=sharing
 
 
 ## Requisitos técnicos:
 - Vue3
+- PHP 8.1.6
 - Bootstrap 5.2.1
 - Composer 2.3.10
 - Laravel
@@ -50,8 +51,8 @@ https://github.com/Crazy-House-Team/MarNieblaFront
 ### Clonar Front:
 git clone https://github.com/Crazy-House-Team/MarNieblaFront.git
 
-Ir al directorio del proyecto
-cd MarNieblaFront
+- Ir al directorio del proyecto
+- cd MarNieblaFront
 
 #### Instalación
 - Install dependencies
