@@ -14,10 +14,12 @@ onMounted(async () => {
   numOfQuestionsInList.value = questionsListData.value.data.length;
 });
 
+/*
 onUpdated(async () => {
   questionsListData.value = await getAction("questions");
   numOfQuestionsInList.value = questionsListData.value.data.length;
 });
+*/
 
 </script>
 
