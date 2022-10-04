@@ -2,6 +2,7 @@
 # Proyecto Mar de Dudas
 
 ![](https://github.com/Crazy-House-Team/MarNieblaFront/blob/MDN-9/public/Profesor.jpg)
+
 # Descripción del Proyecto Mar de Dudas
 
  El proyecto Mar de Dudas se ha realizado para satisfacer las necesidades de la Fundación por la Acción Social Mar de Niebla, la cual necesitaba una aplicación en la que los docentes pudieran ofrecer a sus alumnos cuestionarios de control de conocimientos, pero querían hacerlo de forma que los alumnos pudieran interactuar en cada pregunta. 
