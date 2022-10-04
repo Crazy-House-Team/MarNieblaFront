@@ -85,7 +85,7 @@
     width: 363px;
     background-color: #d9d9d9;
     display: flex;
-    apgn-items: center;
+    align-items: center;
     justify-content: center;
     position: absolute;
     right: 100px;
@@ -99,7 +99,7 @@
     display: flex;
     flex-direction:column ;
     flex-wrap: wrap;
-    apgn-items: center;
+    align-items: center;
     justify-content: flex-end;
     right: 100px;
     top:550px;
