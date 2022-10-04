@@ -1,7 +1,7 @@
 <script setup>
    
-    import DeleteButton from "../common/DeleteButton.vue";
     import BtnEditQuestion from "./BtnEditQuestion.vue";
+import BtnDeleteQuestion from "./BtnDeleteQuestion.vue";
 
     defineProps({
         id: Number,
@@ -16,7 +16,7 @@
         {{question}}
         <span class="badge d-flex">
         <BtnEditQuestion :id=id />
-        <DeleteButton :id=id />
+        <BtnDeleteQuestion :id=id />
         </span>
     </li>
 
