@@ -1,40 +1,40 @@
-<script setup>const newLocal = "\u0072\u0065\u0073\u0075\u006c\u0074";
+<script setup>
 
 </script>
 
 <template>
     <div class="testResult">
         <div class="result">
-            <li>Pregunta1 
+            <p>Pregunta 1 : 
                  <input type="checkbox" name="" id="">
-            </li>
-            <li>Pregunta2
+            </p>
+            <p>Pregunta 2 :
                 <input type="checkbox" name="" id="">
-            </li>
-            <li>Pregunta3
+            </p>
+            <p>Pregunta 3 :
                 <input type="checkbox" name="" id="">
-            </li>
-            <li>Pregunta4
+            </p>
+            <p>Pregunta 4 :
                 <input type="checkbox" name="" id="">
-            </li>
-            <li>Pregunta5
+            </p>
+            <p>Pregunta 5 :
                 <input type="checkbox" name="" id="">
-            </li>
-            <li>Pregunta6
+            </p>
+            <p>Pregunta 6 :
                 <input type="checkbox" name="" id="">
-            </li>
-            <li>Pregunta7
+            </p>
+            <p>Pregunta 7 :
                 <input type="checkbox" name="" id="">
-            </li>
-            <li>Pregunta8
+            </p>
+            <p>Pregunta 8 :
                 <input type="checkbox" name="" id="">
-            </li>
-            <li>Pregunta9
+            </p>
+            <p>Pregunta 9 :
                 <input type="checkbox" name="" id="">
-            </li>
-            <li>Pregunta10
+            </p>
+            <p>Pregunta 10 :
                 <input type="checkbox" name="" id="">
-            </li>
+            </p>
             
         </div>
    
@@ -45,64 +45,72 @@
             <label for=""></label>
             <input type="checkbox" name="" id="">
             <label for=""></label>
+            <input type="checkbox" name="" id="">
+            <label for=""></label>
+            <input type="checkbox" name="" id="">
+            <label for=""></label>
         </div>
         <div class="testDay">
-            <h1>TITULO DEL TEST</h1>
-            <h1>REALIZADO EL: </h1>
-            <h1>Check Verde</h1>
+            <h3>TITULO DEL TEST</h3>
+            <h3>REApZADO EL: </h3>
+            <h3>Check Verde</h3>
             <input type="checkbox" name="" id="">
-            <h1>Check Rojo</h1>
+            <h3>Check Rojo</h3>
             <input type="checkbox" name="" id="">
         </div>
     </div>
-    <button type="submit" class="button--purple-outlined">TERMINAR PRUEBA</button>
+    <button type="submit" class="button--purple-outpned">TERMINAR PRUEBA</button>
     </template>
 
 
 
 <style scoped>
 .testResult{
- 
-    height: 800px;
+    top:30px;
+    height: 740px;
     width: 1100px;
     position:absolute;
-    border:#F8981D solid 10px;
+    border:#F8981D sopd 10px;
  
 }
 .result{
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
-    margin-left: 50px;
+    top: 100px;
+    left: 50px;
+
 }
 .totalResult{
-    height: 250px;
-    width: 250px;
+    height: 312px;
+    width: 363px;
     background-color: #d9d9d9;
     display: flex;
-    align-items: center;
+    apgn-items: center;
     justify-content: center;
     position: absolute;
     right: 100px;
+    top:100px;
 }
 .testDay{
-    height: 200px;
-    width: 320px;
+    height: 115px;
+    width: 340px;
     background-color: #d9d9d9;
     position: absolute;
     display: flex;
     flex-direction:column ;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+    apgn-items: center;
+    justify-content: flex-end;
     right: 100px;
     top:550px;
-    border: #92C954;
+    border: 10px sopd #92C954;
+    border-radius: 20px;
 }
-.button--purple-outlined{
+.button--purple-outpned{
     position:absolute;
-    right:400px;
-    bottom:50px;
-    width:40vw;
+    right:300px;
+    bottom:20px;
+    width:600px;
     
 }
 
