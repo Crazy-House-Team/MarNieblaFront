@@ -3,8 +3,8 @@
   import router from '@/router';
   import BackButton from "../common/BackButton.vue";
   import SaveQuestionButton from "../common/SaveQuestionButton.vue";
-  import { getAction, postAction } from "../../services/apiRequests";
-  import { onActivated, onMounted, onUpdated } from "vue";
+  import { getAction, postAction, putAction } from "../../services/apiRequests";
+  import { onMounted, ref } from "vue";
      
   const props = defineProps({
     id: String,
@@ -12,7 +12,7 @@
   
   let questionData = [];
 
-  const data = {
+  const data = ref({
     id:Number(props.id),
     question:"",
     answer_a:"",
@@ -21,26 +21,30 @@
     answer_d:"",
     competencies_id: 1,
     right_answer:"",
-  };
+  });
 
   onMounted(async () => {
     if(props.id > 0 ){
       questionData = await getAction('showQuestion/',props.id);
       console.log(questionData.data);
-      data.question = questionData.data[0].question;
-      data.answer_a = questionData.data[0].answer_a;
-      data.answer_b = questionData.data[0].answer_b;
-      data.answer_c = questionData.data[0].answer_c;
-      data.answer_d = questionData.data[0].answer_d;
-      data.competencies_id = questionData.data[0].competencies_id;
-      data.right_answer = questionData.data[0].right_answer;
+      data.value.question = questionData.data[0].question;
+      data.value.answer_a = questionData.data[0].answer_a;
+      data.value.answer_b = questionData.data[0].answer_b;
+      data.value.answer_c = questionData.data[0].answer_c;
+      data.value.answer_d = questionData.data[0].answer_d;
+      data.value.competencies_id = questionData.data[0].competencies_id;
+      data.value.right_answer = questionData.data[0].right_answer;
     }
   });
 
   const saveData = (event) => {
     event.preventDefault();
-    postAction("storeQuestion", data.value);
-    router.push({ path: 'questions' })
+      if(props.id > 0 ){
+        putAction("updateQuestion", props.id, data.value)
+      }else{
+        postAction("storeQuestion", data.value);
+      }
+    router.push({ path: '/admin/questions' });
   };
 
 </script>
