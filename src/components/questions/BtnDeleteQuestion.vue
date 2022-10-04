@@ -1,15 +1,17 @@
 <script setup>
-import { deleteAction } from '../../services/apiRequests';
+import router from '../../router';
+import { deleteAction, getAction } from '../../services/apiRequests';
 
     
       defineProps({
       id: Number,
     });
-    function confirmDelete(id){
+    async function confirmDelete(id){
         let msg = confirm("¿ Desea borrar esta presgunta ?");
         console.log(msg);
-        if(msg ){
-            deleteAction('deleteQuestion', id);
+        if(msg){
+            await deleteAction('deleteQuestion', id);
+            location.reload();
         }
     }
 
