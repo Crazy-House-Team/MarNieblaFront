@@ -1,18 +1,18 @@
 <script setup>
-    import { deleteAction } from '../../services/apiRequests';
+import { deleteAction } from '../../services/apiRequests';
 
     
       defineProps({
       id: Number,
     });
-    function confirmDelete(){
+    function confirmDelete(id){
         let msg = confirm("¿ Desea borrar esta presgunta ?");
         console.log(msg);
         if(msg ){
-            deleteAction('deleteQuestion', id)
+            deleteAction('deleteQuestion', id);
         }
     }
-    
+
     </script>
     <template>
       <div>
@@ -20,7 +20,7 @@
             <button
               type="button"
               class="btn button--red-outlined-delete m-1 text-center"
-              @click="confirmDelete()">
+              @click="confirmDelete(id)">
               <h3>Eliminar {{id}}</h3>
             </button>
       
