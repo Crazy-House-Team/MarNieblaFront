@@ -100,7 +100,7 @@
         </select>
 
         <select v-model="data.competencies_id" id="competencies_id" class="form-select w-25" aria-label="Default select example">
-          <option selected value="1">Selecionar competencia</option>
+          <option selected value="0">Selecionar competencia</option>
           <option value="1">Matematicas</option>
           <option value="2">Lengua</option>
           <option value="3">Inglés</option>
