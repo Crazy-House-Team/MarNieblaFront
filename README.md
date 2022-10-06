@@ -1,27 +1,45 @@
 
-# Proyecto Mar de Dudas
-
-![](https://github.com/Crazy-House-Team/MarNieblaFront/blob/MDN-9/public/Profesor.jpg)
-
-# Descripción del Proyecto Mar de Dudas
-
- El proyecto Mar de Dudas se ha realizado para satisfacer las necesidades de la Fundación por la Acción Social Mar de Niebla, la cual necesitaba una aplicación en la que los docentes pudieran ofrecer a sus alumnos cuestionarios de control de conocimientos, pero querían hacerlo de forma que los alumnos pudieran interactuar en cada pregunta. 
- El profesor envía una pregunta que los alumnos reciben en su pc para contestarla, acontinuación el profesor corrige y explica la respuesta correcta y los alumnos no podrán ver la siguiente pregunta hasta que el profesor envíe de nuevo la siguiente pregunta.
-
-## Características generales del proyecto:
-Existen dos tipos de usuarios: admin y user, los admin serán el docentes y los users serán los alumnos.
-Los docentes podrán: crear preguntas, crear usuarios, crear test aleatoreamente, ver todos los test generados, enviar las preguntas de cada test a los alumnos, ver las estadisticas finales de dicho test.
+#  Mar de Dudas Project
 
 
+![img2](public/Images/Login.jpg)
+
+*** 
+
+![img3](public/Images/Teacher.jpg)
+
+*** 
+
+![img4](public/Images/TestAleatorio.jpg)
+
+***
+
+![img5](public/Images/Question.jpg)
+
+***
+# Description of the project Mar de Dudas
+
+The Mar de Dudas project has been carried out to meet the needs of the Mar de Niebla Social Action Foundation, which needed an application in which teachers could offer their students knowledge control questionnaires, but they wanted to do it in a way that students could interact on each question.
+The teacher sends a question that the students receive on their pc to answer it, then the teacher corrects and explains the correct answer and the students will not be able to see the next question until the teacher sends the next question again.
+
+***
+## General characteristics of the project:
+
+There are two types of users: admin and user, the admins will be the teachers and the users will be the students.
+Teachers will be able to: create questions, create users, create random tests, see all the generated tests, send the questions of each test to the students, see the final statistics of said test.
+
+***
 ## Enlaces del proyecto:
 
 ### Front End: 
 https://github.com/Crazy-House-Team/MarNieblaFront
 
+
 ### Back End: 
 https://github.com/Crazy-House-Team/MarNieblaBack
 
 
+***
 ### Jira: 
 
 Board: https://quintomilenio.atlassian.net/jira/software/projects/MDN/boards/5
@@ -29,62 +47,77 @@ Board: https://quintomilenio.atlassian.net/jira/software/projects/MDN/boards/5
 Roadmap: https://quintomilenio.atlassian.net/jira/software/projects/MDN/boards/5/roadmap
 
 
+***
 ### Figma:
 https://www.figma.com/file/afgFT1XE7uLomjNMwEis0k/Mar-de-Niebla?node-id=1%3A4
 
 
+***
 ### Dailies: 
 https://docs.google.com/document/d/1KFy8GcioTqvkMKUMzWIs_8IQkCmEZF9OzD11M5AtNoo/edit?usp=sharing
 
 
+***
 ## Requisitos técnicos:
+
 - Vue3
 - PHP 8.1.6
 - Bootstrap 5.2.1
 - Composer 2.3.10
 - Laravel
 
-## Enlace, Clonación e instalación de nuestro repositorio:
 
-### Enlace Front End: 
+***
+## Link, Cloning and Installation of our repository:
+
+***
+### Front End Link: 
+
 https://github.com/Crazy-House-Team/MarNieblaFront
 
-### Clonar Front:
+***
+### Clone Front End:
+
 git clone https://github.com/Crazy-House-Team/MarNieblaFront.git
 
-- Ir al directorio del proyecto
+- Go to project directory
 - cd MarNieblaFront
 
-#### Instalación
+***
+#### Installation
+
 - Install dependencies
 - composer update
-- Importar el siguiente archivo en XAMPP
-- mardeniebla.sql
+- Import the following file into XAMPP:  mardeniebla.sql
 - Start the server
 - run Apache and MySQL server in XAMPP
 
-### Enlace Back End:
+***
+### Back End Link:
 https://github.com/Crazy-House-Team/MarNieblaBack
 
-### Clonar Back End:
+***
+### Clone Back End:
 git clone https://github.com/Crazy-House-Team/MarNieblaBack.git
 
-- Ir al directorio del proyecto
+- Go to project directory
 - cd MarNieblaBack
 
-#### Instalación
+***
+#### Installation
+
 - Install dependencies
 - composer update
 - npm install
 - run Apache and MySQL server in XAMPP
 - npm run dev
 - Start the server: php artisan serve
-- Importar el siguiente archivo en XAMPP
-mardeniebla.sql
+- Import the following file into XAMPP:  mardeniebla.sql
 - php artisan migrate: fresh --seed
 - run Apache and MySQL server in XAMPP
 
 
+***
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -117,13 +150,40 @@ npm run test:unit
 npm run lint
 ```
 
-## Metodologia de trabajo:
+***
+## Work methodology used:
 - TDD
 - Agile
 - Scrum
 - Pair programming
 
-## Contact The Crazy House Team
+***
+## Used Tools:
+
+- HTML
+- Css   
+- JavaScript
+- Vue 3
+- Laravel 
+- Bootstrap 5
+- Php 8
+- Figma 
+- Jira
+- Git Hub
+- Visual studio code 
+- MySQL Workbench
+- Draw
+
+***
+## Used Fonts 
+
+- Montserrat', Helvetica, Arial, sans-serif;
+
+***
+## Project Created by The Crazy House Team during the Factoría F5 Bootcamp 2022
+
+***
+## The Crazy House Team Contact
 
 - Fran: gimli22@gmail.com
 - Susana: asturias.susi.pro@gmail.com
@@ -132,4 +192,4 @@ npm run lint
 - Mario: marioastur@gmail.com
 - Dani: danimartinjuarez@gmail.com
 
-Fuentes: 'Montserrat', Helvetica, Arial, sans-serif;
+
