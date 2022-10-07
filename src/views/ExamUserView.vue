@@ -1,79 +1,224 @@
+<script>
+import { mapWritableState } from "pinia";
+import { testRandom } from "../store/testsRandom";
+import router from "../router";
+export default {
+  data: () => ({
+    questionsOrder: 0,
+    rightAnswer: "",
+    hits: 0,
+    correctAnswerA: false,
+    correctAnswerB: false,
+    correctAnswerC: false,
+    correctAnswerD: false,
+    results: [],
+  }),
 
-<script setup>
+  computed: {
+    ...mapWritableState(testRandom, ["questionsInTestRandom"]),
+  },
+  methods: {
+    sendAnswer() {
+      switch (this.rightAnswer) {
+        case "":
+          window.alert("No Has seleccionado ninguna respuesta. Intentalo");
+          break;
 
+        default:
+          this.isCorrectAnswer();
+          this.markCorrectAnswer();
+          setTimeout(this.nextQuestion, 2000);
+          console.log(this.results);
+          console.log(this.questionsOrder);
+      }
+    },
+    isCorrectAnswer() {
+      if (
+        this.rightAnswer ===
+        this.questionsInTestRandom[0].data[this.questionsOrder].right_answer
+      ) {
+        this.hits = this.hits + 1;
+        this.results.push(true);
+      }
+      this.results.push(false);
+    },
+    markCorrectAnswer() {
+      const markClass =
+        this.questionsInTestRandom[0].data[this.questionsOrder].right_answer;
+      switch (markClass) {
+        case "a":
+          this.correctAnswerA = true;
+          break;
+        case "b":
+          this.correctAnswerB = true;
+          break;
+        case "c":
+          this.correctAnswerC = true;
+          break;
+        case "d":
+          this.correctAnswerD = true;
+          break;
+      }
+    },
+    nextQuestion() {
+      if(this.questionsOrder === 2){
+        router.push("/homeuser");
+        console.log(this.results);
+      }
+      this.correctAnswerA = false;
+      this.correctAnswerB = false;
+      this.correctAnswerC = false;
+      this.correctAnswerD = false;
+      this.questionsOrder += 1;
+      document.getElementById('answerForm').reset();
+    },
+  },
+};
 </script>
-<template >
+<template>
   <div class="container">
+    <form id="answerForm">
+      <div>
+        <label
+          for="questionlabel"
+          class="pregunta form-label d-flex justify-content-center"
+          >PREGUNTA {{ questionsOrder + 1 }}</label
+        >
+        <textarea
+          type="question"
+          class="form-control"
+          id="questionlabel"
+          rows="3"
+          v-model="questionsInTestRandom[0].data[this.questionsOrder].question"
+        ></textarea>
+      </div>
+
+      <div class="respuestas mt-2">
+        <div class="row">
+          <div
+            class="col-6 col-xlm-3 mt-3 d-flex justify-content-start align-items-center"
+          >
+            <input
+              id="answer_a"
+              value="a"
+              name="rightAnswer"
+              type="radio"
+              class="btn-check"
+              v-model="rightAnswer"
+              autocomplete="off"
+            />
+            <label
+              for="answer_a"
+              class="form-label input mt-3 ms-4 form-control text-center btn"
+              :class="{ 'bg-success': correctAnswerA }"
+              >{{ questionsInTestRandom[0].data[this.questionsOrder].answer_a }}
+            </label>
+          </div>
+          <div
+            class="col-6 col-xlm-3 mt-3 d-flex justify-content-start align-items-center"
+          >
+            <input
+              id="answer_c"
+              value="c"
+              type="radio"
+              class="btn-check"
+              autocomplete="off"
+              v-model="rightAnswer"
+              name="rightAnswer"
+            />
+            <label
+              for="answer_c"
+              class="form-label input mt-3 ms-4 form-control text-center btn"
+              :class="{ 'bg-success': correctAnswerC }"
+              >{{ questionsInTestRandom[0].data[this.questionsOrder].answer_c }}
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div
+            class="col-6 col-xlm-3 mt-3 d-flex justify-content-start align-items-center"
+          >
+            <input
+              id="answer_b"
+              value="b"
+              type="radio"
+              v-model="rightAnswer"
+              class="btn-check"
+              autocomplete="off"
+              name="rightAnswer"
+            />
+            <label
+              for="answer_b"
+              class="form-label input mt-3 ms-4 form-control text-center btn"
+              :class="{ 'bg-success': correctAnswerB }"
+              >{{ questionsInTestRandom[0].data[this.questionsOrder].answer_b }}
+            </label>
+          </div>
+          <div
+            class="col-6 col-lm-3 mt-3 d-flex justify-content-start align-items-center"
+          >
+            <input
+              id="answer_d"
+              value="d"
+              type="radio"
+              v-model="rightAnswer"
+              name="rightAnswer"
+              class="btn-check"
+              autocomplete="off"
+            />
+            <label
+              for="answer_d"
+              :class="{ 'bg-success': correctAnswerD }"
+              class="form-label input mt-3 ms-4 form-control text-center btn"
+              >{{ questionsInTestRandom[0].data[this.questionsOrder].answer_d }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
     <div>
-      <label for="questionlabel" class="pregunta form-label d-flex justify-content-center ">TEST 1 - PREGUNTA 1</label>
-      <textarea type="question" class="form-control" id="questionlabel" rows="3"></textarea>
-    </div>
-   
-    <div class="respuestas mt-2">
-            <div class="row">
-                <div class="col-6 col-xlm-3 mt-3 d-flex justify-content-start align-items-center">
-                    <label for="answer_A" class="form-label" ></label>
-                    <input class="form-control mt-3 ms-4" id="answer_A" placeholder="A">
-                </div>
-                <div class="col-6 col-xlm-3 mt-3 d-flex justify-content-start align-items-center">
-                    <label for="answer_C" class="form-label"></label>
-                    <input class="form-control  mt-3 ms-4" id="answer_C" placeholder="C">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6 col-xlm-3 mt-3 d-flex justify-content-start align-items-center">
-                    <label for="answer_B" class="form-label"></label>
-                    <input class="form-control ms-4 mt-3" id="answer_B" placeholder="B" >
-                </div>
-                <div class="col-6 col-lm-3 mt-3 d-flex justify-content-start align-items-center">
-                    <label for="answer_D" class="form-label"></label>
-                    <input class="form-control ms-4 mt-3" id="answer_D" placeholder="D">
-                </div>
-            </div>
-    </div>
-    <div>
-      <button class="button--purple-outlined mt-5">ENVIAR RESPUESTA</button>
+      <button class="button--purple-outlined mt-5" @click="sendAnswer()">
+        ENVIAR RESPUESTA
+      </button>
     </div>
   </div>
 </template>
 
-<style scoped> 
-    
-   h2 {
-    font-size: 25px;
-   }
+<style scoped>
+h2 {
+  font-size: 25px;
+}
 
- .form-label {
-    font-size: 20px;
-    margin: 20px;
-  }
- .pregunta {
-    color: #F8981D;
-    font-size: 25px;
-    margin:0;
- }
+.form-label {
+  font-size: 20px;
+  margin: 20px;
+}
+.pregunta {
+  color: #f8981d;
+  font-size: 25px;
+  margin: 0;
+}
 
- textarea {
-   border: 6px solid #F8981D;
-   border-radius: 0px;
-   height: 150px;
-  }
- 
- .button--purple-outlined {
-   background-color: #ffffff;
-   border: 6px solid #675979;
-   border-radius: 20px;
-   margin-left: 15%;
-   height: 55px;
-   width: 800px;
- }
+textarea {
+  border: 6px solid #f8981d;
+  border-radius: 0px;
+  height: 150px;
+}
 
- input{
+.button--purple-outlined {
   background-color: #ffffff;
-  border:6px solid #92c954;
+  border: 6px solid #675979;
+  border-radius: 20px;
+  margin-left: 15%;
+  height: 55px;
+  width: 800px;
+}
+
+.input {
+  background-color: #ffffff;
+  border: 6px solid #92c954;
   border-radius: 30px;
   height: 80px;
   width: 450px;
- }
-    
+}
 </style>
