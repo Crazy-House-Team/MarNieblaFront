@@ -58,7 +58,7 @@ https://docs.google.com/document/d/1KFy8GcioTqvkMKUMzWIs_8IQkCmEZF9OzD11M5AtNoo/
 
 
 ***
-## Requisitos técnicos:
+## Technical Requirements:
 
 - Vue3
 - PHP 8.1.6
