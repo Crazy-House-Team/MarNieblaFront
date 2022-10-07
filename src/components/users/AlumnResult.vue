@@ -42,24 +42,20 @@
         <div class="totalResult">
             <h1>RESULTADOS:</h1>
             <input type="checkbox" name="" id="">
-            <label for=""></label>
+            <label for="">10</label>
             <input type="checkbox" name="" id="">
-            <label for=""></label>
-            <input type="checkbox" name="" id="">
-            <label for=""></label>
-            <input type="checkbox" name="" id="">
-            <label for=""></label>
+            <label for="">15</label>
         </div>
         <div class="testDay">
             <h3>TITULO DEL TEST</h3>
-            <h3>REApZADO EL: </h3>
+            <h3>REALIZADO EL: </h3>
             <h3>Check Verde</h3>
             <input type="checkbox" name="" id="">
             <h3>Check Rojo</h3>
             <input type="checkbox" name="" id="">
         </div>
     </div>
-    <button type="submit" class="button--purple-outpned">TERMINAR PRUEBA</button>
+    <button type="submit" class="button--purple-outlined">TERMINAR PRUEBA</button>
     </template>
 
 
@@ -70,10 +66,10 @@
     height: 740px;
     width: 1100px;
     position:absolute;
-    border:#F8981D sopd 10px;
+    border:#F8981D solid 10px;
  
 }
-.result{
+.result{gi
     display: flex;
     flex-direction: column;
     top: 100px;
@@ -84,12 +80,29 @@
     height: 312px;
     width: 363px;
     background-color: #d9d9d9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display:flex;
+    flex-direction: column;
     position: absolute;
     right: 100px;
     top:100px;
+    
+    
+}
+.totalResult h1{
+    top:20px;
+    left:80px;
+}
+.totalResult input{
+    height: 70px;
+    width: 70px;
+    top:30px;
+    left: 90px;
+}
+.totalResult label{
+    font-size: 50px;
+    text-align: center;
+    left:90px;
+    bottom:40px;
 }
 .testDay{
     height: 115px;
@@ -103,10 +116,14 @@
     justify-content: flex-end;
     right: 100px;
     top:550px;
-    border: 10px sopd #92C954;
+    border: 5px solid #92C954;
     border-radius: 20px;
 }
-.button--purple-outpned{
+.testDay input{
+    height: 21px;
+    width:40px;
+}
+.button--purple-outlined{
     position:absolute;
     right:300px;
     bottom:20px;
