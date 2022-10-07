@@ -2,7 +2,7 @@
 
   defineProps({
     id: Number,
-    route: String
+    
   });
 
 </script>
@@ -10,7 +10,7 @@
 <template>
 
   <div>
-    <RouterLink :to="{ name: route, params:{ id:id }}">
+    <RouterLink :to="{ name: 'edituser', params:{ id:id }}">
       <button
         type="button"
         class="btn button--orange-outlined-edit m-1 text-center"

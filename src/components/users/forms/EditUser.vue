@@ -26,7 +26,7 @@ const handleSubmit = (e) => {
   <form class="container" @submit="handleSubmit">
     <div class="m-3 d-flex justify-content-start align-items-center">
       <label for="name" class="form-label"></label>
-      <input class="form-control ms-4" id="name" v-model="form.name" />
+      <input class="form-control ms-4" id="name" placeholder="Nombre y Apellidos" v-model="form.name" />
     </div>
 
     <div class="m-3 d-flex justify-content-start align-items-center">
