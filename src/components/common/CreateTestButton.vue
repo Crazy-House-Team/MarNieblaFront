@@ -1,6 +1,6 @@
 <template>
   <div>
-    <RouterLink :to="{ name: 'testlist' }">
+    <RouterLink :to="{ name: 'newtest' }">
       <button class="button-createtest">
         <h2>Crear Test</h2>
       </button>

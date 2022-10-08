@@ -19,9 +19,11 @@
 <style scope>
   h1 {
     text-align: center;
+    margin-top: 1%;
   }
 
   ul {
     width: 100%;
+    margin-top: 1%;
   }
 </style>
