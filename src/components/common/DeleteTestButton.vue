@@ -1,5 +1,19 @@
 <script setup>
+  import router from '../../router';
+  import { deleteAction, getAction } from '../../services/apiRequests';
 
+defineProps({
+      id: Number,
+    });
+    async function confirmDelete(id){
+        let msg = confirm("¿ Desea borrar este test?");
+        console.log(msg);
+        if(msg){
+            await deleteAction('deletetest', id);
+            location.reload();
+        }
+    }
+    
 </script>
 <template>
   <div>
@@ -7,8 +21,8 @@
       <RouterLink :to="{ name: 'testlist', params: { role: 1 } }">
         <button
           type="button"
-          class="btn button--red-outlined-delete m-1 text-center">
-          <h3>Eliminar</h3>
+          class="btn button--red-outlined-delete m-1 text-center" @click="confirmDelete(id)">
+          <h3>Eliminar{{id}}</h3>
         </button>
       </RouterLink>
     </div>
