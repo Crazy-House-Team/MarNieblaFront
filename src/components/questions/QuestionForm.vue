@@ -1,7 +1,6 @@
 <script setup>
   
-  import router from '@/router';
-  import BackButton from "../common/BackButton.vue";
+  import routes from '@/router';
   import SaveQuestionButton from "../common/SaveQuestionButton.vue";
   import { getAction, postAction, putAction } from "../../services/apiRequests";
   import { onMounted, ref } from "vue";
@@ -44,7 +43,7 @@
       }else{
         postAction("storeQuestion", data.value);
       }
-    router.push({ path: '/admin/questions' });
+    router.push('/admin/questions');
   };
 
 </script>
@@ -110,7 +109,7 @@
     <div class="form-group">
       <div class="m-3 d-flex justify-content-center align-items-center">
         <SaveQuestionButton />
-        <BackButton />
+        <button type="button" class="button-back" @click="routes.push({path:'/admin/questions'})" >Volver</button>
       </div>
     </div>
   </form>

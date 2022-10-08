@@ -59,3 +59,17 @@
   height: 70px;
   width: 350px;
 }
+
+.button-back:hover{
+  background-color: white;
+  color:#f8981d;
+}
+
+.button-back{
+  background-color: #f8981d;
+  border-radius: 20px;
+  width: 14vw;
+  height: 6vh;
+  border: none;
+  color: white;
+}

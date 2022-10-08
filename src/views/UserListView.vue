@@ -1,4 +1,5 @@
 <script setup>
+import routes from '@/router';
 import { onMounted, ref } from "vue";
 import StudentRow from "../components/users/StudentRow.vue";
 import { getAction } from "../services/apiRequests";
@@ -23,7 +24,7 @@ onMounted(async () => {
       <CreateUserButton />
       <h1 v-if="role === '0'">Lista de estudiantes</h1>
       <h1 v-else>Lista de profesores</h1>
-      <BackButton />
+      <button type="button" class="button-back" @click="routes.push({path:'/admin'})" >Volver</button>
     </div>
     <ul class="list-group" v-if="numOfUsersInList > 0">
       <StudentRow

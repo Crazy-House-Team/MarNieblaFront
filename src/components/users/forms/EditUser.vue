@@ -1,5 +1,5 @@
 <script setup>
-import router from "@/router";
+import routes from "@/router";
 import { ref } from "vue";
 import { putAction } from "@/services/apiRequests";
 
@@ -18,8 +18,7 @@ const form = ref({
 const handleSubmit = (e) => {
   e.preventDefault();
   putAction("updateUser", form.value.id, form.value);
-
-  router.go(-1);
+  routes.push({path:'/admin/userlist/0'})
 };
 </script>
 <template>
@@ -61,13 +60,7 @@ const handleSubmit = (e) => {
       />
     </div>
     <div>
-      <button
-        type="button"
-        class="button--purple text-white"
-        @click="$router.go(-1)"
-      >
-        Cancelar
-      </button>
+      <button type="button" class="button--purple text-white" @click="routes.push({path:'/admin/userlist/0'})">Cancelar</button>
       <button type="submit" class="btnedit button--green text-white">
         Guardar
       </button>
