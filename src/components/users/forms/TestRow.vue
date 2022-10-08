@@ -1,0 +1,20 @@
+<script setup>  
+  import DeleteTestButton from "../../common/DeleteTestButton.vue";
+  import SendTestButton from "../../common/SendTestButton.vue";
+</script>
+
+<template>
+  <li class="list-group-item d-flex justify-content-between align-items-center  ">TEST 1
+    <span class="badge d-flex">
+      <SendTestButton/>
+      <DeleteTestButton/>
+    </span>
+  </li>
+</template>
+
+<style scoped>
+li {
+  width: 100%;
+  border: 0.2rem solid #92c954;
+}
+</style>
