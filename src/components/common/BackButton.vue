@@ -1,6 +1,6 @@
 <script setup>
 // For use de button:
-// <BackButton toRoute = "Here the route" />
+// <BackButton toRoute = "/Here/the/route" />
 
 defineProps({
   toRoute: String,

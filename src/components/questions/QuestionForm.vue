@@ -1,6 +1,6 @@
 <script setup>
   
-  import routes from '@/router';
+  import router from '@/router';
   import SaveQuestionButton from "../common/SaveQuestionButton.vue";
   import { getAction, postAction, putAction } from "../../services/apiRequests";
   import { onMounted, ref } from "vue";
@@ -37,14 +37,14 @@ import BackButton from '../common/BackButton.vue';
     }
   });
 
-  const saveData = (event) => {
+  async function saveData(event){
     event.preventDefault();
       if(props.id > 0 ){
-        putAction("updateQuestion", props.id, data.value)
+        await putAction("updateQuestion", props.id, data.value)
       }else{
-        postAction("storeQuestion", data.value);
+        await postAction("storeQuestion", data.value);
       }
-    router.push('/admin/questions');
+      router.push('/admin/questions');    
   };
 
 </script>
@@ -110,7 +110,7 @@ import BackButton from '../common/BackButton.vue';
     <div class="form-group">
       <div class="m-3 d-flex justify-content-center align-items-center">
         <SaveQuestionButton />
-        <BackButton toRoute="/admin/questions" />
+        <BackButton toRoute="/admin/questions" class="ps-4"/>
       </div>
     </div>
   </form>

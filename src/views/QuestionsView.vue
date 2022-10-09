@@ -1,5 +1,5 @@
 <script setup>
-import routes from '@/router';
+
 import { onMounted, onUpdated, ref } from "vue";
 import { getAction } from "../services/apiRequests";
 import SelectCompetencies from "../components/common/selectCompetencies.vue";

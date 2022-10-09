@@ -1,5 +1,5 @@
 <script setup>
-import routes from "@/router";
+import router from "@/router";
 import { ref } from "vue";
 import { putAction } from "@/services/apiRequests";
 import BackButton from "../../common/BackButton.vue";
@@ -19,7 +19,7 @@ const form = ref({
 const handleSubmit = (e) => {
   e.preventDefault();
   putAction("updateUser", form.value.id, form.value);
-  routes.push({path:'/admin/userlist/0'})
+  router.push({path:'/admin/userlist/0'})
 };
 </script>
 <template>

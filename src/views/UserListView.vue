@@ -1,5 +1,5 @@
 <script setup>
-import routes from '@/router';
+
 import { onMounted, ref } from "vue";
 import StudentRow from "../components/users/StudentRow.vue";
 import { getAction } from "../services/apiRequests";
