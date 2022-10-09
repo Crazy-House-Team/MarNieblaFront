@@ -26,7 +26,7 @@ onMounted(async () => {
     <div class="justify-content-around d-flex w-100 m-4">
       <NewQuestion />
       <SelectCompetencies />
-      <button type="button" class="button-back" @click="routes.push({path:'/admin'})" >Volver</button>
+      <BackButton toRoute="/admin" />
     </div>
 
     <ul class="list-group" v-if="numOfQuestionsInList > 0">

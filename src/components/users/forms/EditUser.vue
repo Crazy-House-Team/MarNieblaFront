@@ -2,6 +2,7 @@
 import routes from "@/router";
 import { ref } from "vue";
 import { putAction } from "@/services/apiRequests";
+import BackButton from "../../common/BackButton.vue";
 
 const props = defineProps({
   id: String,
@@ -60,7 +61,8 @@ const handleSubmit = (e) => {
       />
     </div>
     <div>
-      <button type="button" class="button--purple text-white" @click="routes.push({path:'/admin/userlist/0'})">Cancelar</button>
+      <BackButton toRoute="/admin/userlist/0" />
+      
       <button type="submit" class="btnedit button--green text-white">
         Guardar
       </button>

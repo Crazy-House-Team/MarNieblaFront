@@ -1,39 +1,23 @@
-<script>
+<script setup>
+// For use de button:
+// <BackButton toRoute = "Here the route" />
 
-export default {
-    methods: {
-      back() {
-        this.$router.go(-1);
-      },
-    },
-  };
+defineProps({
+  toRoute: String,
+});
 
 </script>
 
 <template>
 
-<div>
-  <button @click="back" class="button-back">
-    <h2>Volver</h2>
-  </button>
- </div>
+  <RouterLink :to="{ path: toRoute}">
+    <button type="button"
+          class="button-back">
+          <h3>Volver</h3>
+        </button>
+  </RouterLink>
 
 </template>
 
 <style scoped>
-
-  .button-back:hover{
-    background-color: white;
-    color:#f8981d;
-  }
-
-  .button-back{
-    background-color: #f8981d;
-    border-radius: 20px;
-    width: 14vw;
-    height: 6vh;
-    border: none;
-    color: white;
-  }
-
 </style>

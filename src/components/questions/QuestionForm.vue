@@ -4,11 +4,12 @@
   import SaveQuestionButton from "../common/SaveQuestionButton.vue";
   import { getAction, postAction, putAction } from "../../services/apiRequests";
   import { onMounted, ref } from "vue";
+import BackButton from '../common/BackButton.vue';
      
   const props = defineProps({
     id: String,
   })
-  
+
   let questionData = [];
 
   const data = ref({
@@ -109,7 +110,7 @@
     <div class="form-group">
       <div class="m-3 d-flex justify-content-center align-items-center">
         <SaveQuestionButton />
-        <button type="button" class="button-back" @click="routes.push({path:'/admin/questions'})" >Volver</button>
+        <BackButton toRoute="/admin/questions" />
       </div>
     </div>
   </form>

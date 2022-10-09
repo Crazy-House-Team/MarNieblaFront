@@ -24,7 +24,7 @@ onMounted(async () => {
       <CreateUserButton />
       <h1 v-if="role === '0'">Lista de estudiantes</h1>
       <h1 v-else>Lista de profesores</h1>
-      <button type="button" class="button-back" @click="routes.push({path:'/admin'})" >Volver</button>
+      <BackButton toRoute="/admin" />
     </div>
     <ul class="list-group" v-if="numOfUsersInList > 0">
       <StudentRow
