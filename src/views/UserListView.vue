@@ -31,7 +31,9 @@ onMounted(async () => {
         v-for="(user, index) in userList.data"
         :key="index"
         :id="user.id"
+        :name="user.name"
         :username="user.name"
+        :group="user.group"
         :userRole="user.isAdmin"
         :role="Number(role)"
       />
