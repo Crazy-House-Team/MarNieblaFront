@@ -5,54 +5,56 @@
 <template>
     <div class="testResult">
         <div class="result">
-            <p>Pregunta 1 : 
-                 <input type="checkbox" name="" id="">
-            </p>
-            <p>Pregunta 2 :
-                <input type="checkbox" name="" id="">
-            </p>
-            <p>Pregunta 3 :
-                <input type="checkbox" name="" id="">
-            </p>
-            <p>Pregunta 4 :
-                <input type="checkbox" name="" id="">
-            </p>
-            <p>Pregunta 5 :
-                <input type="checkbox" name="" id="">
-            </p>
-            <p>Pregunta 6 :
-                <input type="checkbox" name="" id="">
-            </p>
-            <p>Pregunta 7 :
-                <input type="checkbox" name="" id="">
-            </p>
-            <p>Pregunta 8 :
-                <input type="checkbox" name="" id="">
-            </p>
-            <p>Pregunta 9 :
-                <input type="checkbox" name="" id="">
-            </p>
-            <p>Pregunta 10 :
-                <input type="checkbox" name="" id="">
-            </p>
+            <div class="NumberQuestionLeft">Pregunta 1 : True/False</div>
+            <div class="NumberQuestionLeft">Pregunta 2 : True/False</div>
+            <div class="NumberQuestionLeft">Pregunta 3 : True/False</div>
+            <div class="NumberQuestionLeft">Pregunta 4 : True/False</div>
+            <div class="NumberQuestionLeft">Pregunta 5 : True/False</div>
+            <div class="NumberQuestionLeft">Pregunta 6 : True/False</div>
+            <div class="NumberQuestionLeft">Pregunta 7 : True/False</div>
+            <div class="NumberQuestionLeft">Pregunta 8 : True/False</div>
+            <div class="NumberQuestionLeft">Pregunta 9 : True/False</div>
+            <div class="NumberQuestionLeft">Pregunta 10 : True/False</div>
+            <div class="NumberQuestionRight">Pregunta 11 : True/False</div>
+            <div class="NumberQuestionRight">Pregunta 12 : True/False</div>
+            <div class="NumberQuestionRight">Pregunta 13 : True/False</div>
+            <div class="NumberQuestionRight">Pregunta 14 : True/False</div>
+            <div class="NumberQuestionRight">Pregunta 15 : True/False</div>
+            <div class="NumberQuestionRight">Pregunta 16 : True/False</div>
+            <div class="NumberQuestionRight">Pregunta 17 : True/False</div>
+            <div class="NumberQuestionRight">Pregunta 18 : True/False</div>
+            <div class="NumberQuestionRight">Pregunta 19 : True/False</div>
+            <div class="NumberQuestionRight">Pregunta 20 : True/False</div>
+
+
             
         </div>
    
 
         <div class="totalResult">
             <h1>RESULTADOS:</h1>
-            <input type="checkbox" name="" id="">
-            <label for="">10</label>
-            <input type="checkbox" name="" id="">
-            <label for="">15</label>
+            
+            <div class="resultTrue"></div>
+            <div class="resultNumberTrue"></div>
+            <div class="resultFalse"></div>
+            <div class="resultNumberFalse"></div>
         </div>
         <div class="testDay">
             <h3>TITULO DEL TEST</h3>
             <h3>REALIZADO EL: </h3>
-            <h3>Check Verde</h3>
-            <input type="checkbox" name="" id="">
-            <h3>Check Rojo</h3>
-            <input type="checkbox" name="" id="">
+            <div class="resultDay">
+                <div class="checkTrue">
+                    <h3>18</h3>
+                    <h3>true</h3>
+                </div>   
+                
+                <div class="checkFalse">
+                    <h3>2</h3>
+                    <h3>false</h3>
+                </div>
+            </div>
+               
+            
         </div>
     </div>
     <button type="submit" class="button--purple-outlined">TERMINAR PRUEBA</button>
@@ -84,26 +86,32 @@
     flex-direction: column;
     position: absolute;
     right: 100px;
-    top:100px;
-    
-    
+    top:100px;    
 }
 .totalResult h1{
     top:20px;
     left:80px;
 }
-.totalResult input{
-    height: 70px;
-    width: 70px;
-    top:30px;
-    left: 90px;
+.resultTrue , .resultFalse , .resultNumberTrue , .resultNumberFalse{
+    height: 60px;
+    width: 80px;
+    background-color: #fff;   
 }
-.totalResult label{
-    font-size: 50px;
-    text-align: center;
-    left:90px;
-    bottom:40px;
+.resultTrue{
+    left:50px;
+    top:60px;
 }
+.resultNumberTrue{
+    left:190px;
+}
+.resultFalse{
+    left:50px;
+    top:60px;
+}
+.resultNumberFalse{
+    left:190px;
+}
+
 .testDay{
     height: 115px;
     width: 340px;
@@ -112,16 +120,33 @@
     display: flex;
     flex-direction:column ;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-end;
-    right: 100px;
+    align-items: flex-start;
+    justify-content: center;
+    right: 110px;
     top:550px;
     border: 5px solid #92C954;
     border-radius: 20px;
 }
-.testDay input{
+h3{
+    left:30px;
+}
+.resultDay{
     height: 21px;
     width:40px;
+}
+.checkTrue , .checkFalse{
+    display: fleX;
+    flex-direction: row;
+}
+.checkTrue{
+    gap:10px;
+
+}
+.checkFalse{
+    left:100px;
+    gap:10px;
+    bottom:27px;
+    position: relative;
 }
 .button--purple-outlined{
     position:absolute;
