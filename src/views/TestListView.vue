@@ -23,7 +23,7 @@ onMounted(async () => {
    <h1>Gestión de Test</h1> 
     <div class="justify-content-between d-flex w-100 m-4">
       <CreateTestButton/>
-      <BackButton />
+      <BackButton :toRoute="'/admin'" />
     </div>
     <ul class="list-group-item d-flex justify-content-between align-items-center">
       <TestRow />
