@@ -1,5 +1,9 @@
 <script setup>
 
+defineProps({
+    id: Number,
+  });
+
 </script>
 <template>
   <div>
@@ -8,7 +12,7 @@
         <button
           type="button"
           class="btn button--red-outlined-sendtest m-1 text-center">
-          <h3>Lanzar test</h3>
+          <h3>Lanzar test {{ id }}</h3>
         </button>
       </RouterLink>
     </div>

@@ -1,5 +1,4 @@
 <script setup>
-  import router from '../../router';
   import { deleteAction, getAction } from '../../services/apiRequests';
 
 defineProps({
@@ -9,7 +8,7 @@ defineProps({
         let msg = confirm("¿ Desea borrar este test?");
         console.log(msg);
         if(msg){
-            await deleteAction('deletetest', id);
+            await deleteAction('deleteExam', id);
             location.reload();
         }
     }
@@ -22,7 +21,7 @@ defineProps({
         <button
           type="button"
           class="btn button--red-outlined-delete m-1 text-center" @click="confirmDelete(id)">
-          <h3>Eliminar{{id}}</h3>
+          <h3>Eliminar</h3>
         </button>
       </RouterLink>
     </div>

@@ -1,15 +1,26 @@
 <script setup>  
   import DeleteTestButton from "../../common/DeleteTestButton.vue";
   import SendTestButton from "../../common/SendTestButton.vue";
+
+  defineProps({
+    id: Number,
+    name: String,
+  });
+
 </script>
 
 <template>
-  <li class="list-group-item d-flex justify-content-between align-items-center  ">TEST 1
+
+  <li class="list-group-item d-flex justify-content-between align-items-center  ">
+  
+    {{ name}}
+  
     <span class="badge d-flex">
-      <SendTestButton/>
-      <DeleteTestButton/>
+      <SendTestButton :id=id />
+      <DeleteTestButton :id=id />
     </span>
   </li>
+
 </template>
 
 <style scoped>

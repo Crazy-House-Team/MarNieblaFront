@@ -1,22 +1,41 @@
 <script setup >
-import BackButton from '../common/BackButton.vue';
+    import router from '@/router';
+    import { ref } from 'vue';
+    import { postAction, putAction } from "../../services/apiRequests";
+    import BackButton from '../common/BackButton.vue';
+
+
+    const data = ref({
+        id:Number,
+        name:"",
+        status:1,
+    });
+
+    async function saveData(event){
+        event.preventDefault();
+        await postAction("storeExam", data.value);
+        router.push('/admin/testlist');    
+    };
 
 </script>
 <template>
 
     <h1>NUEVO TEST</h1>
-    <div class="m-3 d-flex justify-content-start align-items-center">
-        <label for="newtest" class="form-label"></label>
-        <input class="form-control ms-4" id="newtest" placeholder="NOMBRE DEL TEST : TEST 1">
-    </div>
-    <div class="button-test">
-        <button type="submit" class="button--green-outlined ">GENERAR TEST</button>
-        <BackButton toRoute="/admin/testlist" />
-    </div>
+    <form class="container" @submit="saveData">
+        <div class="m-3 d-flex justify-content-start align-items-center">
+            <label for="exanName" class="form-label"></label>
+            <input v-model="data.name" class="form-control ms-4" id="exanName" placeholder="NOMBRE DEL TEST : TEST 1" required >
+        </div>
+        <div class="button-test">
+            <button type="submit" class="button--green-outlined ">GENERAR TEST</button>
+            <BackButton toRoute="/admin/testlist" />
+        </div>
+    </form>
    
 </template>
 
 <style scoped>
+    
     h1{
         color:black ;
         text-align: center;
