@@ -8,7 +8,7 @@
         <button
           type="button"
           class="btn button--red-outlined-sendtest m-1 text-center">
-          <h3>Enviar pregunta</h3>
+          <h3>Lanzar test</h3>
         </button>
       </RouterLink>
     </div>
