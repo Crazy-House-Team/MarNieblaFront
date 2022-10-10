@@ -1,5 +1,6 @@
 import axios from "axios";
 let baseUrl = "http://localhost:8000/api/v1/";
+let rootApiUrl = "http://localhost:8000/api/";
 
 async function getAction(url, id = null) {
   let completeUrl = baseUrl + url;
@@ -51,6 +52,22 @@ async function putAction(url, id, data) {
   return result;
 }
 
+async function loginAction(data) {
+  const options = {
+    method: "POST",
+    url: rootApiUrl + "login",
+    data: data,
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+  };
+  const result = await apiRequest(options);
+
+  return result;
+}
+
 async function apiRequest(options) {
   try {
     const response = await axios.request(options);
@@ -60,4 +77,4 @@ async function apiRequest(options) {
   }
 }
 
-export { getAction, putAction, postAction, deleteAction };
+export { getAction, putAction, postAction, deleteAction, loginAction };

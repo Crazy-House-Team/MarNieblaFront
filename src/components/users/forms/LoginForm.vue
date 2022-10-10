@@ -1,19 +1,44 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import { loginAction } from "@/services/apiRequests";
+import { useTokenStore } from "@/store/tokenStore";
+import router from "../../../router";
+
+const token = useTokenStore();
+
+const userData = ref({
+  email: "",
+  password: "",
+});
+
+const doLogin = async () => {
+  const response = await loginAction(userData.value);
+  console.log(response);
+  token.value = response.data.access_token.plainTextToken;
+  const role = response.data.user.isAdmin;
+  console.log(token.value);
+
+  role === 0
+    ? router.push({ name: "homeuser" })
+    : router.push({ name: "admin" });
+};
+</script>
 
 <template>
   <form
+    @submit.prevent="doLogin"
     class="border-top border-bottom p-5 d-flex flex-column align-items-center"
   >
     <div class="mb-5 w-100">
       <div class="mb-3">
-        <label for="inputEmail" class="form-label">Email</label>
+        <label for="inputUsername" class="form-label">Username</label>
         <input
-          type="email"
+          type="text"
           class="form-control"
-          id="inputEmail"
-          aria-describedby="emailHelp"
-          placeholder="correo@ejemplo.com"
+          id="inputUsername"
+          aria-describedby="usernameHelp"
           required
+          v-model="userData.email"
         />
       </div>
       <div class="mb-3">
@@ -23,6 +48,7 @@
           class="form-control"
           id="inputPassword"
           required
+          v-model="userData.password"
         />
       </div>
     </div>
