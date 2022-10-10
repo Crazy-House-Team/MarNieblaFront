@@ -69,7 +69,7 @@
     border:#F8981D solid 10px;
  
 }
-.result{gi
+.result{
     display: flex;
     flex-direction: column;
     top: 100px;
@@ -125,9 +125,9 @@
 }
 .button--purple-outlined{
     position:absolute;
-    right:300px;
+    right:350px;
     bottom:20px;
-    width:600px;
+    width:600px
     
 }
 
