@@ -59,7 +59,7 @@ async function loginAction(data) {
     data: data,
     headers: {
       "Accept": "application/json",
-      "Content-Type": "application/json",
+      "Content-Type": "application/json, multipart/form-data",
       "Access-Control-Allow-Origin": "*",
     },
   };
@@ -67,6 +67,22 @@ async function loginAction(data) {
 
   return result;
 }
+
+async function registerAction(data) {
+  const options = {
+    method: "POST",
+    url: rootApiUrl + "register",
+    data: data,
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+    },
+  };
+  const result = await apiRequest(options);
+
+  return result;
+}
+
 
 async function apiRequest(options) {
   try {
@@ -77,4 +93,4 @@ async function apiRequest(options) {
   }
 }
 
-export { getAction, putAction, postAction, deleteAction, loginAction };
+export { getAction, putAction, postAction, deleteAction, loginAction, registerAction };

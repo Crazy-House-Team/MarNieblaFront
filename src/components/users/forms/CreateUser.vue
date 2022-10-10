@@ -1,32 +1,32 @@
 <script setup>
+import router from "@/router";
+import { ref } from "vue";
+import { registerAction } from "@/services/apiRequests";
+import BackButton from "../../common/BackButton.vue";
 
-  import router from "@/router";
-  import { ref } from "vue";
-  import { postAction } from "@/services/apiRequests";
-  import BackButton from "../../common/BackButton.vue";
+const form = ref({
+  name: "",
+  username: "",
+  password: "",
+  group: "",
+  isAdmin: false,
+});
 
-  const form = ref({
-    name: "",
-    username: "",
-    password: "",
-    group: "",
-    isAdmin: false,
-  });
-
-  async function saveData(event){
+async function saveData(event) {
   event.preventDefault();
-  await postAction("storeUser", form.value);
-  router.push('/admin/userlist/0');
-  };
-
+  if (form.value.group == "") form.value.group = "General";
+  await registerAction(form.value);
+  console.log(form.value);
+  router.push("/admin/userlist/0");
+}
 </script>
 
 <template>
-
-<form class="container" @submit="saveData">
+  <form class="container" @submit="saveData">
     <div class="m-3 d-flex justify-content-start align-items-center">
       <label for="name" class="form-label"></label>
-      <input class="form-control ms-4"
+      <input
+        class="form-control ms-4"
         id="name"
         placeholder="Nombre y apellidos"
         v-model="form.name"
@@ -81,30 +81,27 @@
       <button type="submit" class="button--green text-white">Guardar</button>
     </div>
   </form>
-
 </template>
 
 <style scoped>
+input,
+textarea {
+  border: solid 2px #3ad86f;
+  border-radius: 30px;
+}
+.form-control {
+  margin: 4px;
+  width: 900px;
+  height: 65px;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  border: solid 5px #3ad86f;
+  text-align: left;
+}
 
-  input,
-  textarea {
-    border: solid 2px #3ad86f;
-    border-radius: 30px;
-  }
-  .form-control {
-    margin: 4px;
-    width: 900px;
-    height: 65px;
-    font-size: 24px;
-    font-weight: bold;
-    color: black;
-    border: solid 5px #3ad86f;
-    text-align: left;
-  }
-
-  #flexCheckDefault {
-    left: 30px;
-    bottom: 3px;
-  }
-  
+#flexCheckDefault {
+  left: 30px;
+  bottom: 3px;
+}
 </style>
