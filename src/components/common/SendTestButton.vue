@@ -4,7 +4,7 @@
 <template>
   <div>
     <div>
-      <RouterLink :to="{ name: 'testlist', params: { role: 1 } }">
+      <RouterLink :to="{ name: 'examadmin', params: { role: 1 } }">
         <button
           type="button"
           class="btn button--red-outlined-sendtest m-1 text-center">
