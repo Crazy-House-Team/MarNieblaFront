@@ -1,4 +1,5 @@
 <script setup >
+import BackButton from '../common/BackButton.vue';
 
 </script>
 <template>
@@ -10,7 +11,7 @@
     </div>
     <div class="button-test">
         <button type="submit" class="button--green-outlined ">GENERAR TEST</button>
-        <button type="submit" class="button--orange-outlined ">VOLVER</button>  
+        <BackButton toRoute="/admin/testlist" />
     </div>
    
 </template>

@@ -46,16 +46,16 @@ export default {
       const markClass =
         this.questionsInTestRandom[0].data[this.questionsOrder].right_answer;
       switch (markClass) {
-        case "a":
+        case "A":
           this.correctAnswerA = true;
           break;
-        case "b":
+        case "B":
           this.correctAnswerB = true;
           break;
-        case "c":
+        case "C":
           this.correctAnswerC = true;
           break;
-        case "d":
+        case "D":
           this.correctAnswerD = true;
           break;
       }
