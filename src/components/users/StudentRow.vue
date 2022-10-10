@@ -6,6 +6,7 @@ import DeleteButton from "../common/DeleteButton.vue";
 defineProps({
   id: Number,
   username: String,
+  group: String,
   userRole: Number,
   role: Number,
   
@@ -17,7 +18,7 @@ defineProps({
     class="list-group-item d-flex justify-content-between align-items-center"
     v-if="userRole === role"
   >
-    {{ username }}
+    {{ username }} - Grupo : {{ group }}
     <span class="badge d-flex">
       <EditButton :id="id" />
       <DeleteButton :id="id" />
