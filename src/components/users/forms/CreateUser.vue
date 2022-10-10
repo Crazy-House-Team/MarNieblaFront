@@ -6,8 +6,9 @@ import BackButton from "../../common/BackButton.vue";
 
 const form = ref({
   name: "",
-  email: "",
+  username: "",
   password: "",
+  group: "",
   isAdmin: false,
 });
 
@@ -30,12 +31,12 @@ const handleSubmit = (e) => {
     </div>
 
     <div class="m-3 d-flex justify-content-start align-items-center">
-      <label for="email" class="form-label"></label>
+      <label for="username" class="form-label"></label>
       <input
         class="form-control ms-4"
-        id="email"
-        placeholder="Email"
-        v-model="form.email"
+        id="username"
+        placeholder="Nombre de usuario"
+        v-model="form.username"
       />
     </div>
     <div class="m-3 d-flex justify-content-start align-items-center">
@@ -47,6 +48,17 @@ const handleSubmit = (e) => {
         v-model="form.password"
       />
     </div>
+
+    <div class="m-3 d-flex justify-content-start align-items-center">
+      <label for="group" class="form-label"></label>
+      <input
+        class="form-control ms-4"
+        id="group"
+        placeholder="Grupo o Profesor"
+        v-model="form.group"
+      />
+    </div>
+
     <div
       class="form-check m-3 p-0 d-flex justify-content-start align-items-center"
     >
@@ -75,7 +87,7 @@ textarea {
   border-radius: 30px;
 }
 .form-control {
-  margin: 30px;
+  margin: 4px;
   width: 900px;
   height: 65px;
   font-size: 24px;
