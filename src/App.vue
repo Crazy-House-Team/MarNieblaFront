@@ -27,7 +27,7 @@ import { RouterLink, RouterView } from "vue-router";
 
 <style scoped>
 .header {
-  width: 100vw;
+  width: 100%;
   height: 8.8rem;
   background-color: black;
   display: flex;
@@ -44,7 +44,8 @@ import { RouterLink, RouterView } from "vue-router";
 }
 .main {
   padding: 2rem;
-  width: 1280px;
+  width: 100%;
+  max-width: 1280px;
   height: 100%;
   background-color: var(--color-background);
   display: flex;
@@ -56,7 +57,7 @@ h1 {
   color:white;
   display:flex;
   align-items: center;
-  justify-content: espace-around;
+  justify-content: space-around;
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   font-size: 4rem;
 }
@@ -69,5 +70,44 @@ display: flex;
 align-items: center;
 font-size:2rem;
 margin-right: 2rem;
+}
+@media(max-width:1000px){
+  .nav{
+    width: 100%;
+  }
+  h1{
+    font-size:3rem;
+  }
+  img{
+    width:70%;
+  }
+  .logout{
+    width:20%;
+  }
+}    
+@media(max-width:550px){
+  .nav{
+    width: 100%;
+  }
+  h1{
+    font-size: 2.5rem;
+    right:5rem;
+  }
+  img{
+    width:60%;
+  }
+}
+@media(max-width:470px){
+  .nav{
+    width:100%;
+  }
+  img{
+    width:40%;
+    
+  }
+  h1{
+    font-size: 2rem;
+    right:7rem;
+  }
 }
 </style>
