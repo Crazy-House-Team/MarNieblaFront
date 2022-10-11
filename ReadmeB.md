@@ -6,16 +6,16 @@ The Mar de Dudas project has been carried out to meet the needs of the Mar de Ni
 The teacher sends a question that the students receive on their pc to answer it, then the teacher corrects and explains the correct answer and the students will not be able to see the next question until the teacher sends the next question again.
 
 <div align="center"><img src="./public/Images/Pag.Login.jpg"  alt="Page Login " height="400" width="550">
-<p> Page Login </p></div>
+<p>Login Page </p></div>
 
 <div align="center"><img src="./public/Images/Pag.Admin.jpg"  alt="Page Admin " height="400" width="550">
-<p> Page Admin </p></div>
+<p>Admin Page </p></div>
 
 <div align="center"><img src="./public/Images/Pag.Questions.jpg"  alt=" Page Questions " height="400" width="550">
-<p> Page Questions </p></div>
+<p>Questions Page </p></div>
 
 <div align="center"><img src="./public/Images/Pag.New question.jpg"  alt="Page New Question" height="400" width="550">
-<p> Page New Question </p></div>
+<p>New Question Page </p></div>
 
 # Functional requirements
 
@@ -39,10 +39,10 @@ The teacher sends a question that the students receive on their pc to answer it,
 <li>Good software development practices.</li>
 </ul>
 
-# Design Explanation:
+# Design Explanation
 The app has several views with different options, a simple design has been chosen for a basic application, using the Mar de Niebla color palette and logo.
 
-# Technical and used tools
+# Technical and used Tools
 
  <div align="center">
   <img style="margin: 10px" src="https://logodownload.org/wp-content/uploads/2016/10/html5-logo-8.png" alt="HTML5" height="25">
@@ -97,7 +97,7 @@ https://docs.google.com/document/d/1KFy8GcioTqvkMKUMzWIs_8IQkCmEZF9OzD11M5AtNoo/
 </ul>
 
 ***
-## Installation
+## Back End Installation
 
 Enter the project directory in the terminal and execute the following command:
 ```bash
@@ -132,7 +132,7 @@ npm run dev
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Front End Project Setup
 ```sh
 npm install
 ```
@@ -164,3 +164,6 @@ npm run lint
 - Bea: btrabanco@gmail.com
 - Mario: marioastur@gmail.com
 - Dani: danimartinjuarez@gmail.com
+
+<div align="center"><img src="../MarNieblaFront/src/assets/the-crazy-house-team-logo-fondo.png"  alt="Page Login " height="40%" width="20%">
+<p> The Crazy House Team </p></div>
