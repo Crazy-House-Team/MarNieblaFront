@@ -34,4 +34,9 @@ import LoginForm from "../components/users/forms/LoginForm.vue";
   font-size: 4rem;
   line-height: 4.8rem;
 }
+@media (max-width:750px){
+  .title{
+    font-size: 2rem;
+  }
+}
 </style>

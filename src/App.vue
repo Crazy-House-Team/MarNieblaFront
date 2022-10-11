@@ -85,7 +85,7 @@ margin-right: 2rem;
     width:20%;
   }
 }    
-@media(max-width:550px){
+@media(max-width:600px){
   .nav{
     width: 100%;
   }
@@ -97,7 +97,7 @@ margin-right: 2rem;
     width:60%;
   }
 }
-@media(max-width:470px){
+@media(max-width:450px){
   .nav{
     width:100%;
   }
