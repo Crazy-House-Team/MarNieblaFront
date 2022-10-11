@@ -5,17 +5,28 @@
 The Mar de Dudas project has been carried out to meet the needs of the Mar de Niebla Social Action Foundation, which needed an application in which teachers could offer their students knowledge control questionnaires, but they wanted to do it in a way that students could interact on each question.
 The teacher sends a question that the students receive on their pc to answer it, then the teacher corrects and explains the correct answer and the students will not be able to see the next question until the teacher sends the next question again.
 
-<div align="center"><img src="./public/Images/Pag.Login.jpg"  alt="Page Login " height="400" width="550">
-<p>Login Page </p></div>
 
-<div align="center"><img src="./public/Images/Pag.Admin.jpg"  alt="Page Admin " height="400" width="550">
-<p>Admin Page </p></div>
+<div style="display:flex; justify-content: space-around">
+<div align="center">
+<p style="margin: 10px"> Login Page</p>
+<img width="400" margin-top="20" src="./public/Images/Pag.Login.jpg">
+</div>
+<div align="center">
+<p style="margin: 10px">Admin Page </p>
+<img  width="400" margin-top="20" src="./public/Images/Pag.Admin.jpg">
+</div>
+</div>
 
-<div align="center"><img src="./public/Images/Pag.Questions.jpg"  alt=" Page Questions " height="400" width="550">
-<p>Questions Page </p></div>
-
-<div align="center"><img src="./public/Images/Pag.New question.jpg"  alt="Page New Question" height="400" width="550">
-<p>New Question Page </p></div>
+<div style="display:flex; justify-content: space-around"> 
+<div align="center">
+<p style="margin-top: 10px">Questions Page </p> 
+<img width="400" margin-top="20" src="./public/Images/Pag.Questions.jpg">
+</div>
+<div align="center">
+<p style="margin-top: 10px">New Question Page </p>
+<img  width="400" margin-top="20"src="./public/Images/Pag.New question.jpg"> 
+</div>
+</div
 
 # Functional requirements
 
@@ -41,6 +52,10 @@ The teacher sends a question that the students receive on their pc to answer it,
 
 # Design Explanation
 The app has several views with different options, a simple design has been chosen for a basic application, using the Mar de Niebla color palette and logo.
+
+<img src="../MarNieblaFront/src/assets/logo_mar-de-niebla-300x156.jpeg" alt="logo" height="25">
+<img src="../MarNieblaFront/src/assets/LogoApp.jpg" alt="logo" height="25">
+
 
 # Technical and used Tools
 
@@ -114,10 +129,7 @@ composer update
 ```bash
 npm install
 ```
-Import the following file into XAMPP: 
-```bash
-mardeniebla.sql
-```
+
 Start the server
 ```bash
 npm run dev
@@ -158,12 +170,17 @@ npm run lint
 ***
 ## The Crazy House Team Contact
 
-- Fran: gimli22@gmail.com
-- Susana: asturias.susi.pro@gmail.com
-- Sergio: sr.sergiofernandezfernandez@gmail.com
-- Bea: btrabanco@gmail.com
-- Mario: marioastur@gmail.com
-- Dani: danimartinjuarez@gmail.com
+- Fran: gimli22@gmail.com , https://github.com/Daevion32
+
+- Susana: asturias.susi.pro@gmail.com , https://github.com/Susipro
+
+- Sergio: sr.sergiofernandezfernandez@gmail.com , https://github.com/Sergio-Fernandez-Dev
+
+- Bea: btrabanco@gmail.com , https://github.com/Trabanco
+- Mario: marioastur@gmail.com , https://github.com/marioastur
+
+- Dani: danimartinjuarez@gmail.com , https://github.com/danimartinjuarez
+
 
 <div align="center"><img src="../MarNieblaFront/src/assets/the-crazy-house-team-logo-fondo.png"  alt="Page Login " height="40%" width="20%">
 <p> The Crazy House Team </p></div>
