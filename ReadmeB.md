@@ -152,3 +152,15 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+***
+## Project Created by The Crazy House Team during the Factoría F5 Bootcamp 2022
+
+***
+## The Crazy House Team Contact
+
+- Fran: gimli22@gmail.com
+- Susana: asturias.susi.pro@gmail.com
+- Sergio: sr.sergiofernandezfernandez@gmail.com
+- Bea: btrabanco@gmail.com
+- Mario: marioastur@gmail.com
+- Dani: danimartinjuarez@gmail.com
