@@ -86,7 +86,7 @@ async function saveData(event) {
 <style scoped>
 input,
 textarea {
-  border: solid 2px #3ad86f;
+  border: solid 2px #92C954;
   border-radius: 30px;
 }
 .form-control {
@@ -96,7 +96,7 @@ textarea {
   font-size: 24px;
   font-weight: bold;
   color: black;
-  border: solid 5px #3ad86f;
+  border: solid 5px #92C954;
   text-align: left;
 }
 
