@@ -1,7 +1,7 @@
 <script setup>
   
   import router from '@/router';
-  import SaveQuestionButton from "../common/SaveQuestionButton.vue";
+  import SaveButton from "../common/SaveButton.vue";
   import { getAction, postAction, putAction } from "../../services/apiRequests";
   import { onMounted, ref } from "vue";
   import BackButton from '../common/BackButton.vue';
@@ -109,7 +109,7 @@
     
     <div class="form-group">
       <div class="m-3 d-flex justify-content-center align-items-center">
-        <SaveQuestionButton />
+        <SaveButton />
         <BackButton toRoute="/admin/questions" class="ps-4"/>
       </div>
     </div>

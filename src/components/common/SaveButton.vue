@@ -1,7 +1,7 @@
 <template>
     <div>
         <button type="submit" class="button-savequestion">
-          <h2>Grabar pregunta</h2>
+          <h2>Grabar</h2>
         </button>
     </div>
   </template>

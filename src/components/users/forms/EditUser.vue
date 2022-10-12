@@ -5,6 +5,7 @@
   import { putAction } from "@/services/apiRequests";
   import BackButton from "../../common/BackButton.vue";
   import { getAction } from "../../../services/apiRequests";
+  import SaveButton from "../../common/SaveButton.vue";
 
   const props = defineProps({
     id: String,
@@ -18,7 +19,7 @@
     username: "",
     password: "",
     group:"",
-    isAdmin: false,
+    isAdmin: 0,
   });
 
   async function saveData(event){
@@ -28,12 +29,12 @@
   };
 
   onMounted(async()=>{
-  userData = await getAction('showUser/', props.id);
-
-  form.value.name = userData.data[0].name;
-  form.value.username = userData.data[0].username;
-  form.value.password = userData.data[0].password;
-  form.value.group = userData.data[0].group;
+    userData = await getAction('showUser/', props.id);
+    form.value.name = userData.data[0].name;
+    form.value.username = userData.data[0].username;
+    form.value.password = userData.data[0].password;
+    form.value.group = userData.data[0].group;
+    form.value.isAdmin = userData.data[0].isAdmin;
   })
 
 </script>
@@ -43,21 +44,30 @@
 <form class="container" @submit="saveData">
     <div class="m-3 d-flex justify-content-start align-items-center">
       <label for="name" class="form-label"></label>
-      <input class="form-control ms-4" id="name" placeholder="Nombre y Apellidos" v-model="form.name" />
+      <input 
+      type="text"
+      class="form-control ms-4" 
+      id="name" 
+      placeholder="Nombre y Apellidos" 
+      v-model="form.name" 
+    />
     </div>
 
     <div class="m-3 d-flex justify-content-start align-items-center">
       <label for="username" class="form-label"></label>
       <input
+        type="text"
         class="form-control ms-4"
         id="username"
         placeholder="Nombre de usuario"
         v-model="form.username"
       />
     </div>
+
     <div class="m-3 d-flex justify-content-start align-items-center">
       <label for="password" class="form-label"></label>
       <input
+        type="password"
         class="form-control ms-4"
         id="password"
         placeholder="Password"
@@ -68,6 +78,7 @@
     <div class="m-3 d-flex justify-content-start align-items-center">
       <label for="group" class="form-label"></label>
       <input
+        type="text"
         class="form-control ms-4"
         id="group"
         placeholder="Grupo o Profesor"
@@ -75,25 +86,22 @@
       />
     </div>
 
-    <div
-      class="form-check m-3 p-0 d-flex justify-content-start align-items-center"
-    >
-      <label class="form-check-label" for="flexCheckDefault"
-        >¿Es Profesor?</label
-      >
-      <input
-        class="form-check-input"
+    <div class="form-check m-3 p-0 d-flex justify-content-start align-items-center">
+      <label class="form-check-label" for="flexCheckDefault">
+        ¿Es Profesor?</label>
+      <input class="form-check-input"
         type="checkbox"
-        value=""
         id="flexCheckDefault"
+        :true-value = 1
+        :v-model="form.isAdmin"
       />
     </div>
-    <div>
+
+    <div class="form-group">
+      <div class="m-3 d-flex justify-content-center align-items-center">
       <BackButton toRoute="/admin/userlist/0" />
-      
-      <button type="submit" class="btnedit button--green text-white">
-        Guardar
-      </button>
+      <SaveButton class="ps-4"/>
+      </div>
     </div>
   </form>
 
