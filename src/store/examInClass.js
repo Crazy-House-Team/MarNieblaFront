@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import router from "../router";
-import { getAction } from "../services/apiRequests";
+import { getAction, putAction } from "../services/apiRequests";
 
 export const testQuestions = defineStore({
   id: "questionsTest",
@@ -11,7 +11,7 @@ export const testQuestions = defineStore({
   getters: {},
   actions: {
     testInClass(id) {
-      getAction("showQuestionsInExam/1")
+      getAction("showQuestionsInExam/", id)
         .then((result) => {
           this.questionsInTest.push(result);
         })
@@ -19,7 +19,13 @@ export const testQuestions = defineStore({
           console.error(err);
         });
       this.exam_id = id;
-      router.push("/admin/examadmin");
+      const data = {
+        status : 1
+    }
+      putAction("updateExam", id, data)
+      
+      
+        router.push("/admin/examadmin");
     },
   },
 });

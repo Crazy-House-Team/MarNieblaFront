@@ -3,18 +3,16 @@ import { testQuestions } from "../store/examInClass";
 import { putAction } from "@/services/apiRequests";
 
 const store = testQuestions();
-store.questionsInTest;
-store.exam_id;
-const questionsOrder = 0;
+
+const questionsOrder = 2;
 
 const form = {
   exam_id: store.exam_id,
   question_id: store.questionsInTest[0].data[questionsOrder].id,
 };
 
-async function activateQuestion(event) {
-  event.preventDefault();
-  await putAction("activateQuestion", form.value.exam_id, form.value);
+async function activateQuestion() {
+  await putAction("activateQuestion", form.exam_id, form);
 }
 </script>
 <template>
@@ -128,7 +126,7 @@ async function activateQuestion(event) {
       >
         <button
           class="button--purple-outlined mt-5"
-          @click="activateQuestion()"
+          @click.prevent="activateQuestion()"
         >
           ACTIVAR PREGUNTA
         </button>

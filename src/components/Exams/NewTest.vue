@@ -8,7 +8,7 @@
     const data = ref({
         id:Number,
         name:"",
-        status:1,
+        status:0,
     });
 
     async function saveData(event){
