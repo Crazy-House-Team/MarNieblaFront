@@ -58,9 +58,13 @@ const doLogin = async () => {
   </form>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 form {
   max-width: 500px;
   min-width: 50%;
 }
+@media(max-width:750px){
+  
+}
+
 </style>

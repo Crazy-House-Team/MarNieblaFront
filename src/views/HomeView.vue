@@ -34,9 +34,51 @@ import LoginForm from "../components/users/forms/LoginForm.vue";
   font-size: 4rem;
   line-height: 4.8rem;
 }
-@media (max-width:750px){
-  .title{
+@media(max-width:1000px){
+  .wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+  .title {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;  
+  }
+
+  h1{
     font-size: 2rem;
+    line-height: 2.8rem;
+  }
+}
+@media(max-width:702px){
+  .wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+  .title {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;  
+  }
+
+  h1{
+    font-size: 1.5rem;
+    line-height: 1.7rem;
   }
 }
 </style>

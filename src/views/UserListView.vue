@@ -52,7 +52,11 @@ onMounted(async () => {
 ul {
   width: 100%;
 }
+.justify-content-around{
+  align-items: center;
+}
 .p__warning {
   margin-top: 5rem;
 }
+
 </style>

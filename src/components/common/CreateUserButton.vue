@@ -22,4 +22,16 @@
   background-color: white;
   color: #92c954;
 }
+@media(max-width:700px){
+  .button-newuser{
+    width: 15vw;
+    height: 6vh;
+  }
+}
+@media(max-width:500px){
+  .button-newuser{
+    width: 19vw;
+    height: 6vh;
+  }
+}
 </style>

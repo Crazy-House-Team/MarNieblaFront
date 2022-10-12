@@ -16,7 +16,7 @@ import { defineProps } from "vue";
           class="btn button--red-outlined-delete m-1 text-center"
           @click="deleteAction('deleteUser', id)"
         >
-          <h3>Eliminar {{id}}</h3>
+          <h3>Eliminar</h3>
         </button>
       </RouterLink>
     </div>
@@ -28,7 +28,32 @@ import { defineProps } from "vue";
   background-color: #ffffff;
   border: 6px solid #f82c1d;
   border-radius: 20px;
-  width: 8vw;
-  height: 6vh;
+  width: 100px;
+  height: 60px; 
 }
+/* @media(max-width:1200px){
+  .button--red-outlined-delete {
+    background-color: #ffffff;
+    border: 6px solid #f82c1d;
+    border-radius: 20px;
+    width: 100px;
+    height: 60px; 
+  }
+  .button--red-outlined-delete h3{
+    font-size: 16px;
+  }
+  
+}
+@media(max-width:1000px){
+  .button--red-outlined-delete {
+    background-color: #ffffff;
+    border: 6px solid #f82c1d;
+    border-radius: 20px;
+    width: 100px;
+    height: 60px; 
+  }
+  .button--red-outlined-delete h3{
+    font-size: 16px;
+  }
+} */
 </style>
