@@ -14,7 +14,7 @@
 
     <div class="container">
         <div class="row row-cols-1 align-items-start justify-content-center">
-            <div class="col">
+            <div class="col-md-6">
                 <h2 class="text-center textTitleStadistic">Aula</h2>
                 <table class="table table-hover">
                     <thead class="head-background">
@@ -35,7 +35,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col">
+            <div class="col-md-6">
                 <h2 class="text-center textTitleStadistic">Individual</h2>
                 <table class="table table-hover">
                     <thead class="head-background">
