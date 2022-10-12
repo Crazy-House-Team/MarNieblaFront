@@ -1,18 +1,21 @@
 <script setup>
 import { testQuestions } from "../store/examInClass";
 import { putAction } from "@/services/apiRequests";
-
+import { onMounted } from "vue";
 const store = testQuestions();
-
+let questionid = 0;
 const questionsOrder = 2;
+onMounted(function () {
+  return questionid = store.questionsInTest[0].data[questionsOrder].id;
+});
 
-const form = {
+
+function activateQuestion() {let form = {
   exam_id: store.exam_id,
-  question_id: store.questionsInTest[0].data[questionsOrder].id,
+  question_id: questionid,
 };
-
-async function activateQuestion() {
-  await putAction("activateQuestion", form.exam_id, form);
+console.log(form);
+  putAction("activateQuestion", form.exam_id, form);
 }
 </script>
 <template>
@@ -47,7 +50,13 @@ async function activateQuestion() {
       <div class="respuestas mt-2">
         <div class="row">
           <div
-            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
+            class="
+              col-4 col-lm-3
+              mt-4
+              d-flex
+              justify-content-start
+              align-items-center
+            "
           >
             <label for="answer_A" class="form-label"></label>
             <input
@@ -64,7 +73,13 @@ async function activateQuestion() {
           </div>
 
           <div
-            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
+            class="
+              col-4 col-lm-3
+              mt-4
+              d-flex
+              justify-content-start
+              align-items-center
+            "
           >
             <label for="answer_C" class="form-label"></label>
             <input
@@ -83,7 +98,13 @@ async function activateQuestion() {
 
         <div class="row">
           <div
-            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
+            class="
+              col-4 col-lm-3
+              mt-4
+              d-flex
+              justify-content-start
+              align-items-center
+            "
           >
             <label for="answer_B" class="form-label"></label>
             <input
@@ -100,7 +121,13 @@ async function activateQuestion() {
           </div>
 
           <div
-            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
+            class="
+              col-4 col-lm-3
+              mt-4
+              d-flex
+              justify-content-start
+              align-items-center
+            "
           >
             <label for="answer_D" class="form-label"></label>
             <input
@@ -122,7 +149,13 @@ async function activateQuestion() {
 
     <div class="row">
       <div
-        class="col-6 col-lm-3 mt-4 d-flex justify-content-center align-items-center"
+        class="
+          col-6 col-lm-3
+          mt-4
+          d-flex
+          justify-content-center
+          align-items-center
+        "
       >
         <button
           class="button--purple-outlined mt-5"
@@ -132,7 +165,13 @@ async function activateQuestion() {
         </button>
       </div>
       <div
-        class="col-6 col-lm-3 mt-4 d-flex justify-content-center align-items-center"
+        class="
+          col-6 col-lm-3
+          mt-4
+          d-flex
+          justify-content-center
+          align-items-center
+        "
       >
         <button class="button--purple-outlined mt-5">SIGUIENTE PREGUNTA</button>
       </div>
