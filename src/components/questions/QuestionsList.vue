@@ -1,7 +1,7 @@
 <script setup>
    
     import BtnEditQuestion from "./BtnEditQuestion.vue";
-import BtnDeleteQuestion from "./BtnDeleteQuestion.vue";
+    import BtnDeleteQuestion from "./BtnDeleteQuestion.vue";
 
     defineProps({
         id: Number,

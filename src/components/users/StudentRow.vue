@@ -1,8 +1,8 @@
 <script setup>
 
   import EditButton from "../common/EditButton.vue";
-  import { ref, defineProps } from "vue";
   import DeleteButton from "../common/DeleteButton.vue";
+  import BtnStadistic from "./stadistics/BtnStadistic.vue";
 
   defineProps({
     id: Number,
@@ -22,6 +22,7 @@
     {{ name }} - {{ username }} - ( Grupo : {{ group }} )
     <span class="badge d-flex">
       <EditButton :id="id" />
+      <BtnStadistic :id="id" :name="name" />
       <DeleteButton :id="id" />
     </span>
   </li>

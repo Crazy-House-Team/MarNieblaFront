@@ -53,6 +53,12 @@ const router = createRouter({
       component: () => import("@/views/NewTestView.vue"),
     },
     {
+      path: "/admin/stadistics/:id/:name",
+      name: "stadistics",
+      component: () => import("@/components/users/stadistics/HomeStadistic.vue"),
+      props: true,
+    },
+    {
       path: "/homeuser",
       name: "homeuser",
       component: () => import("@/views/HomeUserView.vue"),
