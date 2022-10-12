@@ -12,6 +12,10 @@
     </div>
     <p class="mt-3">{{ msg }}</p>
 
+    <p v-if="!firstDate=='' && !lastDate ==''">
+        Datos entre {{ firstDate }} y {{ lastDate }}
+    </p>
+
     <div class="container">
         <div class="row row-cols-1 align-items-start justify-content-center">
             <div class="col-md-6">
@@ -26,7 +30,9 @@
                         </tr>
                     </thead>
                     <tbody v-for="userData in userDataStadistics.data">
-                        <tr v-if="!userData.id_exam == 0">
+                        <tr v-if="!userData.id_exam == 0 && 
+                        (userData.date >= firstDate && userData.date <= lastDate)
+                         || !userData.id_exam == 0 && (firstDate == '' && lastDate == '')">
                             <td>{{ userData.date }}</td>
                             <td class="text-center">{{ userData.id_exam }}</td>
                             <td class="text-center">{{ userData.right_answer }}</td>
@@ -46,7 +52,9 @@
                         </tr>
                     </thead>
                     <tbody v-for="userData in userDataStadistics.data">
-                        <tr v-if="userData.id_exam == 0">
+                        <tr v-if="userData.id_exam == 0 && 
+                        (userData.date >= firstDate && userData.date <= lastDate)
+                         || userData.id_exam == 0 && (firstDate == '' && lastDate == '')">
                             <td>{{ userData.date }}</td>
                             <td class="text-center">{{ userData.right_answer }}</td>
                             <td class="text-center">{{ 20-userData.right_answer }}</td>
@@ -73,10 +81,10 @@
     });
 
     let userDataStadistics = ref([]);
-    let firstDate = new Date();
-    let lastDate = new Date();
+    let firstDate = ref("");
+    let lastDate = ref("");
     let msg = ref("");
-
+    
     const data = ref({
         id: Number(props.id),
 
@@ -84,7 +92,7 @@
 
     onMounted(async () => {
         userDataStadistics.value = await getAction('showUserStadistics/', props.id);
-        if (userDataStadistics.data.length == 0) {
+        if (userDataStadistics.value.length == 0) {
             msg.value = "No hay datos estadísticos";
         }
     });
@@ -109,7 +117,7 @@
 
     td{
         padding-top: 1px;
-        border-bottom: solid 1px green;   
+        border: none;
         line-height: 1.6em;
     }
 
