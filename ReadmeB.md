@@ -9,22 +9,22 @@ The teacher sends a question that the students receive on their pc to answer it,
 <div style="display:flex; justify-content: space-around">
 <div align="center">
 <p style="margin: 10px"> Login Page</p>
-<img width="400" margin-top="20" src="./public/Images/Pag.Login.jpg">
+<img width="300px" margin-top="20" src="./public/Images/Pag.Login.jpg">
 </div>
 <div align="center">
 <p style="margin: 10px">Admin Page </p>
-<img  width="400" margin-top="20" src="./public/Images/Pag.Admin.jpg">
+<img  width="300px" margin-top="20" src="./public/Images/Pag.Admin.jpg">
 </div>
 </div>
 
 <div style="display:flex; justify-content: space-around"> 
 <div align="center">
 <p style="margin-top: 10px">Questions Page </p> 
-<img width="400" margin-top="20" src="./public/Images/Pag.Questions.jpg">
+<img width="300px" margin-top="20" src="./public/Images/Pag.Questions.jpg">
 </div>
 <div align="center">
 <p style="margin-top: 10px">New Question Page </p>
-<img  width="400" margin-top="20"src="./public/Images/Pag.New question.jpg"> 
+<img  width="300px" margin-top="20"src="./public/Images/Pag.New question.jpg"> 
 </div>
 </div
 
@@ -53,8 +53,8 @@ The teacher sends a question that the students receive on their pc to answer it,
 # Design Explanation
 The app has several views with different options, a simple design has been chosen for a basic application, using the Mar de Niebla color palette and logo.
 
-<img src="../MarNieblaFront/src/assets/logo_mar-de-niebla-300x156.jpeg" alt="logo" height="25">
-<img src="../MarNieblaFront/src/assets/LogoApp.jpg" alt="logo" height="25">
+<img src="./public/Images/logo_mar-de-niebla-300x156.jpeg" alt="logo" height="25">
+<img src="./public/Images/LogoApp.jpg" alt="logo" height="25">
 
 
 # Technical and used Tools
@@ -112,28 +112,9 @@ https://docs.google.com/document/d/1KFy8GcioTqvkMKUMzWIs_8IQkCmEZF9OzD11M5AtNoo/
 </ul>
 
 ***
-## Back End Installation
+# Back End Installation
+## The instructions to proceed with the installation of the Back End will be found in the Readme found in the folder corresponding to the Back End.
 
-Enter the project directory in the terminal and execute the following command:
-```bash
-php artisan migrate:fresh --seed
-```
-This will update our database.
-**We will need to run this command every time we make changes to the project database.**
-
-
-Install dependencies:
-```bash
-composer update
-```
-```bash
-npm install
-```
-
-Start the server
-```bash
-npm run dev
-```
 
 ***
 ## Recommended IDE Setup
