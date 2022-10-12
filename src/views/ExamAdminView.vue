@@ -1,22 +1,31 @@
 <script setup>
 import { testQuestions } from "../store/examInClass";
 import { putAction } from "@/services/apiRequests";
-import { onMounted } from "vue";
+import { onMounted, onUpdated, ref } from "vue";
 const store = testQuestions();
-let questionid = 0;
-const questionsOrder = 2;
-onMounted(function () {
-  return questionid = store.questionsInTest[0].data[questionsOrder].id;
+let questionid = ref();
+let questionsOrder = ref(5);
+let activated = ref(true);
+onUpdated(function () {
+  questionid.value = store.questionsInTest[0].data[questionsOrder.value].id;
 });
+onMounted(()=>{
+   questionid.value = store.questionsInTest[0].data[questionsOrder.value].id;
 
-
-function activateQuestion() {let form = {
-  exam_id: store.exam_id,
-  question_id: questionid,
-};
-console.log(form);
+})
+function activateQuestion() {
+  let form = {
+    exam_id: store.exam_id,
+    question_id: questionid.value,
+  }; 
+  activated.value = false;
   putAction("activateQuestion", form.exam_id, form);
-}
+ 
+};
+function nextQuestion() {
+  activated.value=!activated.value;
+  return questionsOrder.value =questionsOrder.value + 1;
+};
 </script>
 <template>
   <div class="container">
@@ -26,7 +35,7 @@ console.log(form);
         <label
           for="questionlabel"
           class="pregunta form-label d-flex justify-content-center"
-          >TEST 1 - PREGUNTA 1</label
+          >TEST {{store.exam_id}} - PREGUNTA {{store.questionsInTest[0].data[questionsOrder].id}}</label
         >
         <textarea
           type="question"
@@ -159,7 +168,9 @@ console.log(form);
       >
         <button
           class="button--purple-outlined mt-5"
-          @click.prevent="activateQuestion()"
+          @click.prevent="activateQuestion()" :class="{ 'spinner-border spinner-border-sm': activated===false }"
+        role="status"
+        aria-hidden="true"
         >
           ACTIVAR PREGUNTA
         </button>
@@ -172,8 +183,11 @@ console.log(form);
           justify-content-center
           align-items-center
         "
+        :class="{ 'spinner-border spinner-border-sm': activated }"
+        role="status"
+        aria-hidden="true"
       >
-        <button class="button--purple-outlined mt-5">SIGUIENTE PREGUNTA</button>
+        <button class="button--purple-outlined mt-5" @click.prevent="nextQuestion">SIGUIENTE PREGUNTA</button>
       </div>
     </div>
   </div>
