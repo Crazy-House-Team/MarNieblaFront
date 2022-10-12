@@ -31,29 +31,5 @@ import { defineProps } from "vue";
   width: 100px;
   height: 60px; 
 }
-/* @media(max-width:1200px){
-  .button--red-outlined-delete {
-    background-color: #ffffff;
-    border: 6px solid #f82c1d;
-    border-radius: 20px;
-    width: 100px;
-    height: 60px; 
-  }
-  .button--red-outlined-delete h3{
-    font-size: 16px;
-  }
-  
-}
-@media(max-width:1000px){
-  .button--red-outlined-delete {
-    background-color: #ffffff;
-    border: 6px solid #f82c1d;
-    border-radius: 20px;
-    width: 100px;
-    height: 60px; 
-  }
-  .button--red-outlined-delete h3{
-    font-size: 16px;
-  }
-} */
+
 </style>

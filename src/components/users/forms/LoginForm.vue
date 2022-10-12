@@ -63,8 +63,6 @@ form {
   max-width: 500px;
   min-width: 50%;
 }
-@media(max-width:750px){
-  
-}
+
 
 </style>
