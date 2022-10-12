@@ -69,14 +69,18 @@
       />
     </div>
 
-    <div class="form-check m-3 p-0 d-flex justify-content-start align-items-center">
-      <label class="form-check-label" for="flexCheckDefault">
-        ¿Es Profesor?</label>
-      <input class="form-check-input"
+    <div
+      class="form-check m-3 p-0"
+    >
+      <label class="form-check-label" for="flexCheckDefault"
+        >¿Es Profesor?</label
+      >
+      <input
+        class="form-check-input"
         type="checkbox"
         id="flexCheckDefault"
-        :true-value = 1
-        :v-model="form.isAdmin"
+        value = 1
+        v-model="form.isAdmin"
       />
     </div>
     <div class="form-group">
@@ -92,7 +96,7 @@
 <style scoped>
 input,
 textarea {
-  border: solid 2px #3ad86f;
+  border: solid 2px #92C954;
   border-radius: 30px;
 }
 .form-control {
@@ -102,12 +106,67 @@ textarea {
   font-size: 24px;
   font-weight: bold;
   color: black;
-  border: solid 5px #3ad86f;
+  border: solid 5px #92C954;
   text-align: left;
 }
 
 #flexCheckDefault {
   left: 30px;
   bottom: 3px;
+}
+.form-check{
+  font-size: 30px;
+  left:5px;
+  display: flex;
+  align-items: center;
+  gap:40px;
+}
+.form-check-input{
+  width:50px;
+  height: 50px;
+  
+}
+@media(max-width:991px){
+  .button--green{
+    left: 300px;
+  }
+}
+@media(max-width:767px){
+  .button--green{
+    left: 110px;
+  }
+}
+@media(max-width:700px){
+    .form-control {
+    margin: 4px;
+    width: 430px;
+    height: 65px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    border: solid 5px #92C954;
+    text-align: left;
+  }
+  .button--green{
+    width:170px;
+    left:120px;
+  }
+
+}
+@media(max-width:625px){
+  .form-control {
+    margin: 4px;
+    width: 350px;
+    height: 65px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    border: solid 5px #92C954;
+    text-align: left;
+  }
+  .button--green{
+    width:150px;
+    left:85px;
+  }
 }
 </style>
