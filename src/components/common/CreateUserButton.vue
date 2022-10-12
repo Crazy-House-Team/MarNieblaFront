@@ -9,18 +9,16 @@
 </template>
 <script></script>
 <style scoped>
-.button-newuser {
-  background-color: #92c954;
-  border-radius: 20px;
-  width: 14vw;
-  height: 6vh;
-  border: none;
-  color: white;
+
+.button-newuser h3{
+  font-size: 3rem;
+  font-weight:bold;
 }
 
 .button-newuser:hover {
   background-color: white;
   color: #92c954;
+  
 }
 @media(max-width:700px){
   .button-newuser{

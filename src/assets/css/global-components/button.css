@@ -62,14 +62,24 @@
 .button-back:hover{
   background-color: white;
   color:#f8981d;
+  
 }
 
 .button-back{
   background-color: #f8981d;
-  border-radius: 30px;
+  border-radius: 20px;
   width: 200px;
   height: 65px;
   left: 20px;
   border: none;
   color: white;
+}
+.button-newuser {
+  background-color: #92c954;
+  border-radius: 20px;
+  width: 200px;
+  height: 65px;
+  border: none;
+  color: white;
+  
 }
