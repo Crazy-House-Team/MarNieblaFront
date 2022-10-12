@@ -20,6 +20,16 @@ defineProps({
 </template>
 
 <style scoped>
+.button-back h3{
+  font-size: 3rem;
+  font-weight:bold;
+  color:white;
+}
+@media(max-width:1000px){
+  .button-back{
+    left: 20px;
+  }
+}
 @media(max-width:700px){
   .button-back{
     width: 15vw;

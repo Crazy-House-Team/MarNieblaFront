@@ -30,8 +30,7 @@
   border:transparent;
   width: 200px;
   height: 65px;
-  top:100px;
-  left:600px;
+  left: 300px;
   font-size: 3rem;
 }
 .button--green-outlined{
@@ -67,9 +66,10 @@
 
 .button-back{
   background-color: #f8981d;
-  border-radius: 20px;
-  width: 14vw;
-  height: 6vh;
+  border-radius: 30px;
+  width: 200px;
+  height: 65px;
+  left: 20px;
   border: none;
   color: white;
 }
