@@ -56,6 +56,9 @@ The app has several views with different options, a simple design has been chose
 <img src="./public/Images/logo_mar-de-niebla-300x156.jpeg" alt="logo" height="25">
 <img src="./public/Images/LogoApp.jpg" alt="logo" height="25">
 
+## Used Fonts 
+
+- Montserrat', Helvetica, Arial, sans-serif;
 
 # Technical and used Tools
 
@@ -163,5 +166,5 @@ npm run lint
 - Dani: danimartinjuarez@gmail.com , https://github.com/danimartinjuarez
 
 
-<div align="center"><img src="../MarNieblaFront/src/assets/the-crazy-house-team-logo-fondo.png"  alt="Page Login " height="40%" width="20%">
+<div align="center"><img src="./public/Images/the-crazy-house-team-logo-fondo.png"  alt="Page Login " height="40%" width="20%">
 <p> The Crazy House Team </p></div>
