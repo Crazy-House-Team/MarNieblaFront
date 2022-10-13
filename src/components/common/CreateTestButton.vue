@@ -14,9 +14,10 @@
 .button-createtest {
   background-color: #92c954;
   border-radius: 20px;
-  width: 14vw;
-  height: 6vh;
+  width: 200px;
+  height: 65px;
   border: none;
+ 
   color: white;
 }
 

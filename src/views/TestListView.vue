@@ -19,9 +19,9 @@ onMounted(async () => {
 <template>
 
    <h1>Gestión de Test</h1> 
-    <div class="justify-content-between d-flex w-100 m-4">
-      <CreateTestButton/>
-      <BackButton :toRoute="'/admin'" />
+    <div class="justify-content-between d-flex w-100 m-4 ">
+      <CreateTestButton class="ms-5"/>
+      <BackButton :toRoute="'/admin'" class="me-5" />
     </div>
     <ul v-if="numOfExamInList > 0" class="list-group"> 
       <TestRow 
@@ -43,4 +43,5 @@ onMounted(async () => {
     width: 100%;
     margin-top: 1%;
   }
+  
 </style>

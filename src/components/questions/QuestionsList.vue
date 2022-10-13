@@ -27,6 +27,20 @@
     li {
     width: 100%;
     border: 0.2rem solid #92c954;
+    gap:10px;
     }
-
+    span{
+        gap:10px;
+    }
+@media(max-width:850px){
+    .list-group-item {
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+    }
+    .badge{
+        gap:20px;
+        bottom: 5px;
+    }
+}
 </style>
