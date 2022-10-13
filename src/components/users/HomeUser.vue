@@ -1,16 +1,19 @@
 <script>
 import { mapActions, mapState } from "pinia";
-
+import { examInClassStudent } from "../../store/examInClassStudent";
 import { testRandom } from "../../store/testsRandom";
 export default {
-  /* function testRamdonStart(category){
-        ...mapActions.testRamdonCreate(category);
-      } */
+  data(){
+    id: Number
+  },
+
   computed: {
     ...mapState(testRandom, ["questionsInTestRandom"]),
+    ...mapState(examInClassStudent, ["questionsTest"]),
   },
   methods: {
     ...mapActions(testRandom, ["testRandomCreate"]),
+    ...mapActions(examInClassStudent, ["testInClass"]),
   },
 };
 </script>
@@ -19,10 +22,12 @@ export default {
     <h1>PUEDES UNIRTE A UNA PRUEBA COLECTIVA, CON LA ID. DE SESION</h1>
     <div class="sesion">
       <h1>ID.Sesion</h1>
-      <input class="number" />
-      <button type="submit" class="connection button--green-outlined">
-        Conectar
-      </button>
+      <form @submit.prevent="testInClass(id)">
+        <input class="number" v-model="id" name="id" />
+        <button type="submit" class="connection button--green-outlined">
+          Conectar
+        </button>
+      </form>
     </div>
   </div>
   <div class="test">
@@ -44,7 +49,6 @@ export default {
       </button>
     </div>
   </div>
-
 </template>
 
 <style scoped>
