@@ -1,26 +1,26 @@
 <script setup>
 import { ref } from "vue";
 import { loginAction } from "@/services/apiRequests";
-import { useTokenStore } from "@/store/tokenStore";
+import {
+  checkIfUserIsAdmin,
+  saveAuthRole,
+  saveAuthToken,
+} from "@/services/auth";
 import router from "../../../router";
 
-const token = useTokenStore();
-
 const userData = ref({
-  email: "",
+  username: "",
   password: "",
 });
 
 const doLogin = async () => {
   const response = await loginAction(userData.value);
-  console.log(response);
-  token.value = response.data.access_token.plainTextToken;
-  const role = response.data.user.isAdmin;
-  console.log(token.value);
-
-  role === 0
-    ? router.push({ name: "homeuser" })
-    : router.push({ name: "admin" });
+  saveAuthToken(response.data.access_token.plainTextToken);
+  saveAuthRole(response.data.user.isAdmin);
+  router.go(0);
+  checkIfUserIsAdmin()
+    ? router.push({ name: "admin" })
+    : router.push({ name: "homeuser" });
 };
 </script>
 
@@ -38,7 +38,7 @@ const doLogin = async () => {
           id="inputUsername"
           aria-describedby="usernameHelp"
           required
-          v-model="userData.email"
+          v-model="userData.username"
         />
       </div>
       <div class="mb-3">

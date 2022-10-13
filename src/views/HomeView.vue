@@ -8,7 +8,7 @@ import LoginForm from "../components/users/forms/LoginForm.vue";
       <h1 class="title__h1">Mar de niebla te da la bienvenida</h1>
       <h2 class="title__h2">Identifícate para participar en un test</h2>
     </div>
-    <LoginForm />
+    <LoginForm  />
   </section>
 </template>
 

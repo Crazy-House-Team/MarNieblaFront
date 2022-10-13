@@ -1,17 +1,16 @@
 <script setup>
-
-  import router from "@/router";
-  import { onMounted, ref } from "vue";
-  import { putAction } from "@/services/apiRequests";
-  import BackButton from "../../common/BackButton.vue";
-  import { getAction } from "../../../services/apiRequests";
+import router from "@/router";
+import { onMounted, ref } from "vue";
+import { putAction } from "@/services/apiRequests";
+import BackButton from "../../common/BackButton.vue";
+import { getAction } from "../../../services/apiRequests";
   import SaveButton from "../../common/SaveButton.vue";
 
-  const props = defineProps({
-    id: String,
-  });
+const props = defineProps({
+  id: String,
+});
 
-  let userData = [];
+let userData = [];
 
   const form = ref({
     id: Number(props.id),
@@ -22,11 +21,11 @@
     isAdmin: 0,
   });
 
-  async function saveData(event){
-    event.preventDefault();
-    await putAction("updateUser", form.value.id, form.value);
-    router.push('/admin/userlist/0');
-  };
+async function saveData(event) {
+  event.preventDefault();
+  await putAction("updateUser", form.value.id, form.value);
+  router.push("/admin/userlist/0");
+}
 
   onMounted(async()=>{
     userData = await getAction('showUser/', props.id);
@@ -40,8 +39,7 @@
 </script>
 
 <template>
-
-<form class="container" @submit="saveData">
+  <form class="container" @submit="saveData">
     <div class="m-3 d-flex justify-content-start align-items-center">
       <label for="name" class="form-label"></label>
       <input 
@@ -104,34 +102,31 @@
       </div>
     </div>
   </form>
-
 </template>
 
 <style scoped>
+h2 {
+  text-align: center;
+  font-size: 40px;
+}
+input,
+textarea {
+  border: solid 2px #3ad86f;
+  border-radius: 30px;
+}
+.form-control {
+  margin: 4px;
+  width: 900px;
+  height: 65px;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  border: solid 5px #3ad86f;
+  text-align: left;
+}
 
-  h2 {
-    text-align: center;
-    font-size: 40px;
-  }
-  input,
-  textarea {
-    border: solid 2px #3ad86f;
-    border-radius: 30px;
-  }
-  .form-control {
-    margin: 4px;
-    width: 900px;
-    height: 65px;
-    font-size: 24px;
-    font-weight: bold;
-    color: black;
-    border: solid 5px #3ad86f;
-    text-align: left;
-  }
-
-  #flexCheckDefault {
-    left: 30px;
-    bottom: 3px;
-  }
-
+#flexCheckDefault {
+  left: 30px;
+  bottom: 3px;
+}
 </style>
