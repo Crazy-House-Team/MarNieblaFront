@@ -55,8 +55,9 @@
   background-color: #ffffff;
   border: 6px solid #675979;
   border-radius: 40px;
-  height: 70px;
-  width: 350px;
+  height: 65px;
+  width: 300px;
+  text-align: center;
 }
 
 .button-back:hover{
