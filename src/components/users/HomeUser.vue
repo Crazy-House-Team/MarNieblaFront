@@ -84,7 +84,7 @@ h1 {
 }
 .test {
   height: 394px;
-  width: 500px;
+  width: 1200px;
   background-color: #ffffff;
   border: 6px solid #f8981d;
   position: absolute;
