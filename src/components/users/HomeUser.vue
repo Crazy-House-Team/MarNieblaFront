@@ -41,14 +41,7 @@ export default {
       </button>
     </div>
   </div>
-  <div class="progress">
-    <div>
-      <h1>EVALUA TUS AVANCES</h1>
-      <button class="statistics button--green-outlined">
-        VER RESULTADOS ANTERIORES
-      </button>
-    </div>
-  </div>
+
 </template>
 
 <style scoped>
@@ -87,7 +80,7 @@ h1 {
 }
 .test {
   height: 394px;
-  width: 500px;
+  width: 700px;
   background-color: #ffffff;
   border: 6px solid #f8981d;
   position: absolute;
@@ -96,6 +89,7 @@ h1 {
   justify-content: center;
   align-items: center;
   text-align: center;
+  left:250px;
 }
 .progress {
   height: 394px;
@@ -115,6 +109,7 @@ h1 {
   width: 400px;
   font-size: 20px;
   margin-top: 55px;
+
 }
 
 
