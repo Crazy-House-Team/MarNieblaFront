@@ -32,20 +32,20 @@ defineProps({
 }
 @media(max-width:700px){
   .button-back{
-    width: 25vw;
-    height: 6vh;
+    width: 150px;
+    height: 65px;
   }
 }
 @media(max-width:575px){
   .button-back{
-    width: 25vw;
-    height: 6vh;
+    width: 150px;
+    height: 65px;
   }
 }
 @media(max-width:425px){
   .button-back{
-    width:30vw;
-    height: 6vh;
+    width:100px;
+    height: 65px;
   }
 }
 </style>

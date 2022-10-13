@@ -109,10 +109,7 @@
 
 <style scoped>
 
-  h2 {
-    text-align: center;
-    font-size: 40px;
-  }
+
   input,
   textarea {
     border: solid 2px #3ad86f;
@@ -143,5 +140,10 @@
 .form-check-input{
   width:50px;
   height: 50px;
+}
+@media(max-width:575px){
+  .form-control {
+    width: 100%;
+  }
 }
 </style>

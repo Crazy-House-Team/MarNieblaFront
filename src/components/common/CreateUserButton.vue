@@ -2,7 +2,7 @@
   <div>
     <RouterLink :to="{ name: 'createuser' }">
       <button class="button-newuser">
-        <h2>Crear Usuario</h2>
+        <h3>Crear Usuario</h3>
       </button>
     </RouterLink>
   </div>
@@ -11,7 +11,7 @@
 <style scoped>
 
 .button-newuser h3{
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight:bold;
 }
 
@@ -22,14 +22,14 @@
 }
 @media(max-width:700px){
   .button-newuser{
-    width: 15vw;
-    height: 6vh;
+    width: 150px;
+    height: 65px;
   }
 }
 @media(max-width:500px){
   .button-newuser{
-    width: 19vw;
-    height: 6vh;
+    width: 120px;
+    height: 65px;
   }
 }
 </style>

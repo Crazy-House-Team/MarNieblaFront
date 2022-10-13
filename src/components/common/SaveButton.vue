@@ -14,10 +14,22 @@
     .button-savequestion {
       background-color: #92c954;
       border-radius: 20px;
-      width: 14vw;
-      height: 6vh;
+      width: 200px;
+      height: 65px;
       border: none;
       color: white;
     }
-  
+    h3{
+      font-size: 3rem;
+      font-weight:bold;
+    }
+  @media(max-width:700px){
+    .button-savequestion{
+      width: 150px;
+    }
+    h3{
+      font-size: 3rem;
+      font-weight:bold;
+    }
+  }
   </style>
