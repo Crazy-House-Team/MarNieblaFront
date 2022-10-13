@@ -1,31 +1,39 @@
 <script setup>
 import { testQuestions } from "../store/examInClass";
-import { putAction } from "@/services/apiRequests";
+import { putAction, deleteAction } from "@/services/apiRequests";
 import { onMounted, onUpdated, ref } from "vue";
+import router from "../router";
+
 const store = testQuestions();
 let questionid = ref();
-let questionsOrder = ref(5);
+let questionsOrder = ref(17);
 let activated = ref(true);
 onUpdated(function () {
   questionid.value = store.questionsInTest[0].data[questionsOrder.value].id;
 });
-onMounted(()=>{
-   questionid.value = store.questionsInTest[0].data[questionsOrder.value].id;
-
-})
+onMounted(() => {
+  questionid.value = store.questionsInTest[0].data[questionsOrder.value].id;
+});
 function activateQuestion() {
   let form = {
     exam_id: store.exam_id,
     question_id: questionid.value,
-  }; 
+  };
   activated.value = false;
   putAction("activateQuestion", form.exam_id, form);
- 
-};
-function nextQuestion() {
-  activated.value=!activated.value;
-  return questionsOrder.value =questionsOrder.value + 1;
-};
+}
+async function nextQuestion() {
+  if (questionsOrder.value == 19) {
+    router.push("/admin");
+    const data = {
+      status: 0,
+    };
+    await putAction("updateExam", store.exam_id, data);
+    await deleteAction("deleteExamClass", store.exam_id);
+  }
+  activated.value = !activated.value;
+  return (questionsOrder.value = questionsOrder.value + 1);
+}
 </script>
 <template>
   <div class="container">
@@ -35,7 +43,7 @@ function nextQuestion() {
         <label
           for="questionlabel"
           class="pregunta form-label d-flex justify-content-center"
-          >TEST {{store.exam_id}} - PREGUNTA {{store.questionsInTest[0].data[questionsOrder].id}}</label
+          >TEST {{ store.exam_id }} - PREGUNTA {{ questionsOrder + 1 }}</label
         >
         <textarea
           type="question"
@@ -166,11 +174,10 @@ function nextQuestion() {
           align-items-center
         "
       >
-        <button
+        <button v-if="activated=== true"
           class="button--purple-outlined mt-5"
-          @click.prevent="activateQuestion()" :class="{ 'spinner-border spinner-border-sm': activated===false }"
-        role="status"
-        aria-hidden="true"
+          @click.prevent="activateQuestion()"
+   
         >
           ACTIVAR PREGUNTA
         </button>
@@ -183,11 +190,15 @@ function nextQuestion() {
           justify-content-center
           align-items-center
         "
-        :class="{ 'spinner-border spinner-border-sm': activated }"
-        role="status"
-        aria-hidden="true"
+        
+        
       >
-        <button class="button--purple-outlined mt-5" @click.prevent="nextQuestion">SIGUIENTE PREGUNTA</button>
+        <button v-if="activated=== false" 
+          class="button--purple-outlined mt-5"
+          @click.prevent="nextQuestion" 
+        >
+          SIGUIENTE PREGUNTA
+        </button>
       </div>
     </div>
   </div>
