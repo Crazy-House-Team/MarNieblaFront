@@ -22,7 +22,7 @@
     {{ name }} - {{ username }} - ( Grupo : {{ group }} )
     <span class="badge d-flex">
       <EditButton :id="id" />
-      <BtnStadistic :id="id" :name="name" />
+      <BtnStadistic v-if="role == 0" :id="id" :name="name" />
       <DeleteButton :id="id" />
     </span>
   </li>
