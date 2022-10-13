@@ -1,32 +1,45 @@
 <script setup>
 import { examInClassStudent } from "../store/examInClassStudent";
+import { getAction } from "@/services/apiRequests";
+import { ref, onMounted } from "vue";
+import  router  from "@/router";
 const store = examInClassStudent();
-let questionsOrder = 0;
-beforeMount() {
-    
-}
-/* function sendAnswer() {
+let questionsOrder = ref(17);
+let actualQuestion = ref(0);
+onMounted(() => {
+  actualQuestion.value = store.questionsInTest[0].data[questionsOrder].id;
+});
 
-};
-function updateActiveQuestion{};
-setInterval('updateActiveQuestion()',2000); */
+setInterval(async () => {
+  let activeQuestion = await getAction("activeQuestion/", store.exam_id);
+  console.log(activeQuestion.data[0].question_id);
+  console.log(actualQuestion.value);
+  if (actualQuestion.value != activeQuestion.data[0].question_id) {
+    questionsOrder.value += 1;
+    actualQuestion.value = activeQuestion.data[0].question_id;
+    console.log("toy aqui");
+    console.log(questionsOrder.value);
+    
+  }
+}, 2000);
 </script>
 <template>
   <div class="container">
-    <form id="answerForm">
+    
       <div>
         <label
           for="questionlabel"
           class="pregunta form-label d-flex justify-content-center"
-          >PREGUNTA {{ questionsOrder + 1 }}</label
+          >PREGUNTA {{ actualQuestion + 1 }}</label
         >
-        <textarea
+        <p
           type="question"
           class="form-control"
           id="questionlabel"
           rows="3"
-          v-model="store.questionsInTest[0].data[questionsOrder].question"
-        ></textarea>
+          >{{
+            store.questionsInTest[0].data[actualQuestion].question
+          }}</p>
       </div>
 
       <div class="respuestas mt-2">
@@ -52,10 +65,7 @@ setInterval('updateActiveQuestion()',2000); */
             <label
               for="answer_a"
               class="form-label input mt-3 ms-4 form-control text-center btn"
-             
-              >{{
-                store.questionsInTest[0].data[questionsOrder].answer_a
-              }}
+              >{{ store.questionsInTest[0].data[questionsOrder].answer_a }}
             </label>
           </div>
           <div
@@ -79,9 +89,7 @@ setInterval('updateActiveQuestion()',2000); */
             <label
               for="answer_c"
               class="form-label input mt-3 ms-4 form-control text-center btn"
-              >{{
-                store.questionsInTest[0].data[questionsOrder].answer_c
-              }}
+              >{{ store.questionsInTest[0].data[questionsOrder].answer_c }}
             </label>
           </div>
         </div>
@@ -107,9 +115,7 @@ setInterval('updateActiveQuestion()',2000); */
             <label
               for="answer_b"
               class="form-label input mt-3 ms-4 form-control text-center btn"
-              >{{
-                store.questionsInTest[0].data[questionsOrder].answer_b
-              }}
+              >{{ store.questionsInTest[0].data[questionsOrder].answer_b }}
             </label>
           </div>
           <div
@@ -133,20 +139,17 @@ setInterval('updateActiveQuestion()',2000); */
             <label
               for="answer_d"
               class="form-label input mt-3 ms-4 form-control text-center btn"
-              >{{
-                store.questionsInTest[0].data[questionsOrder].answer_d
-              }}
+              >{{ store.questionsInTest[0].data[questionsOrder].answer_d }}
             </label>
           </div>
         </div>
       </div>
-    </form>
-    <div>
+        <div>
       <button class="button--purple-outlined mt-5" @click="sendAnswer()">
         ENVIAR RESPUESTA
       </button>
     </div>
-      </div>
+  </div>
 </template>
   
   <style scoped>
