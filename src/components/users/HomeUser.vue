@@ -36,14 +36,7 @@ export default {
       </button>
     </div>
   </div>
-  <div class="progress">
-    <div>
-      <h1>EVALUA TUS AVANCES</h1>
-      <button class="statistics button--green-outlined">
-        VER RESULTADOS ANTERIORES
-      </button>
-    </div>
-  </div>
+
 
 </template>
 
@@ -60,6 +53,10 @@ export default {
   padding-left: 60px;
   padding-top: 50px;
   margin-top: 30px;
+  text-align: center;
+}
+.connect h1{
+  font-size: 25px;
 }
 .sesion {
   display: flex;
@@ -82,8 +79,8 @@ h1 {
   margin-left: 100px;
 }
 .test {
-  height: 394px;
-  width: 500px;
+  height: 284px;
+  width: 1200px;
   background-color: #ffffff;
   border: 6px solid #f8981d;
   position: absolute;
@@ -92,19 +89,10 @@ h1 {
   justify-content: center;
   align-items: center;
   text-align: center;
+  
 }
-.progress {
-  height: 394px;
-  width: 500px;
-  background-color: #ffffff;
-  border: 6px solid #f8981d;
-  position: absolute;
-  left: 700px;
-  top: 420px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.test h1{
+  font-size: 25px;
 }
 .statistics {
   height: 100px;
@@ -114,9 +102,9 @@ h1 {
 }
 
 
-@media (max-width: 1000px){
+@media (max-width: 1200px){
   .connect{ 
-    width: 900px;
+    width: 100%;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 25px;
@@ -126,18 +114,11 @@ h1 {
   }
 
   .test {
-   height: 250px;
-   width: 400px;
+   width: 100%;
   }
   .button--green-outlined{
    height: 50px;
    width: 300px;
-  }
-
-  .progress {
-    height: 250px;
-    width: 400px;
-    left: 500px;
   }
   .statistics {
     font-size: 1.5rem;
@@ -146,7 +127,7 @@ h1 {
 
 @media (max-width:880px){
   .connect{ 
-    width: 650px;
+    width: 100%;
     padding-left: 20px;
     padding-right: 10px;
     padding-top: 25px;
@@ -155,19 +136,12 @@ h1 {
   h1 {
     font-size: 1.75rem;
   }
-
   .test {
-   height: 250px;
-   width: 300px;
+   width: 100%;
   }
   .button--green-outlined{
    height: 50px;
    width: 250px;
-  }
-  .progress {
-    height: 250px;
-    width: 300px;
-    left: 350px;
   }
   .statistics {
     font-size: 1.25rem;
@@ -182,13 +156,11 @@ h1 {
     margin-left: 30px;
     margin-right: 10px;
     margin-top: 1px;
-  
   }
 }
-
 @media(max-width: 650px){
 .connect{ 
-    width: 430px;
+    width: 100%;
     padding-left: 20px;
     padding-right: 10px;
     padding-top: 25px;
@@ -199,17 +171,11 @@ h1 {
     margin-top: 10px;
   }
   .test {
-   height: 200px;
-   width: 200px;
+   width: 100%;
   }
   .button--green-outlined{
    height: 50px;
    width: 170px;
-  }
-  .progress {
-    height: 200px;
-    width: 200px;
-    left: 230px;
   }
   .statistics {
     font-size: 1rem;
@@ -234,57 +200,4 @@ h1 {
    margin-top: 15px;
  }
 }
-
-@media(max-width: 390px){
-.connect{ 
-    width: 30px;
-    padding-left: 10px;
-    padding-right: 5px;
-    padding-top: 25px;
-    height: 200px;
-  }
-  h1 {
-    font-size: 1.25rem;
-    margin-top: 10px;
-  }
-  .test {
-   height: 200px;
-   width: 200px;
-  }
-  .button--green-outlined{
-   height: 50px;
-   width: 170px;
-  }
-  .progress {
-    height: 200px;
-    width: 200px;
-    left: 230px;
-  }
-  .statistics {
-    font-size: 1rem;
-  }
-  .connection {
-    font-size: 1.50rem;
-    margin-left: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  .number {
-    height: 40px;
-    width: 220px;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 1px;
-  }
-  .sesion {
-   display: flex;
-   flex-direction: column;
-   align-items:  center;
-   margin-top: 15px;
- }
-}
-
-
-
-
 </style>

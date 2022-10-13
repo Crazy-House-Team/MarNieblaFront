@@ -137,4 +137,26 @@ margin-right: 2rem;
     right:7rem;
   }
 }
+@media(max-width:425px){
+  .main {
+ 
+  width: 1000px;
+  height: 1000px;
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  .nav{
+    width:100%;
+  }
+  img{
+    width:40%;
+    
+  }
+  h1{
+    font-size: 2rem;
+    right:7rem;
+  }
+}
 </style>
