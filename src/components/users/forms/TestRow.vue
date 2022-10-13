@@ -31,4 +31,11 @@ li {
   font-weight: bold;
   
 }
+@media(max-width:750px){
+  .badge{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+  }
+}
 </style>
