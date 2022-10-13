@@ -12,7 +12,7 @@
 <template>
 
   <li class="list-group-item d-flex justify-content-between align-items-center  ">
-  
+
     {{ name}}
   
     <span class="badge d-flex">
@@ -27,5 +27,8 @@
 li {
   width: 100%;
   border: 0.2rem solid #92c954;
+  font-size: 3rem;
+  font-weight: bold;
+  
 }
 </style>

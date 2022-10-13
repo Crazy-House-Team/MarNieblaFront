@@ -60,6 +60,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 ul {
   width: 100%;
@@ -70,5 +71,14 @@ ul {
 .p__warning {
   margin-top: 5rem;
 }
-
+@media(max-width:499px){
+  h1{
+    text-align: center;
+  }
+}
+@media(max-width:425px){
+  h1{
+    text-align: center;
+  }
+}
 </style>

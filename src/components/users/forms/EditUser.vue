@@ -96,7 +96,7 @@ async function saveData(event) {
     </div>
 
     <div class="form-group">
-      <div class="m-3 d-flex justify-content-center align-items-center">
+      <div class=" editButons m-3 d-flex justify-content-between align-items-center">
       <BackButton toRoute="/admin/userlist/0" />
       <SaveButton class="ps-4"/>
       </div>
@@ -105,28 +105,42 @@ async function saveData(event) {
 </template>
 
 <style scoped>
-h2 {
-  text-align: center;
-  font-size: 40px;
-}
-input,
-textarea {
-  border: solid 2px #3ad86f;
-  border-radius: 30px;
-}
-.form-control {
-  margin: 4px;
-  width: 900px;
-  height: 65px;
-  font-size: 24px;
-  font-weight: bold;
-  color: black;
-  border: solid 5px #3ad86f;
-  text-align: left;
-}
 
-#flexCheckDefault {
-  left: 30px;
-  bottom: 3px;
+
+  input,
+  textarea {
+    border: solid 2px #3ad86f;
+    border-radius: 30px;
+  }
+  .form-control {
+    margin: 4px;
+    width: 900px;
+    height: 65px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    border: solid 5px #3ad86f;
+    text-align: left;
+  }
+
+  #flexCheckDefault {
+    left: 30px;
+    bottom: 3px;
+  }
+  .form-check{
+  font-size: 30px;
+  left:5px;
+  display: flex;
+  align-items: center;
+  gap:40px;
+}
+.form-check-input{
+  width:50px;
+  height: 50px;
+}
+@media(max-width:575px){
+  .form-control {
+    width: 100%;
+  }
 }
 </style>

@@ -23,10 +23,20 @@
   .button-newquestion {
     background-color: #92c954;
     border-radius: 20px;
-    width: 14vw;
-    height: 6vh;
+    width: 200px;
+    height: 65px;
     border: none;
     color: white;
   }
-
+  h2{
+    font-size: 2.2rem;
+    font-weight:bold;
+  }
+@media(max-width:850px){
+  .button-newquestion{
+      width: 150px;
+      height: 70px;
+   
+  }
+}
 </style>

@@ -14,7 +14,7 @@
           type="button"
           class="btn button--orange-outlined-edit m-1 text-center"
         >
-          <h3>Editar {{id}}</h3>
+          <h3>Editar</h3>
         </button>
       </RouterLink>
     </div>
@@ -27,8 +27,10 @@
       background-color: #ffffff;
       border: 6px solid #f8981d;
       border-radius: 20px;
-      width: 8vw;
-      height: 6vh;
+      width: 200px;
+      height: 65px;
     }
-  
+    h3{
+      font-size: 25px;
+    }
   </style>

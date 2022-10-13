@@ -28,7 +28,7 @@ import { defineProps } from "vue";
   background-color: #ffffff;
   border: 6px solid #f82c1d;
   border-radius: 20px;
-  width: 100px;
+  width: 120px;
   height: 60px; 
 }
 
