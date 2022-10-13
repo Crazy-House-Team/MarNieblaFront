@@ -35,7 +35,14 @@
     width: 100%;
     border: 0.2rem solid #92c954;
   }
-@media(max-width:700px){
+@media(max-width:1000px){
+  .list-group-item{
+    display: flex;
+    flex-direction: column;
+    
+  }
+}
+@media(max-width:620px){
   .list-group-item{
     display: flex;
     flex-direction: column;

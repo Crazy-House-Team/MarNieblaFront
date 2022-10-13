@@ -29,7 +29,7 @@
     background-color: #ffffff;
     border: 6px solid #f8981d;
     border-radius: 20px;
-    width: 120px;
+    width: 160px;
     height: 60px;
   }
 

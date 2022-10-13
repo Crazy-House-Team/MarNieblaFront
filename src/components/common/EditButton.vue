@@ -31,5 +31,13 @@
     width: 120px;
     height: 60px; 
   }
-
+@media(max-width:580px){
+  .button--orange-outlined-edit {
+    background-color: #ffffff;
+    border: 6px solid #f8981d;
+    border-radius: 20px;
+    width: 50px;
+    height: 60px; 
+  }
+}
 </style>
