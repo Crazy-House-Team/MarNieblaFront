@@ -96,7 +96,7 @@ export default {
       <div class="respuestas mt-2">
         <div class="row">
           <div
-            class="col-6 col-xlm-3 mt-3 d-flex justify-content-start align-items-center"
+            class="col-6 col-xlm-3 mt-3 d-flex justify-content-center align-items-center"
           >
             <input
               id="answer_a"
@@ -115,7 +115,7 @@ export default {
             </label>
           </div>
           <div
-            class="col-6 col-xlm-3 mt-3 d-flex justify-content-start align-items-center"
+            class="col-6 col-xlm-3 mt-3 d-flex justify-content-center align-items-center"
           >
             <input
               id="answer_c"
@@ -136,7 +136,7 @@ export default {
         </div>
         <div class="row">
           <div
-            class="col-6 col-xlm-3 mt-3 d-flex justify-content-start align-items-center"
+            class="col-6 col-xlm-3 mt-3 d-flex justify-content-center align-items-center"
           >
             <input
               id="answer_b"
@@ -155,7 +155,7 @@ export default {
             </label>
           </div>
           <div
-            class="col-6 col-lm-3 mt-3 d-flex justify-content-start align-items-center"
+            class="col-6 col-lm-3 mt-3 d-flex justify-content-center align-items-center"
           >
             <input
               id="answer_d"
@@ -176,8 +176,8 @@ export default {
         </div>
       </div>
     </form>
-    <div>
-      <button class="button--purple-outlined mt-5" @click="sendAnswer()">
+    <div class="button-box">
+      <button class="button--purple-outlined " @click="sendAnswer()">
         ENVIAR RESPUESTA
       </button>
     </div>
@@ -185,10 +185,9 @@ export default {
 </template>
 
 <style scoped>
-h2 {
-  font-size: 25px;
+.container {
+  max-width: 1280px;
 }
-
 .form-label {
   font-size: 20px;
   margin: 20px;
@@ -198,22 +197,42 @@ h2 {
   font-size: 25px;
   margin: 0;
 }
-
 textarea {
   border: 6px solid #f8981d;
   border-radius: 0px;
   height: 150px;
 }
-
-.button--purple-outlined {
-  background-color: #ffffff;
-  border: 6px solid #675979;
-  border-radius: 20px;
-  margin-left: 15%;
-  height: 55px;
-  width: 800px;
+.form-control{
+  font-size: 20px;
 }
-
+.button-box{
+  display: flex;
+  justify-content: center;
+}
+.button--purple-outlined{
+  align-items: center;
+  height: 55px;
+  width: 400px;
+  font-size: 3rem;
+}
+@media (max-width: 1000px) {
+  .button--purple-outlined{
+    align-items: center;
+    height: 55px;
+    width: 400px;
+  }
+}
+@media (max-width:780px){
+  .button--purple-outlined {
+    background-color: #ffffff;
+    border: 6px solid #675979;
+    border-radius: 20px;
+    height: 55px;
+    width: 300px;
+    font-size: 2.2rem;
+    font-weight: bold;
+  }
+}
 .input {
   background-color: #ffffff;
   border: 6px solid #92c954;
