@@ -62,8 +62,7 @@ export default {
     },
     nextQuestion() {
       if(this.questionsOrder === 2){
-        router.push("/homeuser");
-        console.log(this.results);
+        router.push("/resultuser");
       }
       this.correctAnswerA = false;
       this.correctAnswerB = false;

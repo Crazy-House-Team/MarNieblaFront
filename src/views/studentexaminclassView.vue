@@ -1,155 +1,154 @@
 <script setup>
 import { examInClassStudent } from "../store/examInClassStudent";
-const store = examInClassStudent();
-let questionsOrder = 0;
-beforeMount() {
-    
-}
-/* function sendAnswer() {
+import { getAction } from "@/services/apiRequests";
+import { ref, onMounted, onUpdated } from "vue";
 
-};
-function updateActiveQuestion{};
-setInterval('updateActiveQuestion()',2000); */
+const store = examInClassStudent();
+let questionsOrder = ref(17);
+let actualQuestion = ref(0);
+
+onMounted(() => {
+setInterval(async () => {
+  let activeQuestion = await getAction("activeQuestion/", store.exam_id);
+
+  if (actualQuestion.value != activeQuestion.data[0].question_id) {
+    
+    actualQuestion.value = activeQuestion.data[0].question_id;
+    console.log("toy aqui");
+    console.log(questionsOrder.value);
+    questionsOrder.value = questionsOrder.value + 1;
+  }
+}, 2000);});
+
 </script>
 <template>
   <div class="container">
-    <form id="answerForm">
-      <div>
-        <label
-          for="questionlabel"
-          class="pregunta form-label d-flex justify-content-center"
-          >PREGUNTA {{ questionsOrder + 1 }}</label
-        >
-        <textarea
-          type="question"
-          class="form-control"
-          id="questionlabel"
-          rows="3"
-          v-model="store.questionsInTest[0].data[questionsOrder].question"
-        ></textarea>
-      </div>
+    <div>
+      <label
+        for="questionlabel"
+        class="pregunta form-label d-flex justify-content-center"
+        >PREGUNTA {{ actualQuestion + 1 }}</label
+      >
+      <textarea
+        type="question"
+        class="form-control"
+        id="questionlabel"
+        rows="3"
+        v-model="store.questionsInTest[0].data[actualQuestion].question"
+      ></textarea>
+    </div>
 
-      <div class="respuestas mt-2">
-        <div class="row">
-          <div
-            class="
-              col-6 col-xlm-3
-              mt-3
-              d-flex
-              justify-content-start
-              align-items-center
-            "
-          >
-            <input
-              id="answer_a"
-              value="a"
-              name="rightAnswer"
-              type="radio"
-              class="btn-check"
-              v-model="rightAnswer"
-              autocomplete="off"
-            />
-            <label
-              for="answer_a"
-              class="form-label input mt-3 ms-4 form-control text-center btn"
-             
-              >{{
-                store.questionsInTest[0].data[questionsOrder].answer_a
-              }}
-            </label>
-          </div>
-          <div
-            class="
-              col-6 col-xlm-3
-              mt-3
-              d-flex
-              justify-content-start
-              align-items-center
-            "
-          >
-            <input
-              id="answer_c"
-              value="c"
-              type="radio"
-              class="btn-check"
-              autocomplete="off"
-              v-model="rightAnswer"
-              name="rightAnswer"
-            />
-            <label
-              for="answer_c"
-              class="form-label input mt-3 ms-4 form-control text-center btn"
-              >{{
-                store.questionsInTest[0].data[questionsOrder].answer_c
-              }}
-            </label>
-          </div>
+    <div class="respuestas mt-2">
+      <div class="row">
+        <div
+          class="
+            col-6 col-xlm-3
+            mt-3
+            d-flex
+            justify-content-start
+            align-items-center
+          "
+        >
+          <input
+            id="answer_a"
+            value="a"
+            name="rightAnswer"
+            type="radio"
+            class="btn-check"
+            v-model="rightAnswer"
+            autocomplete="off"
+          />
+          <label
+            for="answer_a"
+            class="form-label input mt-3 ms-4 form-control text-center btn"
+            >{{ store.questionsInTest[0].data[actualQuestion].answer_a }}
+          </label>
         </div>
-        <div class="row">
-          <div
-            class="
-              col-6 col-xlm-3
-              mt-3
-              d-flex
-              justify-content-start
-              align-items-center
-            "
-          >
-            <input
-              id="answer_b"
-              value="b"
-              type="radio"
-              v-model="rightAnswer"
-              class="btn-check"
-              autocomplete="off"
-              name="rightAnswer"
-            />
-            <label
-              for="answer_b"
-              class="form-label input mt-3 ms-4 form-control text-center btn"
-              >{{
-                store.questionsInTest[0].data[questionsOrder].answer_b
-              }}
-            </label>
-          </div>
-          <div
-            class="
-              col-6 col-lm-3
-              mt-3
-              d-flex
-              justify-content-start
-              align-items-center
-            "
-          >
-            <input
-              id="answer_d"
-              value="d"
-              type="radio"
-              v-model="rightAnswer"
-              name="rightAnswer"
-              class="btn-check"
-              autocomplete="off"
-            />
-            <label
-              for="answer_d"
-              class="form-label input mt-3 ms-4 form-control text-center btn"
-              >{{
-                store.questionsInTest[0].data[questionsOrder].answer_d
-              }}
-            </label>
-          </div>
+        <div
+          class="
+            col-6 col-xlm-3
+            mt-3
+            d-flex
+            justify-content-start
+            align-items-center
+          "
+        >
+          <input
+            id="answer_c"
+            value="c"
+            type="radio"
+            class="btn-check"
+            autocomplete="off"
+            v-model="rightAnswer"
+            name="rightAnswer"
+          />
+          <label
+            for="answer_c"
+            class="form-label input mt-3 ms-4 form-control text-center btn"
+            >{{ store.questionsInTest[0].data[actualQuestion].answer_c }}
+          </label>
         </div>
       </div>
-    </form>
+      <div class="row">
+        <div
+          class="
+            col-6 col-xlm-3
+            mt-3
+            d-flex
+            justify-content-start
+            align-items-center
+          "
+        >
+          <input
+            id="answer_b"
+            value="b"
+            type="radio"
+            v-model="rightAnswer"
+            class="btn-check"
+            autocomplete="off"
+            name="rightAnswer"
+          />
+          <label
+            for="answer_b"
+            class="form-label input mt-3 ms-4 form-control text-center btn"
+            >{{ store.questionsInTest[0].data[actualQuestion].answer_b }}
+          </label>
+        </div>
+        <div
+          class="
+            col-6 col-lm-3
+            mt-3
+            d-flex
+            justify-content-start
+            align-items-center
+          "
+        >
+          <input
+            id="answer_d"
+            value="d"
+            type="radio"
+            v-model="rightAnswer"
+            name="rightAnswer"
+            class="btn-check"
+            autocomplete="off"
+          />
+          <label
+            for="answer_d"
+            class="form-label input mt-3 ms-4 form-control text-center btn"
+            >{{ store.questionsInTest[0].data[actualQuestion].answer_d }}
+          </label>
+        </div>
+      </div>
+    </div>
     <div>
       <button class="button--purple-outlined mt-5" @click="sendAnswer()">
         ENVIAR RESPUESTA
       </button>
     </div>
-      </div>
+  </div>
 </template>
-  
-  <style scoped>
+
+<style scoped>
 h2 {
   font-size: 25px;
 }
@@ -187,4 +186,3 @@ textarea {
   width: 450px;
 }
 </style>
-  
