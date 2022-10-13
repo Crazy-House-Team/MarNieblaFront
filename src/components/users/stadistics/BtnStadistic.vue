@@ -16,7 +16,7 @@
         type="button"
         class="btn button--orange-outlined-edit m-1 text-center"
       >
-        <h3>Estadística {{id}}</h3>
+        <h3>Estadística</h3>
       </button>
     </RouterLink>
   </div>
@@ -29,8 +29,8 @@
     background-color: #ffffff;
     border: 6px solid #f8981d;
     border-radius: 20px;
-    width: 8vw;
-    height: 6vh;
+    width: 120px;
+    height: 60px;
   }
 
 </style>

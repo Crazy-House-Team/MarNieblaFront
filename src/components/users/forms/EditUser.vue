@@ -98,7 +98,7 @@
     </div>
 
     <div class="form-group">
-      <div class="m-3 d-flex justify-content-center align-items-center">
+      <div class=" editButons m-3 d-flex justify-content-between align-items-center">
       <BackButton toRoute="/admin/userlist/0" />
       <SaveButton class="ps-4"/>
       </div>
@@ -133,5 +133,15 @@
     left: 30px;
     bottom: 3px;
   }
-
+  .form-check{
+  font-size: 30px;
+  left:5px;
+  display: flex;
+  align-items: center;
+  gap:40px;
+}
+.form-check-input{
+  width:50px;
+  height: 50px;
+}
 </style>

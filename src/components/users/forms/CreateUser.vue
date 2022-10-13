@@ -84,7 +84,7 @@
       />
     </div>
     <div class="form-group">
-      <div class="m-3 d-flex justify-content-center align-items-center">
+      <div class="m-3 d-flex justify-content-between align-items-center">
       <BackButton toRoute="/admin/userlist/0" />
       <SaveButton class="ps-4"/>
       </div>
