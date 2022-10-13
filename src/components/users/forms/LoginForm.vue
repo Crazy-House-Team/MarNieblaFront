@@ -15,10 +15,9 @@ const userData = ref({
 
 const doLogin = async () => {
   const response = await loginAction(userData.value);
-  console.log(response);
   saveAuthToken(response.data.access_token.plainTextToken);
   saveAuthRole(response.data.user.isAdmin);
-
+  router.go(0);
   checkIfUserIsAdmin()
     ? router.push({ name: "admin" })
     : router.push({ name: "homeuser" });

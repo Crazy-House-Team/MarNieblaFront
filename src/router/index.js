@@ -11,12 +11,19 @@ const checkLogin = () => {
   if (!checkIfUserIsLoggedIn()) return { name: "home" };
 };
 
+const blockAccessToLoggedUsers = () => {
+  if (checkIfUserIsAdmin()) return { name: "admin" };
+  if (checkIfUserIsLoggedIn()) return { name: "homeuser" };
+  return true;
+};
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
       name: "home",
+      beforeEnter: [blockAccessToLoggedUsers],
       component: HomeView,
     },
     {

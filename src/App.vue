@@ -1,23 +1,44 @@
 <script setup>
+import router from "@/router";
 import { RouterLink, RouterView } from "vue-router";
+import {
+  checkIfUserIsLoggedIn,
+  removeAuthRole,
+  removeAuthToken,
+} from "@/services/auth";
+import { onMounted, ref } from "vue";
+import { useSessionStatus } from "@/store/sessionStatus";
+
+const store = useSessionStatus();
+const auth = ref(false);
+
+onMounted(() => {
+  auth.value = checkIfUserIsLoggedIn();
+});
+
+const doLogout = () => {
+  removeAuthToken();
+  removeAuthRole();
+  auth.value = false;
+  router.go(0);
+  router.push({ name: "home" });
+};
 </script>
 
 <template>
   <header class="header">
-   
     <nav class="nav">
       <div class="logo-title">
-    
-      <RouterLink :to="{ name: 'home' }">
-        <img
-          src="@/assets/Iconcolors.jpg"
-          alt="logotipo"
-          class="header__logo"
-        />
-      </RouterLink>
-      <h1>Mar de Dudas</h1>
+        <RouterLink :to="{ name: 'home' }">
+          <img
+            src="@/assets/Iconcolors.jpg"
+            alt="logotipo"
+            class="header__logo"
+          />
+        </RouterLink>
+        <h1>Mar de Dudas</h1>
       </div>
-      <RouterLink class="logout" to="/">Logout</RouterLink>
+      <p class="logout" v-if="auth" @click="doLogout">Logout</p>
     </nav>
   </header>
   <main class="main">
@@ -53,21 +74,23 @@ import { RouterLink, RouterView } from "vue-router";
 }
 
 h1 {
-  color:white;
-  display:flex;
+  color: white;
+  display: flex;
   align-items: center;
   justify-content: espace-around;
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
   font-size: 4rem;
 }
-.logo-title{
-  display:flex;
+.logo-title {
+  display: flex;
   justify-content: space-around;
 }
 .logout {
-display: flex;
-align-items: center;
-font-size:2rem;
-margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  margin-right: 2rem;
+  color: white;
+  cursor: pointer;
 }
 </style>
