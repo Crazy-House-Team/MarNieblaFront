@@ -7,9 +7,7 @@ import {
   removeAuthToken,
 } from "@/services/auth";
 import { onMounted, ref } from "vue";
-import { useSessionStatus } from "@/store/sessionStatus";
 
-const store = useSessionStatus();
 const auth = ref(false);
 
 onMounted(() => {
@@ -20,8 +18,7 @@ const doLogout = () => {
   removeAuthToken();
   removeAuthRole();
   auth.value = false;
-  router.go(0);
-  router.push({ name: "home" });
+   router.push({ name: "home" });
 };
 </script>
 
