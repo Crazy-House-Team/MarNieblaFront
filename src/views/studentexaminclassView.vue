@@ -1,25 +1,28 @@
 <script setup>
 import { examInClassStudent } from "../store/examInClassStudent";
 import { getAction } from "@/services/apiRequests";
-import { ref, onMounted, onUpdated } from "vue";
+import { ref, onMounted, onBeforeMount } from "vue";
 
 const store = examInClassStudent();
 let questionsOrder = ref(17);
 let actualQuestion = ref(0);
-
-onMounted(() => {
-setInterval(async () => {
+onBeforeMount(() => {
+  
+}),(async () => {
   let activeQuestion = await getAction("activeQuestion/", store.exam_id);
+  actualQuestion.value = activeQuestion.data[0].question_id;
+}),
+  onMounted(() => {
+    setInterval(async () => {
+      let activeQuestion = await getAction("activeQuestion/", store.exam_id);
 
-  if (actualQuestion.value != activeQuestion.data[0].question_id) {
-    
-    actualQuestion.value = activeQuestion.data[0].question_id;
-    console.log("toy aqui");
-    console.log(questionsOrder.value);
-    questionsOrder.value = questionsOrder.value + 1;
-  }
-}, 2000);});
+      if (actualQuestion.value != activeQuestion.data[0].question_id) {
+        actualQuestion.value = activeQuestion.data[0].question_id;
 
+        questionsOrder.value = questionsOrder.value + 1;
+      }
+    }, 5000);
+  });
 </script>
 <template>
   <div class="container">
@@ -34,7 +37,7 @@ setInterval(async () => {
         class="form-control"
         id="questionlabel"
         rows="3"
-        v-model="store.questionsInTest[0].data[actualQuestion].question"
+        v-model="store.questionsInTest[0].data[questionsOrder].question"
       ></textarea>
     </div>
 
