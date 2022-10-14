@@ -4,10 +4,12 @@ import { getAction } from "@/services/apiRequests";
 import { ref, onMounted, onBeforeMount } from "vue";
 
 const store = examInClassStudent();
-let questionsOrder = ref(17);
+let questionsOrderStudent = ref(0);
 let actualQuestion = ref(0);
+let results=[];
+let hits= 0;
+let answer = ref("");
 onBeforeMount(() => {
-  
 }),(async () => {
   let activeQuestion = await getAction("activeQuestion/", store.exam_id);
   actualQuestion.value = activeQuestion.data[0].question_id;
@@ -19,10 +21,36 @@ onBeforeMount(() => {
       if (actualQuestion.value != activeQuestion.data[0].question_id) {
         actualQuestion.value = activeQuestion.data[0].question_id;
 
-        questionsOrder.value = questionsOrder.value + 1;
+        questionsOrderStudent.value = questionsOrderStudent.value + 1;
       }
-    }, 5000);
+    }, 2000);
   });
+  function sendAnswer(){
+    switch (answer.value) {
+        case "":
+          window.alert("No Has seleccionado ninguna respuesta. Intentalo");
+          break;
+
+        default:
+          isCorrectAnswer();
+                   
+          console.log(results);
+          console.log(hits);
+          console.log(answer.value);
+          console.log(store.questionsInTest[0].data[questionsOrderStudent.value].right_answer);
+      }
+    };
+    function isCorrectAnswer(){
+      if (
+        answer.value ===
+        store.questionsInTest[0].data[questionsOrderStudent.value].right_answer
+      ) {
+        hits = hits + 1;
+        return results.push(true);
+      }
+      results.push(false);
+    }
+  
 </script>
 <template>
   <div class="container">
@@ -30,14 +58,14 @@ onBeforeMount(() => {
       <label
         for="questionlabel"
         class="pregunta form-label d-flex justify-content-center"
-        >PREGUNTA {{ actualQuestion + 1 }}</label
+        >PREGUNTA {{ questionsOrderStudent + 1 }}</label
       >
       <textarea
         type="question"
         class="form-control"
         id="questionlabel"
         rows="3"
-        v-model="store.questionsInTest[0].data[questionsOrder].question"
+        v-model="store.questionsInTest[0].data[questionsOrderStudent].question"
       ></textarea>
     </div>
 
@@ -54,17 +82,17 @@ onBeforeMount(() => {
         >
           <input
             id="answer_a"
-            value="a"
-            name="rightAnswer"
+            value="A"
+            name="answer"
             type="radio"
             class="btn-check"
-            v-model="rightAnswer"
+            v-model="answer"
             autocomplete="off"
           />
           <label
             for="answer_a"
             class="form-label input mt-3 ms-4 form-control text-center btn"
-            >{{ store.questionsInTest[0].data[actualQuestion].answer_a }}
+            >{{ store.questionsInTest[0].data[questionsOrderStudent].answer_a }}
           </label>
         </div>
         <div
@@ -78,17 +106,17 @@ onBeforeMount(() => {
         >
           <input
             id="answer_c"
-            value="c"
+            value="C"
             type="radio"
             class="btn-check"
             autocomplete="off"
-            v-model="rightAnswer"
-            name="rightAnswer"
+            v-model="answer"
+            name="answer"
           />
           <label
             for="answer_c"
             class="form-label input mt-3 ms-4 form-control text-center btn"
-            >{{ store.questionsInTest[0].data[actualQuestion].answer_c }}
+            >{{ store.questionsInTest[0].data[questionsOrderStudent].answer_c }}
           </label>
         </div>
       </div>
@@ -104,17 +132,17 @@ onBeforeMount(() => {
         >
           <input
             id="answer_b"
-            value="b"
+            value="B"
             type="radio"
-            v-model="rightAnswer"
+            v-model="answer"
             class="btn-check"
             autocomplete="off"
-            name="rightAnswer"
+            name="answer"
           />
           <label
             for="answer_b"
             class="form-label input mt-3 ms-4 form-control text-center btn"
-            >{{ store.questionsInTest[0].data[actualQuestion].answer_b }}
+            >{{ store.questionsInTest[0].data[questionsOrderStudent].answer_b }}
           </label>
         </div>
         <div
@@ -128,17 +156,17 @@ onBeforeMount(() => {
         >
           <input
             id="answer_d"
-            value="d"
+            value="D"
             type="radio"
-            v-model="rightAnswer"
-            name="rightAnswer"
+            v-model="answer"
+            name="answer"
             class="btn-check"
             autocomplete="off"
           />
           <label
             for="answer_d"
             class="form-label input mt-3 ms-4 form-control text-center btn"
-            >{{ store.questionsInTest[0].data[actualQuestion].answer_d }}
+            >{{ store.questionsInTest[0].data[questionsOrderStudent].answer_d }}
           </label>
         </div>
       </div>

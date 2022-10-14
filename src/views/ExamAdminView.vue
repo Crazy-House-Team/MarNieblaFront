@@ -6,8 +6,8 @@ import router from "../router";
 
 const store = testQuestions();
 let questionid = ref();
-let questionsOrder = ref(17);
-let activated = ref(true);
+let questionsOrder = ref(0);
+let activated = ref(false);
 onUpdated(function () {
   questionid.value = store.questionsInTest[0].data[questionsOrder.value].id;
 });
@@ -23,7 +23,7 @@ function activateQuestion() {
   putAction("activateQuestion", form.exam_id, form);
 }
 async function nextQuestion() {
-  if (questionsOrder.value == 19) {
+  if (questionsOrder.value == 5) {
     router.push("/admin");
     const data = {
       status: 0,
