@@ -5,6 +5,7 @@ import {
   checkIfUserIsLoggedIn,
   removeAuthRole,
   removeAuthToken,
+  removeUserId,
 } from "@/services/auth";
 import { onMounted, ref } from "vue";
 
@@ -17,6 +18,7 @@ onMounted(() => {
 const doLogout = () => {
   removeAuthToken();
   removeAuthRole();
+  removeUserId();
   auth.value = false;
    router.push({ name: "home" });
 };

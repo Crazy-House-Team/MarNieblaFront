@@ -3,8 +3,10 @@ import { mapActions, mapState } from "pinia";
 import { examInClassStudent } from "../../store/examInClassStudent";
 import { testRandom } from "../../store/testsRandom";
 export default {
-  data(){
-    id: Number
+  data() {
+    return {
+      id: "",
+    };
   },
 
   computed: {
@@ -41,7 +43,6 @@ export default {
       </button>
     </div>
   </div>
-
 </template>
 
 <style scoped>
@@ -59,7 +60,7 @@ export default {
   margin-top: 30px;
   text-align: center;
 }
-.connect h1{
+.connect h1 {
   font-size: 25px;
 }
 .sesion {
@@ -68,7 +69,7 @@ export default {
 }
 
 h1 {
-   margin-top: 15px;
+  margin-top: 15px;
 }
 .number {
   height: 49px;
@@ -94,7 +95,7 @@ h1 {
   align-items: center;
   text-align: center;
 }
-.test h1{
+.test h1 {
   font-size: 25px;
 }
 .statistics {
@@ -102,12 +103,10 @@ h1 {
   width: 400px;
   font-size: 20px;
   margin-top: 55px;
-
 }
 
-
-@media (max-width: 1200px){
-  .connect{ 
+@media (max-width: 1200px) {
+  .connect {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
@@ -118,19 +117,19 @@ h1 {
   }
 
   .test {
-   width: 100%;
+    width: 100%;
   }
-  .button--green-outlined{
-   height: 50px;
-   width: 300px;
+  .button--green-outlined {
+    height: 50px;
+    width: 300px;
   }
   .statistics {
     font-size: 1.5rem;
   }
 }
 
-@media (max-width:880px){
-  .connect{ 
+@media (max-width: 880px) {
+  .connect {
     width: 100%;
     padding-left: 20px;
     padding-right: 10px;
@@ -141,11 +140,11 @@ h1 {
     font-size: 1.75rem;
   }
   .test {
-   width: 100%;
+    width: 100%;
   }
-  .button--green-outlined{
-   height: 50px;
-   width: 250px;
+  .button--green-outlined {
+    height: 50px;
+    width: 250px;
   }
   .statistics {
     font-size: 1.25rem;
@@ -162,8 +161,8 @@ h1 {
     margin-top: 1px;
   }
 }
-@media(max-width: 650px){
-.connect{ 
+@media (max-width: 650px) {
+  .connect {
     width: 100%;
     padding-left: 20px;
     padding-right: 10px;
@@ -175,17 +174,17 @@ h1 {
     margin-top: 10px;
   }
   .test {
-   width: 100%;
+    width: 100%;
   }
-  .button--green-outlined{
-   height: 50px;
-   width: 170px;
+  .button--green-outlined {
+    height: 50px;
+    width: 170px;
   }
   .statistics {
     font-size: 1rem;
   }
   .connection {
-    font-size: 1.50rem;
+    font-size: 1.5rem;
     margin-left: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -198,10 +197,10 @@ h1 {
     margin-top: 1px;
   }
   .sesion {
-   display: flex;
-   flex-direction: column;
-   align-items:  center;
-   margin-top: 15px;
- }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+  }
 }
 </style>

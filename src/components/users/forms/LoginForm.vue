@@ -5,6 +5,7 @@ import {
   checkIfUserIsAdmin,
   saveAuthRole,
   saveAuthToken,
+  saveUserId,
 } from "@/services/auth";
 import router from "../../../router";
 
@@ -17,6 +18,7 @@ const doLogin = async () => {
   const response = await loginAction(userData.value);
   saveAuthToken(response.data.access_token.plainTextToken);
   saveAuthRole(response.data.user.isAdmin);
+  saveUserId(response.data.user.id);
   router.go(0);
   checkIfUserIsAdmin()
     ? router.push({ name: "admin" })

@@ -22,6 +22,16 @@ function checkIfUserIsLoggedIn() {
   return localStorage.getItem("authToken") !== null;
 }
 
+function saveUserId(id) {
+  localStorage.setItem("userId", id);
+}
+
+function removeUserId(id) {
+  localStorage.removeItem("userId", id);
+}
+function getUserId() {
+  return localStorage.getItem("userId");
+}
 export {
   checkIfUserIsAdmin,
   checkIfUserIsLoggedIn,
@@ -29,4 +39,7 @@ export {
   saveAuthToken,
   removeAuthRole,
   removeAuthToken,
+  getUserId,
+  removeUserId,
+  saveUserId,
 };

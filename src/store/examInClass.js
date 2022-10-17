@@ -7,6 +7,7 @@ export const testQuestions = defineStore({
   state: () => ({
     questionsInTest: [],
     exam_id: Number,
+
   }),
   getters: {},
   actions: {
@@ -27,5 +28,6 @@ export const testQuestions = defineStore({
       
         router.push("/admin/examadmin");
     },
+    
   },
 });
