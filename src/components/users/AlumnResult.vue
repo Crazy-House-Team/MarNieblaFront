@@ -1,6 +1,12 @@
 <script setup>
 import { examInClassStudent } from "../../store/examInClassStudent";
+import { testRandom } from "../../store/testsRandom";
+
+import BackButton from "../common/BackButton.vue";
 let store = examInClassStudent();
+if (store.results=== ""){
+  store=testRandom();
+}
 </script>
 
 <template>
@@ -9,37 +15,40 @@ let store = examInClassStudent();
       <div
         v-for="(result, index) in store.results"
         :key="index"
-        class="NumberQuestionLeft"
+        class="NumberQuestionLeft "
       >
-        Pregunta {{ index }} : {{ result }}
+       <h2 class="m-2" > Pregunta {{ index }} : {{ result }}</h2>
       </div>
     </div>
 
     <div class="totalResult">
       <h1>RESULTADOS:</h1>
 
-      <div class="resultTrue"></div>
-      <div class="resultNumberTrue">{{store.hits}}</div>
-      <div class="resultFalse"></div>
-      <div class="resultNumberFalse">{{20 - store.hits}}</div>
+      <div class="resultTrue"><img src="../../../public/Images/check.png" alt="" class="fluid w-100"></div>
+      <div class="resultNumberTrue text-center p-4">{{store.hits}}</div>
+      <div class="resultFalse"><img src="../../../public/Images/uncheck.png" alt="" class="fluid w-100"></div>
+      <div class="resultNumberFalse text-center p-4">{{20 - store.hits}}</div>
     </div>
-    <div class="testDay">
-      <h3>TITULO DEL TEST</h3>
-      <h3>REALIZADO EL:</h3>
+    
+    <div class="testDay ">
+      
+      <h3>REALIZADO EL: {{store.date}}</h3>
       <div class="resultDay">
         <div class="checkTrue">
-          <h3>{{store.hits}}</h3>
-          <h3>true</h3>
+          <h3 >{{store.hits}}</h3>
+          <h3 >Acertadas</h3>
         </div>
 
-        <div class="checkFalse">
-          <h3>{{20 - store.hits}}</h3>
-          <h3>false</h3>
+        <div class="checkFalse ">
+          <h3 >      {{20 - store.hits}}</h3>
+          <h3 >Incorrectas</h3>
         </div>
       </div>
-    </div>
+    </div> 
+
   </div>
-  <button type="submit" class="button--purple-outlined">TERMINAR PRUEBA</button>
+  
+  <BackButton toRoute="/homeuser"  ></BackButton>
 </template>
 
 
@@ -104,7 +113,7 @@ let store = examInClassStudent();
   flex-direction: column;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-around;
   right: 110px;
   top: 550px;
   border: 5px solid #92c954;
@@ -121,6 +130,8 @@ h3 {
 .checkFalse {
   display: fleX;
   flex-direction: row;
+  justify-content: space-between;
+  
 }
 .checkTrue {
   gap: 10px;
@@ -130,6 +141,7 @@ h3 {
   gap: 10px;
   bottom: 27px;
   position: relative;
+  margin-left: 2vw;
 }
 .button--purple-outlined {
   position: absolute;
