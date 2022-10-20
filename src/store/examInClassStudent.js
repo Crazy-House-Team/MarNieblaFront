@@ -14,13 +14,20 @@ export const examInClassStudent = defineStore({
   getters: {},
   actions: {
     testInClass(id) {
-
       getAction("checkExamIsTrue/", id)
-
         .then((result) => {
-   
-          if (!result.data) { 
-            alert('No existe ningún examen activo con el ID solicitado'); return; };
+          if (!result.data) {
+            alert("No existe ningún examen activo con el ID solicitado");
+            return;
+          }
+
+          let info = {
+            user_id: getUserId(),
+            exam_id: this.exam_id,
+          };
+
+          postAction("usersInExam", info);
+
           this.questionsInTest.push(result);
           this.exam_id = id;
 
@@ -29,7 +36,6 @@ export const examInClassStudent = defineStore({
         .catch((err) => {
           console.error(err);
         });
-
     },
     finishExam(hits, results) {
       this.hits = hits;
@@ -38,13 +44,17 @@ export const examInClassStudent = defineStore({
 
       let form = {
         user_id: getUserId(),
-        date: examDate.getFullYear()+'-'+(examDate.getMonth()+1)+'-'+examDate.getDate(),
+        date:
+          examDate.getFullYear() +
+          "-" +
+          (examDate.getMonth() + 1) +
+          "-" +
+          examDate.getDate(),
         right_answer: this.hits,
         id_exam: this.exam_id,
       };
 
-      postAction('saveUserResults', form);
-
-    }
+      postAction("saveUserResults", form);
+    },
   },
 });
