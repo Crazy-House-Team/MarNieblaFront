@@ -21,7 +21,7 @@ defineProps({
 
 <style scoped>
 .button-back h3{
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight:bold;
  
 }
