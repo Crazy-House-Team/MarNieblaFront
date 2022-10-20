@@ -1,5 +1,5 @@
 <script>
-import { mapWritableState } from "pinia";
+import { mapActions, mapState } from "pinia";
 import { testRandom } from "../store/testsRandom";
 import router from "../router";
 export default {
@@ -15,9 +15,11 @@ export default {
   }),
 
   computed: {
-    ...mapWritableState(testRandom, ["questionsInTestRandom"]),
+    ...mapState(testRandom, ["questionsInTestRandom"]),
   },
   methods: {
+    ...mapActions(testRandom, ["finishExam"]),
+
     sendAnswer() {
       switch (this.rightAnswer) {
         case "":
@@ -25,11 +27,13 @@ export default {
           break;
 
         default:
+          console.log(this.rightAnswer);
+          console.log(this.questionsInTestRandom[0].data[this.questionsOrder].right_answer);
           this.isCorrectAnswer();
           this.markCorrectAnswer();
           setTimeout(this.nextQuestion, 2000);
           console.log(this.results);
-          console.log(this.questionsOrder);
+          console.log(this.hits);
       }
     },
     isCorrectAnswer() {
@@ -39,6 +43,7 @@ export default {
       ) {
         this.hits = this.hits + 1;
         this.results.push(true);
+        return;
       }
       this.results.push(false);
     },
@@ -61,16 +66,20 @@ export default {
       }
     },
     nextQuestion() {
-      if(this.questionsOrder === 2){
+      if (this.questionsOrder === 5) {
         router.push("/resultuser");
+        this.finishExam(this.hits, this.results); 
+        return;      
       }
       this.correctAnswerA = false;
       this.correctAnswerB = false;
       this.correctAnswerC = false;
       this.correctAnswerD = false;
+      this.rightAnswer = "";
       this.questionsOrder += 1;
-      document.getElementById('answerForm').reset();
+      document.getElementById("answerForm").reset();
     },
+  
   },
 };
 </script>
@@ -99,7 +108,7 @@ export default {
           >
             <input
               id="answer_a"
-              value="a"
+              value="A"
               name="rightAnswer"
               type="radio"
               class="btn-check"
@@ -118,7 +127,7 @@ export default {
           >
             <input
               id="answer_c"
-              value="c"
+              value="C"
               type="radio"
               class="btn-check"
               autocomplete="off"
@@ -139,7 +148,7 @@ export default {
           >
             <input
               id="answer_b"
-              value="b"
+              value="B"
               type="radio"
               v-model="rightAnswer"
               class="btn-check"
@@ -158,7 +167,7 @@ export default {
           >
             <input
               id="answer_d"
-              value="d"
+              value="D"
               type="radio"
               v-model="rightAnswer"
               name="rightAnswer"
@@ -176,8 +185,19 @@ export default {
       </div>
     </form>
     <div class="button-box">
-      <button class="button--purple-outlined " @click="sendAnswer()">
+      <button
+        v-if="this.questionsOrder != 5"
+        class="button--purple-outlined"
+        @click="sendAnswer()"
+      >
         ENVIAR RESPUESTA
+      </button>
+      <button
+        v-if="this.questionsOrder === 5"
+        class="button--purple-outlined mt-5"
+        @click.prevent="sendAnswer"
+      >
+        TERMINAR PRUEBA
       </button>
     </div>
   </div>
@@ -201,27 +221,27 @@ textarea {
   border-radius: 0px;
   height: 150px;
 }
-.form-control{
+.form-control {
   font-size: 20px;
 }
-.button-box{
+.button-box {
   display: flex;
   justify-content: center;
 }
-.button--purple-outlined{
+.button--purple-outlined {
   align-items: center;
   height: 55px;
   width: 400px;
   font-size: 3rem;
 }
 @media (max-width: 1000px) {
-  .button--purple-outlined{
+  .button--purple-outlined {
     align-items: center;
     height: 55px;
     width: 400px;
   }
 }
-@media (max-width:780px){
+@media (max-width: 780px) {
   .button--purple-outlined {
     background-color: #ffffff;
     border: 6px solid #675979;
