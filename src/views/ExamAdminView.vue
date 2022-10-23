@@ -1,18 +1,29 @@
 <script setup>
 import { testQuestions } from "../store/examInClass";
 import { putAction, deleteAction } from "@/services/apiRequests";
-import { onMounted, onUpdated, ref } from "vue";
+import { onMounted, onUnmounted, onUpdated, ref } from "vue";
 import router from "../router";
+import { getAction } from "../services/apiRequests";
 
 const store = testQuestions();
+const usersResponses = ref("");
 let questionid = ref();
 let questionsOrder = ref(0);
 let activated = ref(false);
+let usersCall = "";
+
 onUpdated(function () {
   questionid.value = store.questionsInTest[0].data[questionsOrder.value].id;
 });
 onMounted(() => {
   questionid.value = store.questionsInTest[0].data[questionsOrder.value].id;
+  usersCall = setInterval(async () => {
+    usersResponses.value = await getAction("userAnswerInExam/", store.exam_id);
+    console.log(usersResponses.value.data);
+  }, 2000);
+});
+onUnmounted(() => {
+  clearInterval(usersCall);
 });
 function activateQuestion() {
   let form = {
@@ -56,24 +67,22 @@ async function nextQuestion() {
 
       <div class="col-4">
         <h3>ALUMNOS CONECTADOS</h3>
-        <output
+        <ul
           type="students"
           class="studentslist form-control"
           id="studentslabel"
           rows="3"
-        ></output>
+        >
+          <li v-for="(student, index) in usersResponses.data" :key="index">
+            {{ student.user_id }}
+          </li>
+        </ul>
       </div>
 
       <div class="respuestas mt-2">
         <div class="row">
           <div
-            class="
-              col-4 col-lm-3
-              mt-4
-              d-flex
-              justify-content-start
-              align-items-center
-            "
+            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
           >
             <label for="answer_A" class="form-label"></label>
             <input
@@ -90,13 +99,7 @@ async function nextQuestion() {
           </div>
 
           <div
-            class="
-              col-4 col-lm-3
-              mt-4
-              d-flex
-              justify-content-start
-              align-items-center
-            "
+            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
           >
             <label for="answer_C" class="form-label"></label>
             <input
@@ -115,13 +118,7 @@ async function nextQuestion() {
 
         <div class="row">
           <div
-            class="
-              col-4 col-lm-3
-              mt-4
-              d-flex
-              justify-content-start
-              align-items-center
-            "
+            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
           >
             <label for="answer_B" class="form-label"></label>
             <input
@@ -138,13 +135,7 @@ async function nextQuestion() {
           </div>
 
           <div
-            class="
-              col-4 col-lm-3
-              mt-4
-              d-flex
-              justify-content-start
-              align-items-center
-            "
+            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
           >
             <label for="answer_D" class="form-label"></label>
             <input
@@ -166,36 +157,23 @@ async function nextQuestion() {
 
     <div class="row">
       <div
-        class="
-          col-6 col-lm-3
-          mt-4
-          d-flex
-          justify-content-center
-          align-items-center
-        "
+        class="col-6 col-lm-3 mt-4 d-flex justify-content-center align-items-center"
       >
-        <button v-if="activated=== true"
+        <button
+          v-if="activated === true"
           class="button--purple-outlined mt-5"
           @click.prevent="activateQuestion()"
-   
         >
           ACTIVAR PREGUNTA
         </button>
       </div>
       <div
-        class="
-          col-6 col-lm-3
-          mt-4
-          d-flex
-          justify-content-center
-          align-items-center
-        "
-        
-        
+        class="col-6 col-lm-3 mt-4 d-flex justify-content-center align-items-center"
       >
-        <button v-if="activated=== false" 
+        <button
+          v-if="activated === false"
           class="button--purple-outlined mt-5"
-          @click.prevent="nextQuestion" 
+          @click.prevent="nextQuestion"
         >
           SIGUIENTE PREGUNTA
         </button>

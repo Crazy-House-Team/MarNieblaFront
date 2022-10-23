@@ -1,7 +1,8 @@
 <script setup>
 import { examInClassStudent } from "../store/examInClassStudent";
-import { getAction } from "@/services/apiRequests";
-import { ref, onMounted, onBeforeMount } from "vue";
+import { getAction, postAction } from "@/services/apiRequests";
+import { getUserId } from "@/services/auth";
+import { ref, onMounted, onUnmounted, onBeforeMount } from "vue";
 import router from "../router";
 
 const store = examInClassStudent();
@@ -11,23 +12,28 @@ let results = [];
 let hits = 0;
 let answered = ref(false);
 let answer = ref("");
+let questionsCall = "";
 onBeforeMount(() => {}),
   async () => {
     let activeQuestion = await getAction("activeQuestion/", store.exam_id);
     actualQuestion.value = activeQuestion.data[0].question_id;
   },
-  onMounted(() => {
-    setInterval(async () => {
+onMounted(() => {
+    questionsCall = setInterval(async () => {
       let activeQuestion = await getAction("activeQuestion/", store.exam_id);
 
       if (actualQuestion.value != activeQuestion.data[0].question_id) {
         actualQuestion.value = activeQuestion.data[0].question_id;
         answered.value = false;
         questionsOrderStudent.value = questionsOrderStudent.value + 1;
-        document.getElementById('answerForm').reset();
+        document.getElementById("answerForm").reset();
       }
     }, 2000);
   });
+  onUnmounted(() => {
+  clearInterval(questionsCall);
+});
+
 function sendAnswer() {
   switch (answer.value) {
     case "":
@@ -37,24 +43,32 @@ function sendAnswer() {
     default:
       answered.value = true;
       isCorrectAnswer();
-
-
   }
 }
 function isCorrectAnswer() {
+  let data = {
+    user_id: getUserId(),
+    exam_id: store.exam_id,
+    question_id: actualQuestion.value,
+    is_right: true,
+  };
+
   if (
     answer.value ===
     store.questionsInTest[0].data[questionsOrderStudent.value].right_answer
   ) {
     hits = hits + 1;
-
-    return results.push(true);
+    results.push(true);
+  } else {
+    data.is_right = false;
+    results.push(false);
   }
-  results.push(false);
+  postAction("userAnswerInExam", data);
 }
-function finishExam(){
+
+function finishExam() {
   store.finishExam(hits, results);
-  router.push("/resultuser")
+  router.push("/resultuser");
 }
 </script>
 <template>
@@ -87,7 +101,6 @@ function finishExam(){
               class="btn-check"
               v-model="answer"
               autocomplete="off"
-              
             />
             <label
               for="answer_a"

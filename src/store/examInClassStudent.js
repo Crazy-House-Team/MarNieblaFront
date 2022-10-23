@@ -23,7 +23,7 @@ export const examInClassStudent = defineStore({
 
           let info = {
             user_id: getUserId(),
-            exam_id: this.exam_id,
+            exam_id: id,
           };
 
           postAction("usersInExam", info);
