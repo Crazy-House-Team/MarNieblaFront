@@ -66,7 +66,7 @@ export default {
       }
     },
     nextQuestion() {
-      if (this.questionsOrder === 5) {
+      if (this.questionsOrder === 2) {
         router.push("/resultuser");
         this.finishExam(this.hits, this.results); 
         return;      
