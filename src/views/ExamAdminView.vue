@@ -1,9 +1,10 @@
 <script setup>
 import { testQuestions } from "../store/examInClass";
 import { putAction, deleteAction } from "@/services/apiRequests";
-import { onMounted, onUnmounted, onUpdated, ref } from "vue";
+import { onBeforeMount, onMounted, onUnmounted, onUpdated, ref } from "vue";
 import router from "../router";
 import { getAction } from "../services/apiRequests";
+import { alumnsInTest } from "../store/alums.js";
 
 const store = testQuestions();
 const usersResponses = ref("");
@@ -11,11 +12,21 @@ let questionid = ref();
 let questionsOrder = ref(0);
 let activated = ref(false);
 let usersCall = "";
-
+let alumnsStore = alumnsInTest();
 onUpdated(function () {
   questionid.value = store.questionsInTest[0].data[questionsOrder.value].id;
 });
+
 onMounted(() => {
+  questionid.value = store.questionsInTest[0].data[questionsOrder.value].id;
+
+  let form = {
+    exam_id: store.exam_id,
+    question_id: questionid.value,
+  };
+  
+  putAction("activateQuestion", form.exam_id, form);
+  alumnsStore.alumnsInClass();
   questionid.value = store.questionsInTest[0].data[questionsOrder.value].id;
   usersCall = setInterval(async () => {
     usersResponses.value = await getAction("userAnswerInExam/", store.exam_id);
@@ -41,7 +52,9 @@ async function nextQuestion() {
     };
     await putAction("updateExam", store.exam_id, data);
     await deleteAction("deleteExamClass", store.exam_id);
-  }
+    await deleteAction("deleteAnswers", store.exam_id);
+
+  };
   activated.value = !activated.value;
   return (questionsOrder.value = questionsOrder.value + 1);
 }
@@ -73,16 +86,35 @@ async function nextQuestion() {
           id="studentslabel"
           rows="3"
         >
-          <li v-for="(student, index) in usersResponses.data" :key="index">
-            {{ student.user_id }}
-          </li>
+        <div v-for="(student, index) in usersResponses.data" :key="index">
+
+          <li v-if="student.question_id===store.questionsInTest[0].data[questionsOrder].id ">
+            <!-- {{ student }} -->{{ alumnsStore.alumns[0].data[0].name }}
+            <img
+              v-if="student.is_right === 1"
+              src="../../public/images/check.png"
+              class="img-fluid w-25 float-right"
+            />
+            <img
+              v-if="student.is_right === 0"
+              src="../../public/images/uncheck.png"
+              class="img-fluid w-25 float-right"
+            />
+            
+          </li></div>
         </ul>
       </div>
 
       <div class="respuestas mt-2">
         <div class="row">
           <div
-            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
+            class="
+              col-4 col-lm-3
+              mt-4
+              d-flex
+              justify-content-start
+              align-items-center
+            "
           >
             <label for="answer_A" class="form-label"></label>
             <input
@@ -99,7 +131,13 @@ async function nextQuestion() {
           </div>
 
           <div
-            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
+            class="
+              col-4 col-lm-3
+              mt-4
+              d-flex
+              justify-content-start
+              align-items-center
+            "
           >
             <label for="answer_C" class="form-label"></label>
             <input
@@ -118,7 +156,13 @@ async function nextQuestion() {
 
         <div class="row">
           <div
-            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
+            class="
+              col-4 col-lm-3
+              mt-4
+              d-flex
+              justify-content-start
+              align-items-center
+            "
           >
             <label for="answer_B" class="form-label"></label>
             <input
@@ -135,7 +179,13 @@ async function nextQuestion() {
           </div>
 
           <div
-            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
+            class="
+              col-4 col-lm-3
+              mt-4
+              d-flex
+              justify-content-start
+              align-items-center
+            "
           >
             <label for="answer_D" class="form-label"></label>
             <input
@@ -157,7 +207,13 @@ async function nextQuestion() {
 
     <div class="row">
       <div
-        class="col-6 col-lm-3 mt-4 d-flex justify-content-center align-items-center"
+        class="
+          col-6 col-lm-3
+          mt-4
+          d-flex
+          justify-content-center
+          align-items-center
+        "
       >
         <button
           v-if="activated === true"
@@ -168,7 +224,13 @@ async function nextQuestion() {
         </button>
       </div>
       <div
-        class="col-6 col-lm-3 mt-4 d-flex justify-content-center align-items-center"
+        class="
+          col-6 col-lm-3
+          mt-4
+          d-flex
+          justify-content-center
+          align-items-center
+        "
       >
         <button
           v-if="activated === false"
