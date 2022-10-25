@@ -29,8 +29,11 @@ onMounted(() => {
   alumnsStore.alumnsInClass();
   questionid.value = store.questionsInTest[0].data[questionsOrder.value].id;
   usersCall = setInterval(async () => {
-    usersResponses.value = await getAction("userAnswerInExam/", store.exam_id);
-    console.log(usersResponses.value.data);
+    usersResponses.value = await getAction(
+      "userAnswerInExam/",
+      store.exam_id + "/" + questionid.value 
+    );
+    console.log(usersResponses.value);
   }, 2000);
 });
 onUnmounted(async () => {
@@ -40,6 +43,7 @@ onUnmounted(async () => {
   };
   await putAction("updateExam", store.exam_id, data);
   await deleteAction("deleteExamClass", store.exam_id);
+  await deleteAction("deleteAnswers", store.exam_id);
 });
 function activateQuestion() {
   let form = {
