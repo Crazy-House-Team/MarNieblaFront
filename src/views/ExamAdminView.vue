@@ -31,7 +31,7 @@ onMounted(() => {
   usersCall = setInterval(async () => {
     usersResponses.value = await getAction(
       "userAnswerInExam/",
-      store.exam_id + "/" + questionid.value 
+      store.exam_id + "/" + questionid.value
     );
     console.log(usersResponses.value);
   }, 2000);
@@ -110,12 +110,12 @@ async function nextQuestion() {
                   <img
                     v-if="student.is_right === 1"
                     src="../../public/images/check.png"
-                    class="img-fluid w-25 float-right"
+                    class="float-right img-check"
                   />
                   <img
                     v-if="student.is_right === 0"
                     src="../../public/images/uncheck.png"
-                    class="img-fluid w-25 float-right"
+                    class="float-right img-check"
                   />
                 </div>
               </span>
@@ -127,13 +127,7 @@ async function nextQuestion() {
       <div class="respuestas mt-2">
         <div class="row">
           <div
-            class="
-              col-4 col-lm-3
-              mt-4
-              d-flex
-              justify-content-start
-              align-items-center
-            "
+            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
           >
             <label for="answer_A" class="form-label"></label>
             <input
@@ -150,13 +144,7 @@ async function nextQuestion() {
           </div>
 
           <div
-            class="
-              col-4 col-lm-3
-              mt-4
-              d-flex
-              justify-content-start
-              align-items-center
-            "
+            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
           >
             <label for="answer_C" class="form-label"></label>
             <input
@@ -175,13 +163,7 @@ async function nextQuestion() {
 
         <div class="row">
           <div
-            class="
-              col-4 col-lm-3
-              mt-4
-              d-flex
-              justify-content-start
-              align-items-center
-            "
+            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
           >
             <label for="answer_B" class="form-label"></label>
             <input
@@ -198,13 +180,7 @@ async function nextQuestion() {
           </div>
 
           <div
-            class="
-              col-4 col-lm-3
-              mt-4
-              d-flex
-              justify-content-start
-              align-items-center
-            "
+            class="col-4 col-lm-3 mt-4 d-flex justify-content-start align-items-center"
           >
             <label for="answer_D" class="form-label"></label>
             <input
@@ -226,13 +202,7 @@ async function nextQuestion() {
 
     <div class="row">
       <div
-        class="
-          col-6 col-lm-3
-          mt-4
-          d-flex
-          justify-content-center
-          align-items-center
-        "
+        class="col-6 col-lm-3 mt-4 d-flex justify-content-center align-items-center"
       >
         <button
           v-if="activated === true"
@@ -243,13 +213,7 @@ async function nextQuestion() {
         </button>
       </div>
       <div
-        class="
-          col-6 col-lm-3
-          mt-4
-          d-flex
-          justify-content-center
-          align-items-center
-        "
+        class="col-6 col-lm-3 mt-4 d-flex justify-content-center align-items-center"
       >
         <button
           v-if="activated === false"
@@ -270,6 +234,10 @@ h2 {
 .form-label {
   font-size: 20px;
   margin: 20px;
+}
+
+.img-check {
+  width: 2rem;
 }
 .pregunta {
   color: #f8981d;
