@@ -24,7 +24,7 @@ onMounted(() => {
     exam_id: store.exam_id,
     question_id: questionid.value,
   };
-  
+
   putAction("activateQuestion", form.exam_id, form);
   alumnsStore.alumnsInClass();
   questionid.value = store.questionsInTest[0].data[questionsOrder.value].id;
@@ -62,8 +62,7 @@ async function nextQuestion() {
     await putAction("updateExam", store.exam_id, data);
     await deleteAction("deleteExamClass", store.exam_id);
     await deleteAction("deleteAnswers", store.exam_id);
-
-  };
+  }
   activated.value = !activated.value;
   return (questionsOrder.value = questionsOrder.value + 1);
 }
@@ -95,22 +94,33 @@ async function nextQuestion() {
           id="studentslabel"
           rows="3"
         >
-        <div v-for="(student, index) in usersResponses.data" :key="index">
-
-          <li v-if="student.question_id===store.questionsInTest[0].data[questionsOrder].id ">
-            <!-- {{ student }} -->{{ alumnsStore.alumns[0].data[0].name }}
-            <img
-              v-if="student.is_right === 1"
-              src="../../public/images/check.png"
-              class="img-fluid w-25 float-right"
-            />
-            <img
-              v-if="student.is_right === 0"
-              src="../../public/images/uncheck.png"
-              class="img-fluid w-25 float-right"
-            />
-            
-          </li></div>
+          <li v-for="(student, index) in usersResponses.data" :key="index">
+            <div
+              v-for="(alumn, index) in alumnsStore.alumns[0].data"
+              :key="index"
+            >
+              <span
+                v-if="
+                  student.question_id ===
+                  store.questionsInTest[0].data[questionsOrder].id
+                "
+              >
+                <div v-if="student.user_id === alumn.id">
+                  {{ alumn.name }}
+                  <img
+                    v-if="student.is_right === 1"
+                    src="../../public/images/check.png"
+                    class="img-fluid w-25 float-right"
+                  />
+                  <img
+                    v-if="student.is_right === 0"
+                    src="../../public/images/uncheck.png"
+                    class="img-fluid w-25 float-right"
+                  />
+                </div>
+              </span>
+            </div>
+          </li>
         </ul>
       </div>
 
@@ -279,6 +289,7 @@ h2 {
   height: 300%;
   width: 100%;
   margin-right: 10%;
+  list-style: none;
 }
 h3 {
   text-align: center;
