@@ -64,6 +64,8 @@
     width: 1100px;
     position: absolute;
     border: #f8981d solid 10px;
+    overflow: auto;
+
   }
 
   .result {
@@ -80,8 +82,8 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 100px;
-    top: 100px;
+    right: 50px;
+    top:100px;
   }
 
   .totalResult h1 {
@@ -127,7 +129,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-around;
-    right: 110px;
+    right: 60px;
     top: 550px;
     border: 5px solid #92c954;
     border-radius: 20px;

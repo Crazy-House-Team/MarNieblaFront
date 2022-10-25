@@ -213,7 +213,7 @@ function finishExam() {
           ENVIAR RESPUESTA
         </button>
         <button
-          v-if="questionsOrderStudent === 5"
+          v-if="questionsOrderStudent === 19"
           class="button--purple-outlined mt-5"
           @click.prevent="finishExam"
         >

@@ -54,7 +54,7 @@ function activateQuestion() {
   putAction("activateQuestion", form.exam_id, form);
 }
 async function nextQuestion() {
-  if (questionsOrder.value == 5) {
+  if (questionsOrder.value == 19) {
     router.push("/admin");
     const data = {
       status: 0,
