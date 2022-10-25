@@ -7,34 +7,37 @@ import router from "../router";
 
 const store = examInClassStudent();
 let questionsOrderStudent = ref(0);
-let actualQuestion = ref(0);
+let actualQuestion = ref();
 let results = [];
 let hits = 0;
 let answered = ref(false);
 let answer = ref("");
 let questionsCall = "";
-onBeforeMount(() => {}),
+let activeQuestion = "";
+onBeforeMount(
   async () => {
-    let activeQuestion = await getAction("activeQuestion/", store.exam_id);
+    activeQuestion = await getAction("activeQuestion/", store.exam_id);
     actualQuestion.value = activeQuestion.data[0].question_id;
-  },
-onMounted(() => {
+  }),
+  onMounted(() => {
     questionsCall = setInterval(async () => {
       let activeQuestion = await getAction("activeQuestion/", store.exam_id);
-
       if (actualQuestion.value != activeQuestion.data[0].question_id) {
         actualQuestion.value = activeQuestion.data[0].question_id;
         answered.value = false;
         questionsOrderStudent.value = questionsOrderStudent.value + 1;
+        console.log(questionsOrderStudent.value);
+
         document.getElementById("answerForm").reset();
       }
     }, 2000);
   });
-  onUnmounted(() => {
+onUnmounted(() => {
   clearInterval(questionsCall);
 });
 
 function sendAnswer() {
+
   switch (answer.value) {
     case "":
       window.alert("No Has seleccionado ninguna respuesta. Intentalo");
@@ -42,10 +45,12 @@ function sendAnswer() {
 
     default:
       answered.value = true;
+      
       isCorrectAnswer();
   }
 }
 function isCorrectAnswer() {
+
   let data = {
     user_id: getUserId(),
     exam_id: store.exam_id,
@@ -91,7 +96,13 @@ function finishExam() {
       <div class="respuestas mt-2">
         <div class="row">
           <div
-            class="col-6 col-xlm-3 mt-3 d-flex justify-content-start align-items-center"
+            class="
+              col-6 col-xlm-3
+              mt-3
+              d-flex
+              justify-content-start
+              align-items-center
+            "
           >
             <input
               id="answer_a"
@@ -112,7 +123,13 @@ function finishExam() {
             </label>
           </div>
           <div
-            class="col-6 col-xlm-3 mt-3 d-flex justify-content-start align-items-center"
+            class="
+              col-6 col-xlm-3
+              mt-3
+              d-flex
+              justify-content-start
+              align-items-center
+            "
           >
             <input
               id="answer_c"
@@ -134,7 +151,13 @@ function finishExam() {
         </div>
         <div class="row">
           <div
-            class="col-6 col-xlm-3 mt-3 d-flex justify-content-start align-items-center"
+            class="
+              col-6 col-xlm-3
+              mt-3
+              d-flex
+              justify-content-start
+              align-items-center
+            "
           >
             <input
               id="answer_b"
@@ -154,7 +177,13 @@ function finishExam() {
             </label>
           </div>
           <div
-            class="col-6 col-lm-3 mt-3 d-flex justify-content-start align-items-center"
+            class="
+              col-6 col-lm-3
+              mt-3
+              d-flex
+              justify-content-start
+              align-items-center
+            "
           >
             <input
               id="answer_d"
