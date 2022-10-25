@@ -33,8 +33,13 @@ onMounted(() => {
     console.log(usersResponses.value.data);
   }, 2000);
 });
-onUnmounted(() => {
+onUnmounted(async () => {
   clearInterval(usersCall);
+  const data = {
+    status: 0,
+  };
+  await putAction("updateExam", store.exam_id, data);
+  await deleteAction("deleteExamClass", store.exam_id);
 });
 function activateQuestion() {
   let form = {
