@@ -27,8 +27,8 @@
       background-color: #ffffff;
       border: 6px solid #f8981d;
       border-radius: 20px;
-      width: 200px;
-      height: 65px;
+      width: 160px;
+      height: 50px;
     }
     h3{
       font-size: 25px;

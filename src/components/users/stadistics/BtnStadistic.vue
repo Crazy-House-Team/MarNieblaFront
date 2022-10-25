@@ -30,7 +30,7 @@
     border: 6px solid #f8981d;
     border-radius: 20px;
     width: 160px;
-    height: 60px;
+    height: 50px;
   }
 
 </style>

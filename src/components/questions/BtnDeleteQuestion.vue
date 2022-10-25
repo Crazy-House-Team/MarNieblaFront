@@ -34,8 +34,8 @@ async function confirmDelete(id) {
   background-color: #ffffff;
   border: 6px solid #f82c1d;
   border-radius: 20px;
-  width: 200px;
-  height: 65px;
+  width: 160px;
+  height: 50px;
 }
 
 .button--red-outlined-delete:hover {
