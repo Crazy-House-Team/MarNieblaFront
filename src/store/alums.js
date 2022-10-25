@@ -10,6 +10,7 @@ export const alumnsInTest = defineStore({
     getters: {},
     actions: {
       alumnsInClass() {
+        this.alumns=[];
         getAction("users")
                   .then((result) => {
             this.alumns.push(result);

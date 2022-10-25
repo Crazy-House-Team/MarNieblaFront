@@ -12,6 +12,7 @@ export const testQuestions = defineStore({
   getters: {},
   actions: {
     testInClass(id) {
+      this.clearQuestionsInTest();
       getAction("showQuestionsInExam/", id)
         .then((result) => {
           this.questionsInTest.push(result);
@@ -28,6 +29,8 @@ export const testQuestions = defineStore({
       
         router.push("/admin/examadmin");
     },
-    
+    clearQuestionsInTest(){
+      this.questionsInTest = [];
+    }
   },
 });
