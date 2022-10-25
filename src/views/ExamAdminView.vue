@@ -1,7 +1,7 @@
 <script setup>
 import { testQuestions } from "../store/examInClass";
 import { putAction, deleteAction } from "@/services/apiRequests";
-import { onBeforeMount, onMounted, onUnmounted, onUpdated, ref } from "vue";
+import { onMounted, onUnmounted, onUpdated, ref } from "vue";
 import router from "../router";
 import { getAction } from "../services/apiRequests";
 import { alumnsInTest } from "../store/alums.js";
@@ -43,6 +43,7 @@ onUnmounted(async () => {
   };
   await putAction("updateExam", store.exam_id, data);
   await deleteAction("deleteExamClass", store.exam_id);
+  await deleteAction("deleteAnswers", store.exam_id);
 });
 function activateQuestion() {
   let form = {
